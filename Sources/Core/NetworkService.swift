@@ -8,13 +8,13 @@
 
 import Foundation
 
-final class NetworkService {
+public final class NetworkService {
     
     let session: URLSession
     let baseURLString = "https://node-2.snapsure.de/"
     let token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
     
-    init() {
+    public init() {
         let configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
     }
@@ -45,14 +45,8 @@ final class NetworkService {
         session.finishTasksAndInvalidate()
     }
     
-    func sendRequest2() {
-        let url = URL(string: "\(baseURLString)3/lookup/21")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // Headers
-        
-        addToken(for: &request)
+    public func sendRequest2() {
+        let request = self.request(for: LookupEndpoint.lookup(21))
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
