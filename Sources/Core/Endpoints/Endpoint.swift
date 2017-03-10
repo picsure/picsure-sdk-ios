@@ -23,8 +23,10 @@ extension Endpoint {
     }
     
     var headers: [RequestHeaders] {
-        switch self {
-        default: return []
-        }
+        return []
+    }
+    
+    var parameters: Parameters {
+        return [:]
     }
 }
