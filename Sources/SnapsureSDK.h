@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double SnapsureSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char SnapsureSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SnapsureSDK/PublicHeader.h>
-
-
