@@ -66,9 +66,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		84B68AD31E72DD5100818168 /* SnapsureSDK-iOS */ = {
+		84B68AD31E72DD5100818168 /* SnapsureSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84B68ADC1E72DD5100818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK-iOS" */;
+			buildConfigurationList = 84B68ADC1E72DD5100818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK" */;
 			buildPhases = (
 				84B68ACF1E72DD5100818168 /* Sources */,
 				84B68AD01E72DD5100818168 /* Frameworks */,
@@ -79,7 +79,7 @@
 			);
 			dependencies = (
 			);
-			name = "SnapsureSDK-iOS";
+			name = SnapsureSDK;
 			productName = "SnapsureSDK-iOS";
 			productReference = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK-iOS" */;
+			buildConfigurationList = 84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84B68AD31E72DD5100818168 /* SnapsureSDK-iOS */,
+				84B68AD31E72DD5100818168 /* SnapsureSDK */,
 			);
 		};
 /* End PBXProject section */
@@ -281,7 +281,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK-iOS" */ = {
+		84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68ADA1E72DD5100818168 /* Debug */,
@@ -290,7 +290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84B68ADC1E72DD5100818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK-iOS" */ = {
+		84B68ADC1E72DD5100818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68ADD1E72DD5100818168 /* Debug */,

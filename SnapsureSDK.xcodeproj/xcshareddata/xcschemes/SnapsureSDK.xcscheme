@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84B68AD31E72DD5100818168"
-               BuildableName = "SnapsureSDK-iOS.framework"
-               BlueprintName = "SnapsureSDK-iOS"
-               ReferencedContainer = "container:SnapsureSDK-iOS.xcodeproj">
+               BuildableName = "SnapsureSDK.framework"
+               BlueprintName = "SnapsureSDK"
+               ReferencedContainer = "container:SnapsureSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B68AD31E72DD5100818168"
-            BuildableName = "SnapsureSDK-iOS.framework"
-            BlueprintName = "SnapsureSDK-iOS"
-            ReferencedContainer = "container:SnapsureSDK-iOS.xcodeproj">
+            BuildableName = "SnapsureSDK.framework"
+            BlueprintName = "SnapsureSDK"
+            ReferencedContainer = "container:SnapsureSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B68AD31E72DD5100818168"
-            BuildableName = "SnapsureSDK-iOS.framework"
-            BlueprintName = "SnapsureSDK-iOS"
-            ReferencedContainer = "container:SnapsureSDK-iOS.xcodeproj">
+            BuildableName = "SnapsureSDK.framework"
+            BlueprintName = "SnapsureSDK"
+            ReferencedContainer = "container:SnapsureSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
