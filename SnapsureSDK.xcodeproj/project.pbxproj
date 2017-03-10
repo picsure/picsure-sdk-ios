@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0672426C1E72F03500E61BAD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067242671E72F03500E61BAD /* Endpoint.swift */; };
+		0672426D1E72F03500E61BAD /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067242681E72F03500E61BAD /* RequestEndpoint.swift */; };
+		0672426E1E72F03500E61BAD /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067242691E72F03500E61BAD /* RequestHeaders.swift */; };
+		0672426F1E72F03500E61BAD /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672426A1E72F03500E61BAD /* UploadEndpoint.swift */; };
+		067242701E72F03500E61BAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672426B1E72F03500E61BAD /* NetworkService.swift */; };
 		84B68AED1E72E3AC00818168 /* SnapsureSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */; };
 		84B68B021E72E9DB00818168 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B001E72E9DB00818168 /* Info-iOS.plist */; };
 		84B68B031E72E9DB00818168 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B68B011E72E9DB00818168 /* SnapsureSDK.h */; };
@@ -24,6 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		067242671E72F03500E61BAD /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		067242681E72F03500E61BAD /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
+		067242691E72F03500E61BAD /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
+		0672426A1E72F03500E61BAD /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
+		0672426B1E72F03500E61BAD /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		84B68AD41E72DD5100818168 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68B001E72E9DB00818168 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -50,6 +60,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		067242661E72F03500E61BAD /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				067242671E72F03500E61BAD /* Endpoint.swift */,
+				067242681E72F03500E61BAD /* RequestEndpoint.swift */,
+				067242691E72F03500E61BAD /* RequestHeaders.swift */,
+				0672426A1E72F03500E61BAD /* UploadEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		84B68ACA1E72DD5100818168 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +92,8 @@
 		84B68ADF1E72DDE400818168 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				067242661E72F03500E61BAD /* Endpoints */,
+				0672426B1E72F03500E61BAD /* NetworkService.swift */,
 				84B68AFE1E72E9DB00818168 /* Core */,
 				84B68AFF1E72E9DB00818168 /* Supporting Files */,
 			);
@@ -172,6 +195,7 @@
 				TargetAttributes = {
 					84B68AD31E72DD5100818168 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 					};
 					84B68AE71E72E3AC00818168 = {
@@ -239,6 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067242701E72F03500E61BAD /* NetworkService.swift in Sources */,
+				0672426D1E72F03500E61BAD /* RequestEndpoint.swift in Sources */,
+				0672426F1E72F03500E61BAD /* UploadEndpoint.swift in Sources */,
+				0672426E1E72F03500E61BAD /* RequestHeaders.swift in Sources */,
+				0672426C1E72F03500E61BAD /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -376,6 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.snapsure.SnapsureSDK;
 				PRODUCT_NAME = SnapsureSDK;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -384,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -404,6 +436,7 @@
 		84B68AF01E72E3AC00818168 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SnapsureSDK iOSTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -416,6 +449,7 @@
 		84B68AF11E72E3AC00818168 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SnapsureSDK iOSTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
