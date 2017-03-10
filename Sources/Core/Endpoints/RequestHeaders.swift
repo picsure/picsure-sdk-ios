@@ -7,6 +7,7 @@
 //
 
 enum RequestHeaders {
+    
     case authorization(String)
     
     var key: String {
@@ -17,13 +18,7 @@ enum RequestHeaders {
     
     var value: String {
         switch self {
-        case .authorization(let token): return "Token \(token)"
-        }
-    }
-    
-    var header: [String:String] {
-        switch self {
-        case .authorization: return [key: value]
+        case .authorization(let token): return "Bearer \(token)"
         }
     }
 }

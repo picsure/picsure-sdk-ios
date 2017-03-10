@@ -6,10 +6,7 @@
 //  Copyright © 2016 Rosberry. All rights reserved.
 //
 
-typealias Parameters = [String: Any]
-
 protocol RequestEndpoint: Endpoint {
     
-//    var method: HTTPMethod { get }
-//    var parameterEncoding: ParameterEncoding { get }
+    var method: HTTPMethod { get }
 }
