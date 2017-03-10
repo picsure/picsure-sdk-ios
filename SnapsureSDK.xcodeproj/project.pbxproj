@@ -453,6 +453,7 @@
 				84B68AF11E72E3AC00818168 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
