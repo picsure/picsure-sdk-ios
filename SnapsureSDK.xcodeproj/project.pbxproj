@@ -8,12 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		84B68AE31E72DEA300818168 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B68AE21E72DEA300818168 /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84B68AEB1E72E3AC00818168 /* SnapsureSDK_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B68AEA1E72E3AC00818168 /* SnapsureSDK_iOSTests.swift */; };
+		84B68AED1E72E3AC00818168 /* SnapsureSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84B68AEE1E72E3AC00818168 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84B68ACB1E72DD5100818168 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84B68AD31E72DD5100818168;
+			remoteInfo = SnapsureSDK;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		84B68AD41E72DD5100818168 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68AE01E72DDE400818168 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		84B68AE21E72DEA300818168 /* SnapsureSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapsureSDK.h; sourceTree = "<group>"; };
+		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B68AEA1E72E3AC00818168 /* SnapsureSDK_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsureSDK_iOSTests.swift; sourceTree = "<group>"; };
+		84B68AEC1E72E3AC00818168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +39,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84B68AE51E72E3AC00818168 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B68AED1E72E3AC00818168 /* SnapsureSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -31,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				84B68ADF1E72DDE400818168 /* Sources */,
+				84B68AE91E72E3AC00818168 /* SnapsureSDK iOSTests */,
 				84B68AD51E72DD5100818168 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				84B68AD41E72DD5100818168 /* SnapsureSDK.framework */,
+				84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -50,6 +75,15 @@
 				84B68AE01E72DDE400818168 /* Info-iOS.plist */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		84B68AE91E72E3AC00818168 /* SnapsureSDK iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				84B68AEA1E72E3AC00818168 /* SnapsureSDK_iOSTests.swift */,
+				84B68AEC1E72E3AC00818168 /* Info.plist */,
+			);
+			path = "SnapsureSDK iOSTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +118,39 @@
 			productReference = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		84B68AE71E72E3AC00818168 /* SnapsureSDK iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B68AF21E72E3AC00818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK iOSTests" */;
+			buildPhases = (
+				84B68AE41E72E3AC00818168 /* Sources */,
+				84B68AE51E72E3AC00818168 /* Frameworks */,
+				84B68AE61E72E3AC00818168 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84B68AEF1E72E3AC00818168 /* PBXTargetDependency */,
+			);
+			name = "SnapsureSDK iOSTests";
+			productName = "SnapsureSDK iOSTests";
+			productReference = 84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		84B68ACB1E72DD5100818168 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Snapsure;
 				TargetAttributes = {
 					84B68AD31E72DD5100818168 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Manual;
+					};
+					84B68AE71E72E3AC00818168 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Manual;
 					};
@@ -112,12 +169,20 @@
 			projectRoot = "";
 			targets = (
 				84B68AD31E72DD5100818168 /* SnapsureSDK */,
+				84B68AE71E72E3AC00818168 /* SnapsureSDK iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		84B68AD21E72DD5100818168 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B68AE61E72E3AC00818168 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -134,7 +199,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84B68AE41E72E3AC00818168 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B68AEB1E72E3AC00818168 /* SnapsureSDK_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84B68AEF1E72E3AC00818168 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84B68AD31E72DD5100818168 /* SnapsureSDK */;
+			targetProxy = 84B68AEE1E72E3AC00818168 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		84B68ADA1E72DD5100818168 /* Debug */ = {
@@ -278,6 +359,30 @@
 			};
 			name = Release;
 		};
+		84B68AF01E72E3AC00818168 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SnapsureSDK iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.SnapsureSDK-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		84B68AF11E72E3AC00818168 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SnapsureSDK iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.SnapsureSDK-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -298,6 +403,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		84B68AF21E72E3AC00818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B68AF01E72E3AC00818168 /* Debug */,
+				84B68AF11E72E3AC00818168 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

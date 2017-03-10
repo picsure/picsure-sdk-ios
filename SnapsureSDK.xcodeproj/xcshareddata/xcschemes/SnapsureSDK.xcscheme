@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84B68AE71E72E3AC00818168"
+               BuildableName = "SnapsureSDK iOSTests.xctest"
+               BlueprintName = "SnapsureSDK iOSTests"
+               ReferencedContainer = "container:SnapsureSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "84B68AD31E72DD5100818168"
+            BuildableName = "SnapsureSDK.framework"
+            BlueprintName = "SnapsureSDK"
+            ReferencedContainer = "container:SnapsureSDK.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
