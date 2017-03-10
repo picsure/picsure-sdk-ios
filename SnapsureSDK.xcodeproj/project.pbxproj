@@ -15,7 +15,7 @@
 		0672427D1E72F33100E61BAD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672427C1E72F33100E61BAD /* HTTPMethod.swift */; };
 		0672427F1E72F66500E61BAD /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672427E1E72F66500E61BAD /* LookupEndpoint.swift */; };
 		84B68AED1E72E3AC00818168 /* SnapsureSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */; };
-		84B68B021E72E9DB00818168 /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B001E72E9DB00818168 /* Info-iOS.plist */; };
+		84B68B021E72E9DB00818168 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B001E72E9DB00818168 /* Info.plist */; };
 		84B68B031E72E9DB00818168 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B68B011E72E9DB00818168 /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84B68B061E72EA3300818168 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B051E72EA3300818168 /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		0672427E1E72F66500E61BAD /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
 		84B68AD41E72DD5100818168 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B68B001E72E9DB00818168 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		84B68B001E72E9DB00818168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B68B011E72E9DB00818168 /* SnapsureSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapsureSDK.h; sourceTree = "<group>"; };
 		84B68B051E72EA3300818168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +124,7 @@
 		84B68AFF1E72E9DB00818168 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84B68B001E72E9DB00818168 /* Info-iOS.plist */,
+				84B68B001E72E9DB00818168 /* Info.plist */,
 				84B68B011E72E9DB00818168 /* SnapsureSDK.h */,
 			);
 			path = "Supporting Files";
@@ -233,7 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B68B021E72E9DB00818168 /* Info-iOS.plist in Resources */,
+				84B68B021E72E9DB00818168 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +407,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Sources/Supporting Files/Info-iOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -430,7 +430,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Sources/Supporting Files/Info-iOS.plist";
+				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
