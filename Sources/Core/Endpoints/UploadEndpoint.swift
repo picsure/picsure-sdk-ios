@@ -6,9 +6,7 @@
 //  Copyright © 2016 Rosberry. All rights reserved.
 //
 
-import Alamofire
-
 protocol UploadEndpoint: Endpoint {
     
-    var bodyParts: [ImageBodyPart] { get }
+//    var bodyParts: [ImageBodyPart] { get }
 }

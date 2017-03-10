@@ -6,8 +6,6 @@
 //  Copyright © 2016 Rosberry. All rights reserved.
 //
 
-import Alamofire
-
 protocol Endpoint {
     
     var baseURL: String { get }
@@ -31,9 +29,5 @@ extension Endpoint {
     
     var requiresAuthorizationHeaders: Bool {
         return true
-    }
-    
-    var parameterEncoding: ParameterEncoding {
-        return URLEncoding.default
     }
 }
