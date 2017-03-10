@@ -46,7 +46,7 @@ final class NetworkService {
     }
     
     func sendRequest2() {
-        let url = URL(string: "\(baseURLString)3/2")!
+        let url = URL(string: "\(baseURLString)3/lookup/21")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -72,5 +72,17 @@ final class NetworkService {
     
     func addToken(for request: inout URLRequest) {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    }
+    
+    func request(for endpoint: RequestEndpoint) -> URLRequest {
+        let path = endpoint.baseURL + endpoint.path
+        let url = URL(string: path)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.rawValue
+        
+        let header = RequestHeaders.authorization(token)
+        request.addValue(header.value, forHTTPHeaderField: header.key)
+        return request
     }
 }
