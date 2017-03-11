@@ -17,10 +17,19 @@ public final class NetworkService {
     
     static var shared = NetworkService()
     
-    public init() {
+    private init() {
         let configuration = URLSessionConfiguration.default
-        session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+        session = URLSession(configuration: configuration)
     }
+    
+    func uploadData(_ data: Data, completionHandler completion:() -> Void) {
+        
+    }
+    
+    
+    
+    
+    
     
     func sendRequest1() {
         let url = URL(string: "\(baseURLString)images/")!
