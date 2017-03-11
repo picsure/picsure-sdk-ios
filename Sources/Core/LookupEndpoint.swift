@@ -9,6 +9,7 @@
 import Foundation
 
 enum LookupEndpoint: RequestEndpoint {
+    
     case lookup(Int)
     
     var method: HTTPMethod {

@@ -45,7 +45,7 @@ public final class NetworkService {
         session.finishTasksAndInvalidate()
     }
     
-    public func sendRequest2() {
+    public func lookupRequest() {
         let request = self.request(for: LookupEndpoint.lookup(21))
         
         /* Start a new Task */
@@ -53,13 +53,13 @@ public final class NetworkService {
             if let response = response {
                 print(response)
             }
-            if (error == nil) {
+            if error == nil {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
                 if let d = data {
                     let json = self.parseJSON(from: d)
                     DispatchQueue.main.async {
-                        print(json)
+                        print(json ?? "no")
                     }
                 }
                 else {
@@ -86,8 +86,11 @@ public final class NetworkService {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         
-        let header = RequestHeaders.authorization(token)
-        request.addValue(header.value, forHTTPHeaderField: header.key)
+        var headers = endpoint.headers
+        headers.append(RequestHeaders.authorization(token))
+        headers.forEach {
+            request.addValue($0.value, forHTTPHeaderField: $0.key)
+        }
         return request
     }
     
@@ -96,7 +99,8 @@ public final class NetworkService {
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             print(json)
             return json
-        } catch {
+        }
+        catch {
             return nil
         }
     }

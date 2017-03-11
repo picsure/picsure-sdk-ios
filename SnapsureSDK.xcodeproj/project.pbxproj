@@ -14,6 +14,8 @@
 		0672427B1E72F20800E61BAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067242761E72F20800E61BAD /* NetworkService.swift */; };
 		0672427D1E72F33100E61BAD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672427C1E72F33100E61BAD /* HTTPMethod.swift */; };
 		0672427F1E72F66500E61BAD /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0672427E1E72F66500E61BAD /* LookupEndpoint.swift */; };
+		06F1E5A71E73A4CC00635348 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F1E5A61E73A4CC00635348 /* ImageUploadEndpoint.swift */; };
+		06F1E5A91E73A6D700635348 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F1E5A81E73A6D700635348 /* BodyPart.swift */; };
 		84212A141E73251400F36070 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84212A131E73251400F36070 /* Info.plist */; };
 		84B68AED1E72E3AC00818168 /* SnapsureSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B68AD41E72DD5100818168 /* SnapsureSDK.framework */; };
 		84B68B021E72E9DB00818168 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B001E72E9DB00818168 /* Info.plist */; };
@@ -38,6 +40,8 @@
 		067242761E72F20800E61BAD /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0672427C1E72F33100E61BAD /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		0672427E1E72F66500E61BAD /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
+		06F1E5A61E73A4CC00635348 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
+		06F1E5A81E73A6D700635348 /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		84212A131E73251400F36070 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B68AD41E72DD5100818168 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +71,7 @@
 		067242711E72F20800E61BAD /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				06F1E5A81E73A6D700635348 /* BodyPart.swift */,
 				067242721E72F20800E61BAD /* Endpoint.swift */,
 				067242731E72F20800E61BAD /* RequestEndpoint.swift */,
 				067242741E72F20800E61BAD /* RequestHeaders.swift */,
@@ -125,6 +130,7 @@
 				067242711E72F20800E61BAD /* Endpoints */,
 				067242761E72F20800E61BAD /* NetworkService.swift */,
 				0672427E1E72F66500E61BAD /* LookupEndpoint.swift */,
+				06F1E5A61E73A4CC00635348 /* ImageUploadEndpoint.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 				0672427D1E72F33100E61BAD /* HTTPMethod.swift in Sources */,
 				0672427A1E72F20800E61BAD /* UploadEndpoint.swift in Sources */,
 				0672427F1E72F66500E61BAD /* LookupEndpoint.swift in Sources */,
+				06F1E5A71E73A4CC00635348 /* ImageUploadEndpoint.swift in Sources */,
 				067242791E72F20800E61BAD /* RequestHeaders.swift in Sources */,
 				067242771E72F20800E61BAD /* Endpoint.swift in Sources */,
+				06F1E5A91E73A6D700635348 /* BodyPart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

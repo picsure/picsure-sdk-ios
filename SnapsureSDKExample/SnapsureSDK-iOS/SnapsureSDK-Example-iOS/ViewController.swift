@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.sendRequest2()
+        networkService.lookupRequest()
     }
 }
 
