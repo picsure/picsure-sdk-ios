@@ -10,9 +10,12 @@ import Foundation
 
 public final class NetworkService {
     
-    let session: URLSession
-    let baseURLString = "https://node-2.snapsure.de/"
-    let token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
+    private let session: URLSession
+    
+    var baseURLString = "https://node-2.snapsure.de/"
+    var token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
+    
+    static var shared = NetworkService()
     
     public init() {
         let configuration = URLSessionConfiguration.default
