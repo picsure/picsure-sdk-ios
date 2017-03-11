@@ -21,7 +21,7 @@ enum RequestHeaders {
     var value: String {
         switch self {
         case .authorization(let token): return "Bearer \(token)"
-        case .multipartData(let token): return "multipart/form-data"
+        case .multipartData: return "multipart/form-data"
         }
     }
 }

@@ -10,12 +10,17 @@ import UIKit
 import SnapsureSDK
 
 class ViewController: UIViewController {
-
+    
     let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.lookupRequest()
+        let image = #imageLiteral(resourceName: "saw-3")
+        do {
+            let data = try ImageService.convert(image)
+        }
+        catch {
+            print(error)
+        }
     }
 }
-
