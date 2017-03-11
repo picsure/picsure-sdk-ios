@@ -10,14 +10,40 @@ import Foundation
 
 public final class NetworkService {
     
-    let session: URLSession
-    let baseURLString = "https://node-2.snapsure.de/"
-    let token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
+    private let session: URLSession
     
-    public init() {
+    var baseURLString = "https://node-2.snapsure.de/"
+    var token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
+    
+    static var shared = NetworkService()
+    
+    private init() {
         let configuration = URLSessionConfiguration.default
-        session = URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+        session = URLSession(configuration: configuration)
     }
+    
+    
+    //TODO: Don't forget about main thread / background. Don't do it in the main thread.
+    func uploadData(_ data: Data, completionHandler completion:@escaping () -> Void) {
+        let timer = RequestTimer.default
+        timer.timeIsOverHandler = {
+            // Stop request
+            // completion()
+        }
+        
+        timer.nextIntervalHandler = { _ in
+            // Do request and in completion - fire timer.
+            // timer.continue()
+        }
+        
+        // In request completion get id and fire timer.
+        // timer.start()
+    }
+    
+    
+    
+    
+    
     
     func sendRequest1() {
         let url = URL(string: "\(baseURLString)images/")!
