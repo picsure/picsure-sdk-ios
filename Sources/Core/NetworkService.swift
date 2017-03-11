@@ -50,10 +50,21 @@ public final class NetworkService {
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            if let response = response {
+                print(response)
+            }
             if (error == nil) {
-                // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
+                if let d = data {
+                    let json = self.parseJSON(from: d)
+                    DispatchQueue.main.async {
+                        print(json)
+                    }
+                }
+                else {
+                    print("no data")
+                }
             }
             else {
                 // Failure
@@ -78,5 +89,15 @@ public final class NetworkService {
         let header = RequestHeaders.authorization(token)
         request.addValue(header.value, forHTTPHeaderField: header.key)
         return request
+    }
+    
+    func parseJSON(from data: Data) -> Any? {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            print(json)
+            return json
+        } catch {
+            return nil
+        }
     }
 }
