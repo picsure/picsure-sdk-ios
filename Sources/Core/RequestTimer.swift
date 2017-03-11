@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias TimeHandler = () -> Void
-
 // TODO: Remove public later
 
 public final class RequestTimer {
@@ -21,8 +19,12 @@ public final class RequestTimer {
     private let intervals: [TimeInterval]
     private var currentIndexInterval = 0
     
-    var timeIsOverHandler: TimeHandler?
-    var nextIntervalHandler: TimeHandler?
+    public var timeIsOverHandler: (() -> Void)?
+    public var nextIntervalHandler: ((RequestTimer) -> Void)?
+    
+    deinit {
+        print("timer deinit")
+    }
     
     init(maxTime: TimeInterval, intervals: [TimeInterval]) {
         self.maxTime = maxTime
@@ -31,33 +33,17 @@ public final class RequestTimer {
     
     // MARK: Timer actions
     
-    func start() {
-        intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
-                               target: self,
-                               selector: #selector(intervalTimerTriggered),
-                               userInfo: nil,
-                               repeats: false)
-        
-        isOverTimer = Timer(timeInterval: maxTime,
-                            target: self,
-                            selector: #selector(overTimerTriggered),
-                            userInfo: nil,
-                            repeats: false)
-
-        RunLoop.current.add(intervalsTimer!, forMode: .defaultRunLoopMode)
-        RunLoop.current.add(isOverTimer!, forMode: .defaultRunLoopMode)
+    public func start() {
+        startIntervalsTimer()
+        startIsOverTimer()
     }
     
-    func `continue`() {
+    public func `continue`() {
         currentIndexInterval += 1
-        intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
-                               target: self,
-                               selector: #selector(intervalTimerTriggered),
-                               userInfo: nil,
-                               repeats: false)
+        startIntervalsTimer()
     }
 
-    func stop() {
+    public func stop() {
         intervalsTimer?.invalidate()
         isOverTimer?.invalidate()
         
@@ -65,12 +51,32 @@ public final class RequestTimer {
         isOverTimer = nil
     }
     
+    // MARK: Helpers
+    
+    private func startIntervalsTimer() {
+        intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
+                               target: self,
+                               selector: #selector(intervalTimerTriggered),
+                               userInfo: nil,
+                               repeats: false)
+        RunLoop.current.add(intervalsTimer!, forMode: .defaultRunLoopMode)
+    }
+    
+    private func startIsOverTimer() {
+        isOverTimer = Timer(timeInterval: maxTime,
+                            target: self,
+                            selector: #selector(overTimerTriggered),
+                            userInfo: nil,
+                            repeats: false)
+        RunLoop.current.add(isOverTimer!, forMode: .defaultRunLoopMode)
+    }
+    
     // MARK: Selector actions
     
     @objc private func intervalTimerTriggered() {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
-        nextIntervalHandler?()
+        nextIntervalHandler?(self)
     }
     
     @objc private func overTimerTriggered() {

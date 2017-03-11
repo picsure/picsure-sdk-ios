@@ -31,7 +31,7 @@ public final class NetworkService {
             // completion()
         }
         
-        timer.nextIntervalHandler = {
+        timer.nextIntervalHandler = { _ in
             // Do request and in completion - fire timer.
             // timer.continue()
         }
