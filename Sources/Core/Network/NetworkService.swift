@@ -22,8 +22,22 @@ public final class NetworkService {
         session = URLSession(configuration: configuration)
     }
     
-    func uploadData(_ data: Data, completionHandler completion:() -> Void) {
+    
+    //TODO: Don't forget about main thread / background. Don't do it in the main thread.
+    func uploadData(_ data: Data, completionHandler completion:@escaping () -> Void) {
+        let timer = RequestTimer.default
+        timer.timeIsOverHandler = {
+            // Stop request
+            // completion()
+        }
         
+        timer.nextIntervalHandler = {
+            // Do request and in completion - fire timer.
+            // timer.continue()
+        }
+        
+        // In request completion get id and fire timer.
+        // timer.start()
     }
     
     

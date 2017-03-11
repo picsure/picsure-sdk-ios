@@ -28,9 +28,9 @@ public final class SnapsureSDK {
     
     static func uploadPhoto(_ image: Image, completionHandler completion:((Result<JSON>) -> Void)) {
         
-        let data: Data!
-        NetworkService.shared.uploadData(data) { 
-            
-        }
+//        let data: Data!
+//        NetworkService.shared.uploadData(data) { 
+//            
+//        }
     }
 }
