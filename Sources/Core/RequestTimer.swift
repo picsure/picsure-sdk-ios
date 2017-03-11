@@ -10,7 +10,7 @@ import Foundation
 
 // TODO: Remove public later
 
-public final class RequestTimer {
+final class RequestTimer {
     
     private var intervalsTimer: Timer?
     private var isOverTimer: Timer?
@@ -19,8 +19,8 @@ public final class RequestTimer {
     private let intervals: [TimeInterval]
     private var currentIndexInterval = 0
     
-    public var timeIsOverHandler: (() -> Void)?
-    public var nextIntervalHandler: ((RequestTimer) -> Void)?
+    var timeIsOverHandler: (() -> Void)?
+    var nextIntervalHandler: ((RequestTimer) -> Void)?
     
     deinit {
         print("timer deinit")
@@ -33,17 +33,17 @@ public final class RequestTimer {
     
     // MARK: Timer actions
     
-    public func start() {
+    func start() {
         startIntervalsTimer()
         startIsOverTimer()
     }
     
-    public func `continue`() {
+    func `continue`() {
         currentIndexInterval += 1
         startIntervalsTimer()
     }
 
-    public func stop() {
+    func stop() {
         intervalsTimer?.invalidate()
         isOverTimer?.invalidate()
         
@@ -86,7 +86,7 @@ public final class RequestTimer {
     }
 }
 
-public extension RequestTimer {
+extension RequestTimer {
     
     static var `default` = RequestTimer(maxTime: 60, intervals: [10, 6, 6, 6, 6, 6, 6, 6, 6, 6])
 }
