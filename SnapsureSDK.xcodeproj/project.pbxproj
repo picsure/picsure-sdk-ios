@@ -7,33 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06F1E5AF1E73C99900635348 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F1E5AE1E73C99900635348 /* ImageService.swift */; };
-		06F1E5B11E73CA7200635348 /* SnapsureErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F1E5B01E73CA7200635348 /* SnapsureErrors.swift */; };
+		060ED30F1E750C0000742F2B /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED2FE1E750C0000742F2B /* BodyPart.swift */; };
+		060ED3101E750C0000742F2B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED2FF1E750C0000742F2B /* Endpoint.swift */; };
+		060ED3111E750C0000742F2B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3001E750C0000742F2B /* HTTPMethod.swift */; };
+		060ED3121E750C0000742F2B /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3011E750C0000742F2B /* RequestEndpoint.swift */; };
+		060ED3131E750C0000742F2B /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3021E750C0000742F2B /* RequestHeaders.swift */; };
+		060ED3141E750C0000742F2B /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3031E750C0000742F2B /* UploadEndpoint.swift */; };
+		060ED3151E750C0000742F2B /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3041E750C0000742F2B /* ImageUploadEndpoint.swift */; };
+		060ED3161E750C0000742F2B /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3051E750C0000742F2B /* LookupEndpoint.swift */; };
+		060ED3171E750C0000742F2B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3061E750C0000742F2B /* NetworkService.swift */; };
+		060ED3181E750C0000742F2B /* RequestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3071E750C0000742F2B /* RequestTimer.swift */; };
+		060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3081E750C0000742F2B /* SnapsureErrors.swift */; };
+		060ED31A1E750C0000742F2B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30A1E750C0000742F2B /* ImageService.swift */; };
+		060ED31B1E750C0000742F2B /* SnapsureSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* SnapsureSDK.swift */; };
+		060ED31C1E750C0000742F2B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 060ED30D1E750C0000742F2B /* Info.plist */; };
+		060ED31D1E750C0000742F2B /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84212A141E73251400F36070 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84212A131E73251400F36070 /* Info.plist */; };
-		84A744881E73D984005C4E90 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A744871E73D984005C4E90 /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84A744891E73D984005C4E90 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A744871E73D984005C4E90 /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06F1E5AE1E73C99900635348 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		06F1E5B01E73CA7200635348 /* SnapsureErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureErrors.swift; sourceTree = "<group>"; };
+		060ED2FE1E750C0000742F2B /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		060ED2FF1E750C0000742F2B /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		060ED3001E750C0000742F2B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		060ED3011E750C0000742F2B /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
+		060ED3021E750C0000742F2B /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
+		060ED3031E750C0000742F2B /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
+		060ED3041E750C0000742F2B /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
+		060ED3051E750C0000742F2B /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
+		060ED3061E750C0000742F2B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		060ED3071E750C0000742F2B /* RequestTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimer.swift; sourceTree = "<group>"; };
+		060ED3081E750C0000742F2B /* SnapsureErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureErrors.swift; sourceTree = "<group>"; };
+		060ED30A1E750C0000742F2B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		060ED30B1E750C0000742F2B /* SnapsureSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureSDK.swift; sourceTree = "<group>"; };
+		060ED30D1E750C0000742F2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		060ED30E1E750C0000742F2B /* SnapsureSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapsureSDK.h; sourceTree = "<group>"; };
 		84212A131E73251400F36070 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A7444E1E73B6EB005C4E90 /* SnapsureSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureSDK.swift; sourceTree = "<group>"; };
-		84A744521E73C13C005C4E90 /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
-		84A744531E73C13C005C4E90 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		84A744541E73C13C005C4E90 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		84A744551E73C13C005C4E90 /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
-		84A744561E73C13C005C4E90 /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
-		84A744571E73C13C005C4E90 /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
-		84A744581E73C13C005C4E90 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
-		84A744591E73C13C005C4E90 /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
-		84A7445A1E73C13C005C4E90 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		84A744641E73C14F005C4E90 /* RequestTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimer.swift; sourceTree = "<group>"; };
 		84A7446B1E73D6A7005C4E90 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A744791E73D775005C4E90 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A744871E73D984005C4E90 /* SnapsureSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapsureSDK.h; sourceTree = "<group>"; };
 		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B68B001E72E9DB00818168 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +72,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06F1E5AC1E73C95E00635348 /* ImageService */ = {
+		060ED2FA1E750C0000742F2B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				06F1E5AE1E73C99900635348 /* ImageService.swift */,
+				060ED2FB1E750C0000742F2B /* Core */,
+				060ED3091E750C0000742F2B /* ImageService */,
+				060ED30B1E750C0000742F2B /* SnapsureSDK.swift */,
+				060ED30C1E750C0000742F2B /* Supporting Files */,
 			);
-			name = ImageService;
-			path = Sources/ImageService;
-			sourceTree = SOURCE_ROOT;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		060ED2FB1E750C0000742F2B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				060ED2FC1E750C0000742F2B /* Network */,
+				060ED3071E750C0000742F2B /* RequestTimer.swift */,
+				060ED3081E750C0000742F2B /* SnapsureErrors.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		060ED2FC1E750C0000742F2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				060ED2FD1E750C0000742F2B /* Endpoints */,
+				060ED3041E750C0000742F2B /* ImageUploadEndpoint.swift */,
+				060ED3051E750C0000742F2B /* LookupEndpoint.swift */,
+				060ED3061E750C0000742F2B /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		060ED2FD1E750C0000742F2B /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				060ED2FE1E750C0000742F2B /* BodyPart.swift */,
+				060ED2FF1E750C0000742F2B /* Endpoint.swift */,
+				060ED3001E750C0000742F2B /* HTTPMethod.swift */,
+				060ED3011E750C0000742F2B /* RequestEndpoint.swift */,
+				060ED3021E750C0000742F2B /* RequestHeaders.swift */,
+				060ED3031E750C0000742F2B /* UploadEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		060ED3091E750C0000742F2B /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				060ED30A1E750C0000742F2B /* ImageService.swift */,
+			);
+			path = ImageService;
+			sourceTree = "<group>";
+		};
+		060ED30C1E750C0000742F2B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				060ED30D1E750C0000742F2B /* Info.plist */,
+				060ED30E1E750C0000742F2B /* SnapsureSDK.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
 		};
 		84212A111E73251400F36070 /* Tests */ = {
 			isa = PBXGroup;
@@ -86,34 +150,10 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		84A744501E73C13C005C4E90 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				84A744511E73C13C005C4E90 /* Endpoints */,
-				84A744581E73C13C005C4E90 /* ImageUploadEndpoint.swift */,
-				84A744591E73C13C005C4E90 /* LookupEndpoint.swift */,
-				84A7445A1E73C13C005C4E90 /* NetworkService.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		84A744511E73C13C005C4E90 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				84A744521E73C13C005C4E90 /* BodyPart.swift */,
-				84A744531E73C13C005C4E90 /* Endpoint.swift */,
-				84A744541E73C13C005C4E90 /* HTTPMethod.swift */,
-				84A744551E73C13C005C4E90 /* RequestEndpoint.swift */,
-				84A744561E73C13C005C4E90 /* RequestHeaders.swift */,
-				84A744571E73C13C005C4E90 /* UploadEndpoint.swift */,
-			);
-			path = Endpoints;
-			sourceTree = "<group>";
-		};
 		84B68ACA1E72DD5100818168 = {
 			isa = PBXGroup;
 			children = (
-				84B68ADF1E72DDE400818168 /* Sources */,
+				060ED2FA1E750C0000742F2B /* Sources */,
 				84212A111E73251400F36070 /* Tests */,
 				84B68AD51E72DD5100818168 /* Products */,
 			);
@@ -129,36 +169,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84B68ADF1E72DDE400818168 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				84A7444E1E73B6EB005C4E90 /* SnapsureSDK.swift */,
-				84B68AFE1E72E9DB00818168 /* Core */,
-				84B68AFF1E72E9DB00818168 /* Supporting Files */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		84B68AFE1E72E9DB00818168 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				84A744501E73C13C005C4E90 /* Network */,
-				84A744641E73C14F005C4E90 /* RequestTimer.swift */,
-				06F1E5AC1E73C95E00635348 /* ImageService */,
-				06F1E5B01E73CA7200635348 /* SnapsureErrors.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		84B68AFF1E72E9DB00818168 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				84B68B001E72E9DB00818168 /* Info.plist */,
-				84A744871E73D984005C4E90 /* SnapsureSDK.h */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -166,7 +176,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A744891E73D984005C4E90 /* SnapsureSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +183,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A744881E73D984005C4E90 /* SnapsureSDK.h in Headers */,
+				060ED31D1E750C0000742F2B /* SnapsureSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				060ED31C1E750C0000742F2B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F1E5AF1E73C99900635348 /* ImageService.swift in Sources */,
-				06F1E5B11E73CA7200635348 /* SnapsureErrors.swift in Sources */,
+				060ED3131E750C0000742F2B /* RequestHeaders.swift in Sources */,
+				060ED3141E750C0000742F2B /* UploadEndpoint.swift in Sources */,
+				060ED3161E750C0000742F2B /* LookupEndpoint.swift in Sources */,
+				060ED31B1E750C0000742F2B /* SnapsureSDK.swift in Sources */,
+				060ED3101E750C0000742F2B /* Endpoint.swift in Sources */,
+				060ED3171E750C0000742F2B /* NetworkService.swift in Sources */,
+				060ED31A1E750C0000742F2B /* ImageService.swift in Sources */,
+				060ED3181E750C0000742F2B /* RequestTimer.swift in Sources */,
+				060ED30F1E750C0000742F2B /* BodyPart.swift in Sources */,
+				060ED3151E750C0000742F2B /* ImageUploadEndpoint.swift in Sources */,
+				060ED3121E750C0000742F2B /* RequestEndpoint.swift in Sources */,
+				060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */,
+				060ED3111E750C0000742F2B /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
