@@ -15,7 +15,7 @@ public final class SnapsureSDK {
         networkService.token = apiKey
     }
     
-    public static func uploadPhoto(_ image: UIImage, completionHandler completion:((Result<JSON>) -> Void)) {
+    public static func uploadPhoto(_ image: UIImage, completionHandler completion: (Result<JSON>) -> Void) {
         do {
             let data = try ImageService.convert(image)
             let imageBodyPart = ImageBodyPart(data: data, name: "1", fileName: "1.jpg", mimeType: "image/jpg")
