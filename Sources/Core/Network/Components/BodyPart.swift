@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol BodyPart {
-    
-    var data: Data { get set }
-    var name: String { get set }
-    var fileName: String { get set }
-    var mimeType: String { get set }
-}
-
-struct ImageBodyPart: BodyPart {
+struct BodyPart {
     
     var data: Data
     var name: String

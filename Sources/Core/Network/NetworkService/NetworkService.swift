@@ -8,10 +8,10 @@
 
 import Foundation
 
-typealias JSON = [String: Any]
-typealias Completion = (Result<JSON>) -> Void
+public typealias JSON = [String: Any]
+public typealias Completion = (Result<JSON>) -> Void
 
-enum Result<T> {
+public enum Result<T> {
     case success(T)
     case failure(Error)
 }
@@ -19,8 +19,8 @@ enum Result<T> {
 final class NetworkService {
     
     private let session: URLSession
+    private var baseURLString = "https://node-2.snapsure.de/"
     
-    var baseURLString = "https://node-2.snapsure.de/"
     var token: String?
     
     static var shared = NetworkService()
@@ -31,39 +31,49 @@ final class NetworkService {
     }
     
     //TODO: Don't forget about main thread / background. Don't do it in the main thread.
-    func uploadData(_ data: Data, completionHandler completion:@escaping () -> Void) {
-        let timer = RequestTimer.default
-        timer.timeIsOverHandler = {
-            // Stop request
-            // completion()
-        }
-        
-        timer.nextIntervalHandler = { _ in
-            // Do request and in completion - fire timer.
-            // timer.continue()
-        }
-        
-        // In request completion get id and fire timer.
-        // timer.start()
-    }
     
-    func test(for endpoint: ImageUploadEndpoint) throws {
+    func uploadData(for endpoint: ImageUploadEndpoint, completionHandler completion: @escaping Completion) {
+//        let timer = RequestTimer.default
+//        timer.timeIsOverHandler = {
+//            // Stop request
+//            // completion()
+//        }
+//        
+//        timer.nextIntervalHandler = { _ in
+//            // Do request and in completion - fire timer.
+//            // timer.continue()
+//        }
+//        
+//        // In request completion get id and fire timer.
+//        // timer.start()
+        
+        
         guard let token = token else {
-            throw SnapsureErrors.TokenErrors.missingToken
+            completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+            return
         }
-        let request = RequestFactory.request(for: endpoint, token: token)
+        
+        let request = RequestFactory.request(for: endpoint, withToken: token)
         let data = endpoint.bodyPart.data
-        session.uploadTask(with: request, from: data) { data, response, error in
-            if error == nil {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
+        
+        let task = session.uploadTask(with: request, from: data) { data, response, error in
+            //map to custom error
+            if let error = error {
+                completion(.failure(error))
+                return
             }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription)
+            guard let unwrappedData = data else {
+                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
+                return
             }
+            guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
+                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+                return
+            }
+
+            completion(.success(json))
         }
+        task.resume()
     }
 
     func lookupRequest(for endpoint: Endpoint, completion: @escaping Completion) {
@@ -71,7 +81,7 @@ final class NetworkService {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
         }
-        let request = RequestFactory.request(for: endpoint, token: token)
+        let request = RequestFactory.request(for: endpoint, withToken: token)
         
         let task = session.dataTask(with: request) { data, response, error -> Void in
             if let error = error {
@@ -89,11 +99,9 @@ final class NetworkService {
             completion(.success(json))
         }
         task.resume()
-        session.finishTasksAndInvalidate()
     }
     
     func addToken(for request: inout URLRequest) {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
 }
-

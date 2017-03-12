@@ -10,7 +10,7 @@ import Foundation
 
 enum ImageUploadEndpoint: UploadEndpoint {
     
-    case upload(ImageBodyPart)
+    case upload(BodyPart)
     
     var path: String {
         switch self {
@@ -30,7 +30,7 @@ enum ImageUploadEndpoint: UploadEndpoint {
         }
     }
     
-    var bodyPart: ImageBodyPart {
+    var bodyPart: BodyPart {
         switch self {
         case .upload(let bodyPart): return bodyPart
         }

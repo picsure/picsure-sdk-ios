@@ -8,7 +8,7 @@
 
 final class RequestFactory {
     
-    static func request(for endpoint: Endpoint, token: String) -> URLRequest {
+    static func request(for endpoint: Endpoint, withToken token: String) -> URLRequest {
         let path = endpoint.baseURL + endpoint.path
         let url = URL(string: path)!
         
