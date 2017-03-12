@@ -14,7 +14,13 @@ enum ImageUploadEndpoint: UploadEndpoint {
     
     var path: String {
         switch self {
-        case .upload: return "images"
+        case .upload: return "upload"
+        }
+    }
+    
+    var method: HTTPMethod {
+        switch self {
+        case .upload: return .post
         }
     }
     

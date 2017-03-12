@@ -30,8 +30,4 @@ extension Endpoint {
     var parameters: Parameters {
         return [:]
     }
-    
-    var method: HTTPMethod {
-        return .get
-    }
 }
