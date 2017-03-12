@@ -15,7 +15,6 @@
 		060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3231E7525DA00742F2B /* NetworkService.swift */; };
 		060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3251E7525F200742F2B /* ResponseParser.swift */; };
 		060ED3281E75262000742F2B /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3271E75262000742F2B /* RequestFactory.swift */; };
-		84212A141E73251400F36070 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84212A131E73251400F36070 /* Info.plist */; };
 		84A0FEA61E751A71006C3353 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9C1E751A71006C3353 /* Endpoint.swift */; };
 		84A0FEA71E751A71006C3353 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9C1E751A71006C3353 /* Endpoint.swift */; };
 		84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */; };
@@ -249,6 +248,7 @@
 				84A744751E73D775005C4E90 /* Frameworks */,
 				84A744761E73D775005C4E90 /* Headers */,
 				84A744771E73D775005C4E90 /* Resources */,
+				060ED3291E7539F400742F2B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -339,11 +339,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84212A141E73251400F36070 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		060ED3291E7539F400742F2B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84A744661E73D6A7005C4E90 /* Sources */ = {

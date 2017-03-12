@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias JSON = Dictionary<String, Any>
+public typealias JSON = [String: Any]
 public typealias Completion = (Result<JSON>) -> Void
 
 public enum Result<T> {
@@ -29,7 +29,6 @@ final class NetworkService {
         let configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration)
     }
-    
     
     //TODO: Don't forget about main thread / background. Don't do it in the main thread.
     func uploadData(_ data: Data, completionHandler completion:@escaping () -> Void) {
@@ -55,7 +54,7 @@ final class NetworkService {
         let request = RequestFactory.request(for: endpoint, token: token)
         let data = endpoint.bodyPart.data
         session.uploadTask(with: request, from: data) { data, response, error in
-            if (error == nil) {
+            if error == nil {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
@@ -66,7 +65,6 @@ final class NetworkService {
             }
         }
     }
-    
     
     func sendRequest1() {
         let url = URL(string: "\(baseURLString)images/")!
@@ -80,7 +78,7 @@ final class NetworkService {
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if (error == nil) {
+            if error == nil {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("URL Session Task Succeeded: HTTP \(statusCode)")
@@ -124,5 +122,4 @@ final class NetworkService {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
 }
-
 
