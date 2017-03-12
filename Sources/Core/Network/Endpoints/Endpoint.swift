@@ -14,6 +14,7 @@ protocol Endpoint {
     var path: String { get }
     var headers: [RequestHeaders] { get }
     var parameters: Parameters { get }
+    var method: HTTPMethod { get }
 }
 
 extension Endpoint {
@@ -28,5 +29,9 @@ extension Endpoint {
     
     var parameters: Parameters {
         return [:]
+    }
+    
+    var method: HTTPMethod {
+        return .get
     }
 }

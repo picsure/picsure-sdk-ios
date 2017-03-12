@@ -40,9 +40,9 @@ public final class NetworkService {
         // timer.start()
     }
     
-    
-    
-    
+    func test(for endpoint: ImageUploadEndpoint) {
+//        session.uploadTask(with: request, from: <#T##Data?#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+    }
     
     
     func sendRequest1() {
@@ -105,7 +105,22 @@ public final class NetworkService {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
     
-    func request(for endpoint: RequestEndpoint) -> URLRequest {
+    func request(for endpoint: Endpoint) -> URLRequest {
+        let path = endpoint.baseURL + endpoint.path
+        let url = URL(string: path)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.rawValue
+        
+        var headers = endpoint.headers
+        headers.append(RequestHeaders.authorization(token))
+        headers.forEach {
+            request.addValue($0.value, forHTTPHeaderField: $0.key)
+        }
+        return request
+    }
+    
+    func request(for endpoint: ImageUploadEndpoint) -> URLRequest {
         let path = endpoint.baseURL + endpoint.path
         let url = URL(string: path)!
         

@@ -10,7 +10,6 @@
 		060ED30F1E750C0000742F2B /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED2FE1E750C0000742F2B /* BodyPart.swift */; };
 		060ED3101E750C0000742F2B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED2FF1E750C0000742F2B /* Endpoint.swift */; };
 		060ED3111E750C0000742F2B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3001E750C0000742F2B /* HTTPMethod.swift */; };
-		060ED3121E750C0000742F2B /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3011E750C0000742F2B /* RequestEndpoint.swift */; };
 		060ED3131E750C0000742F2B /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3021E750C0000742F2B /* RequestHeaders.swift */; };
 		060ED3141E750C0000742F2B /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3031E750C0000742F2B /* UploadEndpoint.swift */; };
 		060ED3151E750C0000742F2B /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3041E750C0000742F2B /* ImageUploadEndpoint.swift */; };
@@ -29,7 +28,6 @@
 		060ED2FE1E750C0000742F2B /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		060ED2FF1E750C0000742F2B /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		060ED3001E750C0000742F2B /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		060ED3011E750C0000742F2B /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
 		060ED3021E750C0000742F2B /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
 		060ED3031E750C0000742F2B /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
 		060ED3041E750C0000742F2B /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				060ED2FE1E750C0000742F2B /* BodyPart.swift */,
 				060ED2FF1E750C0000742F2B /* Endpoint.swift */,
 				060ED3001E750C0000742F2B /* HTTPMethod.swift */,
-				060ED3011E750C0000742F2B /* RequestEndpoint.swift */,
 				060ED3021E750C0000742F2B /* RequestHeaders.swift */,
 				060ED3031E750C0000742F2B /* UploadEndpoint.swift */,
 			);
@@ -334,7 +331,6 @@
 				060ED3181E750C0000742F2B /* RequestTimer.swift in Sources */,
 				060ED30F1E750C0000742F2B /* BodyPart.swift in Sources */,
 				060ED3151E750C0000742F2B /* ImageUploadEndpoint.swift in Sources */,
-				060ED3121E750C0000742F2B /* RequestEndpoint.swift in Sources */,
 				060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */,
 				060ED3111E750C0000742F2B /* HTTPMethod.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LookupEndpoint: RequestEndpoint {
+enum LookupEndpoint: Endpoint {
     
     case lookup(Int)
     
