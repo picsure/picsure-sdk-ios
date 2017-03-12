@@ -8,5 +8,5 @@
 
 protocol UploadEndpoint: Endpoint {
     
-    var bodyParts: [ImageBodyPart] { get }
+    var bodyPart: ImageBodyPart { get }
 }

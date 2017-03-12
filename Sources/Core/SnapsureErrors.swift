@@ -8,6 +8,10 @@
 
 enum SnapsureErrors: Error {
     
+    enum TokenErrors: Error {
+        case missingToken
+    }
+    
     enum ImageErrors: Error {
         case unsupportedBitmapFormat
         case bigSize

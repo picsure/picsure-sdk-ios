@@ -20,10 +20,9 @@ enum Result<T> {
 
 public final class SnapsureSDK {
     
-    static func configure(withApiKey apiKey: String, forBaseURLString URLString: String) {
+    public static func configure(withApiKey apiKey: String) {
         let networkService = NetworkService.shared
         networkService.token = apiKey
-        networkService.baseURLString = URLString
     }
     
     static func uploadPhoto(_ image: Image, completionHandler completion:((Result<JSON>) -> Void)) {

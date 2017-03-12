@@ -13,7 +13,7 @@ public final class NetworkService {
     private let session: URLSession
     
     var baseURLString = "https://node-2.snapsure.de/"
-    var token = "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f"
+    var token: String?
     
     static var shared = NetworkService()
     
@@ -40,8 +40,23 @@ public final class NetworkService {
         // timer.start()
     }
     
-    func test(for endpoint: ImageUploadEndpoint) {
-//        session.uploadTask(with: request, from: <#T##Data?#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+    func test(for endpoint: ImageUploadEndpoint) throws {
+        guard let token = token else {
+            throw SnapsureErrors.TokenErrors.missingToken
+        }
+        let request = RequestFactory.request(for: endpoint, token: token)
+        let data = endpoint.bodyPart.data
+        session.uploadTask(with: request, from: data) { data, response, error in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Session Task Succeeded: HTTP \(statusCode)")
+            }
+            else {
+                // Failure
+                print("URL Session Task Failed: %@", error!.localizedDescription)
+            }
+        }
     }
     
     
@@ -71,8 +86,11 @@ public final class NetworkService {
         session.finishTasksAndInvalidate()
     }
     
-    public func lookupRequest() {
-        let request = self.request(for: LookupEndpoint.lookup(21))
+    public func lookupRequest() throws {
+        guard let token = token else {
+            throw SnapsureErrors.TokenErrors.missingToken
+        }
+        let request = RequestFactory.request(for: LookupEndpoint.lookup(21), token: token)
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
@@ -105,36 +123,6 @@ public final class NetworkService {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
     
-    func request(for endpoint: Endpoint) -> URLRequest {
-        let path = endpoint.baseURL + endpoint.path
-        let url = URL(string: path)!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        
-        var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token))
-        headers.forEach {
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
-        }
-        return request
-    }
-    
-    func request(for endpoint: ImageUploadEndpoint) -> URLRequest {
-        let path = endpoint.baseURL + endpoint.path
-        let url = URL(string: path)!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        
-        var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token))
-        headers.forEach {
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
-        }
-        return request
-    }
-    
     func parseJSON(from data: Data) -> Any? {
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
@@ -144,5 +132,24 @@ public final class NetworkService {
         catch {
             return nil
         }
+    }
+}
+
+class RequestFactory {
+    
+    static func request(for endpoint: Endpoint, token: String) -> URLRequest {
+        let path = endpoint.baseURL + endpoint.path
+        let url = URL(string: path)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.rawValue
+        
+        var headers = endpoint.headers
+        headers.append(RequestHeaders.authorization(token))
+        headers.forEach {
+            request.addValue($0.value, forHTTPHeaderField: $0.key)
+        }
+        
+        return request
     }
 }
