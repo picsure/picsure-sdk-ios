@@ -6,6 +6,8 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
+import Foundation
+
 enum RequestHeaders {
     
     case authorization(String)
