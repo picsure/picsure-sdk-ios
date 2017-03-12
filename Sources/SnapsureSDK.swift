@@ -8,13 +8,6 @@
 
 import Foundation
 
-public typealias JSON = Dictionary<String, Any>
-
-public enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
-
 public final class SnapsureSDK {
     
     public static func configure(withApiKey apiKey: String) {
@@ -34,10 +27,13 @@ public final class SnapsureSDK {
     }
     
     public static func lookupTest() {
-        do {
-            try NetworkService.shared.lookupRequest(for: LookupEndpoint.lookup(21))
-        } catch {
-            print(error)
+        NetworkService.shared.lookupRequest(for: LookupEndpoint.lookup(21)) { (result: Result<JSON>) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let json):
+                print(json)
+            }
         }
     }
 }

@@ -8,6 +8,14 @@
 
 import Foundation
 
+public typealias JSON = Dictionary<String, Any>
+public typealias Completion = (Result<JSON>) -> Void
+
+public enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
 final class NetworkService {
     
     private let session: URLSession
@@ -86,34 +94,27 @@ final class NetworkService {
         session.finishTasksAndInvalidate()
     }
     
-    func lookupRequest(for endpoint: Endpoint) throws {
+    func lookupRequest(for endpoint: Endpoint, completion: @escaping Completion) {
         guard let token = token else {
-            throw SnapsureErrors.TokenErrors.missingToken
+            completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+            return
         }
         let request = RequestFactory.request(for: endpoint, token: token)
         
-        /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if let response = response {
-                print(response)
+            if let error = error {
+                completion(.failure(error))
+                return
             }
-            if error == nil {
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
-                if let d = data {
-                    let json = self.parseJSON(from: d)
-                    DispatchQueue.main.async {
-                        print(json ?? "no")
-                    }
-                }
-                else {
-                    print("no data")
-                }
+            guard let unwrappedData = data else {
+                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
+                return
             }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription)
+            guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
+                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+                return
             }
+            completion(.success(json))
         })
         task.resume()
         session.finishTasksAndInvalidate()
@@ -122,34 +123,6 @@ final class NetworkService {
     func addToken(for request: inout URLRequest) {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
-    
-    func parseJSON(from data: Data) -> Any? {
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-            print(json)
-            return json
-        }
-        catch {
-            return nil
-        }
-    }
 }
 
-class RequestFactory {
-    
-    static func request(for endpoint: Endpoint, token: String) -> URLRequest {
-        let path = endpoint.baseURL + endpoint.path
-        let url = URL(string: path)!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        
-        var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token))
-        headers.forEach {
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
-        }
-        
-        return request
-    }
-}
+

@@ -12,6 +12,11 @@ enum SnapsureErrors: Error {
         case missingToken
     }
     
+    enum NetworkErrors: Error {
+        case emptyServerData
+        case cannotParseResponse
+    }
+    
     enum ImageErrors: Error {
         case unsupportedBitmapFormat
         case bigSize
