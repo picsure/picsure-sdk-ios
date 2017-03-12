@@ -25,11 +25,14 @@ public final class SnapsureSDK {
         networkService.token = apiKey
     }
     
-    static func uploadPhoto(_ image: Image, completionHandler completion:((Result<JSON>) -> Void)) {
-        
-//        let data: Data!
-//        NetworkService.shared.uploadData(data) { 
-//            
-//        }
+    public static func uploadPhoto(_ image: Image, completionHandler completion:((Result<JSON>) -> Void)) {
+        do {
+            let data = try ImageService.convert(image)
+            let imageBodyPart = ImageBodyPart(data: data, name: "1", fileName: "1.jpg", mimeType: "image/jpg")
+            try NetworkService.shared.test(for: .upload(imageBodyPart))
+        }
+        catch {
+            completion(.failure(error))
+        }
     }
 }
