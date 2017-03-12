@@ -8,10 +8,10 @@
 
 import Foundation
 
-public typealias JSON = [String: Any]
-public typealias Completion = (Result<JSON>) -> Void
+typealias JSON = [String: Any]
+typealias Completion = (Result<JSON>) -> Void
 
-public enum Result<T> {
+enum Result<T> {
     case success(T)
     case failure(Error)
 }
@@ -65,33 +65,7 @@ final class NetworkService {
             }
         }
     }
-    
-    func sendRequest1() {
-        let url = URL(string: "\(baseURLString)images/")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // Headers
-        
-        addToken(for: &request)
-        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
-        
-        /* Start a new Task */
-        let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if error == nil {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Session Task Succeeded: HTTP \(statusCode)")
-            }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription)
-            }
-        })
-        task.resume()
-        session.finishTasksAndInvalidate()
-    }
-    
+
     func lookupRequest(for endpoint: Endpoint, completion: @escaping Completion) {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
@@ -99,7 +73,7 @@ final class NetworkService {
         }
         let request = RequestFactory.request(for: endpoint, token: token)
         
-        let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+        let task = session.dataTask(with: request) { data, response, error -> Void in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -113,7 +87,7 @@ final class NetworkService {
                 return
             }
             completion(.success(json))
-        })
+        }
         task.resume()
         session.finishTasksAndInvalidate()
     }
