@@ -19,7 +19,6 @@
 		060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3081E750C0000742F2B /* SnapsureErrors.swift */; };
 		060ED31A1E750C0000742F2B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30A1E750C0000742F2B /* ImageService.swift */; };
 		060ED31B1E750C0000742F2B /* SnapsureSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* SnapsureSDK.swift */; };
-		060ED31C1E750C0000742F2B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 060ED30D1E750C0000742F2B /* Info.plist */; };
 		060ED31D1E750C0000742F2B /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84212A141E73251400F36070 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84212A131E73251400F36070 /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -295,7 +294,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060ED31C1E750C0000742F2B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

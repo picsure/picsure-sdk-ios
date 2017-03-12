@@ -6,9 +6,9 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-class ImageService {
+final class ImageService {
     
-    enum Constants {
+    private enum Constants {
         static let maxKbSize = 600
         static let maxSide = 1920
         static let maxSize = CGSize(width: maxSide, height: maxSide)
@@ -18,7 +18,7 @@ class ImageService {
     ///
     /// - Parameter image: image for converting to data.
     /// - Returns: data for resized and compressed image.
-    /// - Throws: If image has unsupported bitmap format or size of final data is more than 600 Kb.
+    /// - Throws: If image has unsupported bitmap format or size of final data is more than 600 Kb (SnapsureErrors.ImageErrors type).
     static func convert(_ image: UIImage) throws -> Data {
         let resizedImage = image.resized(within: Constants.maxSize)
         guard let imageData = UIImageJPEGRepresentation(resizedImage, 0.85) else {
@@ -31,7 +31,7 @@ class ImageService {
     }
 }
 
-extension UIImage {
+fileprivate extension UIImage {
     
     /// Returns a resized image that fits in rectSize, keeping it's aspect ratio
     ///
@@ -71,7 +71,7 @@ extension UIImage {
     }
 }
 
-extension Data {
+fileprivate extension Data {
     
     /// Size in kilobytes
     var kbSize: Int {

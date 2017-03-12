@@ -8,12 +8,9 @@
 
 import Foundation
 
-//TODO: macos
-typealias Image = UIImage
+public typealias JSON = Dictionary<String, Any>
 
-typealias JSON = Dictionary<String, Any>
-
-enum Result<T> {
+public enum Result<T> {
     case success(T)
     case failure(Error)
 }
@@ -25,7 +22,7 @@ public final class SnapsureSDK {
         networkService.token = apiKey
     }
     
-    public static func uploadPhoto(_ image: Image, completionHandler completion:((Result<JSON>) -> Void)) {
+    public static func uploadPhoto(_ image: UIImage, completionHandler completion:((Result<JSON>) -> Void)) {
         do {
             let data = try ImageService.convert(image)
             let imageBodyPart = ImageBodyPart(data: data, name: "1", fileName: "1.jpg", mimeType: "image/jpg")
