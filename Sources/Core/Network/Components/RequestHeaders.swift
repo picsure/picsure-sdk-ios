@@ -3,7 +3,7 @@
 //  SnapsureSDK
 //
 //  Created by Artem Novichkov on 10/03/2017.
-//  Copyright © 2016 Rosberry. All rights reserved.
+//  Copyright © 2017 Snapsure. All rights reserved.
 //
 
 enum RequestHeaders {
@@ -21,7 +21,7 @@ enum RequestHeaders {
     var value: String {
         switch self {
         case .authorization(let token): return "Bearer \(token)"
-        case .multipartData: return "multipart/form-data"
+        case .multipartData:            return "multipart/form-data"
         }
     }
 }

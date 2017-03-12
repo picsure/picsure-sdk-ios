@@ -2,8 +2,8 @@
 //  BodyPart.swift
 //  SnapsureSDK
 //
-//  Created by Dmitry Frishbuter on 24/11/2016.
-//  Copyright © 2016 Rosberry. All rights reserved.
+//  Created by Nikita Ermolenko on 10/03/2017.
+//  Copyright © 2017 Snapsure. All rights reserved.
 //
 
 import Foundation
