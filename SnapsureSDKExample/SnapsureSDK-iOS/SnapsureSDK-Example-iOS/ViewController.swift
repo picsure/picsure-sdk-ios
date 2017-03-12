@@ -7,15 +7,10 @@
 //
 
 import UIKit
-import SnapsureSDK
 
 class ViewController: UIViewController {
-
-    let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.lookupRequest()
     }
 }
-

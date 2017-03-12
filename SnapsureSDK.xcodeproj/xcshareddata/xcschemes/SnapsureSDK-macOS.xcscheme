@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A7446A1E73D6A7005C4E90"
-               BuildableName = "SnapsureSDK-macOS.framework"
+               BuildableName = "SnapsureSDK.framework"
                BlueprintName = "SnapsureSDK-macOS"
                ReferencedContainer = "container:SnapsureSDK.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A7446A1E73D6A7005C4E90"
-            BuildableName = "SnapsureSDK-macOS.framework"
+            BuildableName = "SnapsureSDK.framework"
             BlueprintName = "SnapsureSDK-macOS"
             ReferencedContainer = "container:SnapsureSDK.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A7446A1E73D6A7005C4E90"
-            BuildableName = "SnapsureSDK-macOS.framework"
+            BuildableName = "SnapsureSDK.framework"
             BlueprintName = "SnapsureSDK-macOS"
             ReferencedContainer = "container:SnapsureSDK.xcodeproj">
          </BuildableReference>
