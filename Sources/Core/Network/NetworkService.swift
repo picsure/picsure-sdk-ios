@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class NetworkService {
+final class NetworkService {
     
     private let session: URLSession
     
@@ -86,11 +86,11 @@ public final class NetworkService {
         session.finishTasksAndInvalidate()
     }
     
-    public func lookupRequest() throws {
+    func lookupRequest(for endpoint: Endpoint) throws {
         guard let token = token else {
             throw SnapsureErrors.TokenErrors.missingToken
         }
-        let request = RequestFactory.request(for: LookupEndpoint.lookup(21), token: token)
+        let request = RequestFactory.request(for: endpoint, token: token)
         
         /* Start a new Task */
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in

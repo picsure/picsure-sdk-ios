@@ -32,4 +32,12 @@ public final class SnapsureSDK {
             completion(.failure(error))
         }
     }
+    
+    public static func lookupTest() {
+        do {
+            try NetworkService.shared.lookupRequest(for: LookupEndpoint.lookup(21))
+        } catch {
+            print(error)
+        }
+    }
 }
