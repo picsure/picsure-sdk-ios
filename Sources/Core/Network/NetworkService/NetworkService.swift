@@ -10,6 +10,7 @@ import Foundation
 
 public typealias JSON = [String: Any]
 public typealias Completion = (Result<JSON>) -> Void
+fileprivate typealias Test = (Data?, URLResponse?, Error?) -> Swift.Void
 
 public enum Result<T> {
     case success(T)
@@ -37,26 +38,12 @@ final class NetworkService {
         let request = RequestFactory.request(for: endpoint, withToken: token)
         let data = endpoint.bodyPart.data
         
-        let task = session.uploadTask(with: request, from: data) { data, _, error in
-            //map to custom error
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            guard let unwrappedData = data else {
-                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
-                return
-            }
-            guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
-                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
-                return
-            }
-
-            completion(.success(json))
-        }
+        let task = session.uploadTask(with: request,
+                                      from: data,
+                                      completionHandler: taskHandler(with: completion))
         task.resume()
     }
-
+    
     func checkImage(for endpoint: Endpoint, completion: @escaping Completion) {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
@@ -64,7 +51,12 @@ final class NetworkService {
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
         
-        let task = session.dataTask(with: request) { data, _, error -> Void in
+        let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
+        task.resume()
+    }
+    
+    private func taskHandler(with completion: @escaping Completion) -> Test {
+        return { data, _, error -> Void in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -79,6 +71,5 @@ final class NetworkService {
             }
             completion(.success(json))
         }
-        task.resume()
     }
 }
