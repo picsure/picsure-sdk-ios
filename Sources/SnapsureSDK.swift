@@ -33,8 +33,8 @@ public final class SnapsureSDK {
         }
     }
     
-    public static func lookupTest() {
-        NetworkService.shared.lookupRequest(for: LookupEndpoint.lookup(21)) { (result: Result<JSON>) in
+    public static func checkImageTest() {
+        NetworkService.shared.checkImage(for: LookupEndpoint.lookup(21)) { (result: Result<JSON>) in
             switch result {
             case .failure(let error):
                 print(error)

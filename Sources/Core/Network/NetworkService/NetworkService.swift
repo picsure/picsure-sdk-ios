@@ -19,35 +19,16 @@ public enum Result<T> {
 final class NetworkService {
     
     private let session: URLSession
-    private var baseURLString = "https://node-2.snapsure.de/"
     
     var token: String?
     
     static var shared = NetworkService()
     
     private init() {
-        let configuration = URLSessionConfiguration.default
-        session = URLSession(configuration: configuration)
+        session = URLSession(configuration: .default)
     }
     
-    //TODO: Don't forget about main thread / background. Don't do it in the main thread.
-    
     func uploadData(for endpoint: ImageUploadEndpoint, completionHandler completion: @escaping Completion) {
-//        let timer = RequestTimer.default
-//        timer.timeIsOverHandler = {
-//            // Stop request
-//            // completion()
-//        }
-//        
-//        timer.nextIntervalHandler = { _ in
-//            // Do request and in completion - fire timer.
-//            // timer.continue()
-//        }
-//        
-//        // In request completion get id and fire timer.
-//        // timer.start()
-        
-        
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
@@ -56,7 +37,7 @@ final class NetworkService {
         let request = RequestFactory.request(for: endpoint, withToken: token)
         let data = endpoint.bodyPart.data
         
-        let task = session.uploadTask(with: request, from: data) { data, response, error in
+        let task = session.uploadTask(with: request, from: data) { data, _, error in
             //map to custom error
             if let error = error {
                 completion(.failure(error))
@@ -76,14 +57,14 @@ final class NetworkService {
         task.resume()
     }
 
-    func lookupRequest(for endpoint: Endpoint, completion: @escaping Completion) {
+    func checkImage(for endpoint: Endpoint, completion: @escaping Completion) {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
         
-        let task = session.dataTask(with: request) { data, response, error -> Void in
+        let task = session.dataTask(with: request) { data, _, error -> Void in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -99,9 +80,5 @@ final class NetworkService {
             completion(.success(json))
         }
         task.resume()
-    }
-    
-    func addToken(for request: inout URLRequest) {
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     }
 }
