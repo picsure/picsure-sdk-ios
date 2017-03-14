@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// The enum for request headers.
+///
+/// - authorization: Authorization header. Adds token from parameter with "Bearer" keyword
+/// - multipartData: Header for data uploading. Adds "multipart/form-data" and random generated boundary.
 enum RequestHeaders {
     
     case authorization(String)
@@ -23,7 +27,7 @@ enum RequestHeaders {
     var value: String {
         switch self {
         case .authorization(let token): return "Bearer \(token)"
-        case .multipartData:            return "multipart/form-data; boundary=\(NSUUID().uuidString)"
+        case .multipartData: return "multipart/form-data; boundary=\(NSUUID().uuidString)"
         }
     }
 }

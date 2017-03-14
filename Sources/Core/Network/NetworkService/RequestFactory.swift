@@ -8,6 +8,12 @@
 
 final class RequestFactory {
     
+    /// Configures request with URL, method and headers
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint for request configiration.
+    ///   - token: The token string for authorization header.
+    /// - Returns: Configurated request.
     static func request(for endpoint: Endpoint, withToken token: String) -> URLRequest {
         let path = endpoint.baseURL + endpoint.path
         let url = URL(string: path)!
