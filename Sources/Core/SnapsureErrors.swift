@@ -22,3 +22,32 @@ enum SnapsureErrors: Error {
         case bigSize
     }
 }
+
+extension SnapsureErrors.TokenErrors: LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .missingToken: return "Missing token. Please call `SnapsureSDK.configure(withApiKey:)` function with your API key."
+        }
+    }
+}
+
+extension SnapsureErrors.NetworkErrors: LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .emptyServerData: return "Server have sended empty data for request."
+        case .cannotParseResponse: return "Server have sended incorrect response."
+        }
+    }
+}
+
+extension SnapsureErrors.ImageErrors: LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .unsupportedBitmapFormat: return "Selected image has unsupported bitmap format."
+        case .bigSize: return "Selected image has big size."
+        }
+    }
+}

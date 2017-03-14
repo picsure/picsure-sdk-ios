@@ -34,8 +34,8 @@ final class NetworkService {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
         }
-        
         let request = RequestFactory.request(for: endpoint, withToken: token)
+        
         let data = endpoint.bodyPart.data
         
         let task = session.uploadTask(with: request,
