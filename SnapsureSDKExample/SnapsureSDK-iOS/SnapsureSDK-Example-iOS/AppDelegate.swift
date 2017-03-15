@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SnapsureSDK.configure(withApiKey: "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f")
+        
+        let image = #imageLiteral(resourceName: "saw")
+        SnapsureSDK.uploadPhoto(image) { result in
+            print("")
+        }
+        
         return true
     }
 }

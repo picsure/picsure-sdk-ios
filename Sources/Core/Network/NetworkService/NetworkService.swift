@@ -20,7 +20,6 @@ public enum Result<T> {
 final class NetworkService {
     
     private let session: URLSession
-    
     var token: String?
     
     static var shared = NetworkService()
@@ -35,12 +34,59 @@ final class NetworkService {
             return
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
-        
         let data = endpoint.bodyPart.data
         
-        let task = session.uploadTask(with: request,
-                                      from: data,
-                                      completionHandler: taskHandler(with: completion))
+        let task = session.uploadTask(with: request, from: data) { data, response, error in
+            if let error = error {
+                completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+                return
+            }
+            
+            let id = 21
+            let timer = RequestTimer.default
+
+            let httpResponse = response as! HTTPURLResponse
+            if httpResponse.statusCode == 401 {
+                completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
+                return
+            }
+            
+            do {
+                guard let json = (try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : AnyObject]) else {
+                    completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+                    return
+                }
+                print(json)
+            }
+            catch {
+                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+            }
+            
+            
+            
+            timer.timeIsOverHandler = {
+                // Stop request
+                // completion()
+            }
+            
+            timer.nextIntervalHandler = { _ in
+                // Do request and in completion - fire timer.
+                // timer.continue()
+            }
+            
+            // In request completion get id and fire timer.
+            // timer.start()
+            
+            
+//            checkImage(for: LookupEndpoint.lookup(id)) { result in
+//                
+//            }
+        }
         task.resume()
     }
     
