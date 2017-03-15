@@ -42,6 +42,9 @@ fileprivate extension UIImage {
     /// - Parameter size: Resized image size will be within this size
     /// - Returns: resized image
     func resized(within size: CGSize) -> UIImage {
+        guard self.size.width > size.width || self.size.height > size.height else {
+            return self
+        }
         let widthFactor = self.size.width / size.width
         let heightFactor = self.size.height / size.height
         
