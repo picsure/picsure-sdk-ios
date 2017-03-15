@@ -6,6 +6,10 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
+#if os(iOS)
+    import UIKit
+#endif
+    
 final class ImageService {
     
     private enum Constants {

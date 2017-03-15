@@ -8,8 +8,6 @@
 
 import Foundation
 
-// TODO: Remove public later
-
 final class RequestTimer {
     
     private var intervalsTimer: Timer?
@@ -21,11 +19,7 @@ final class RequestTimer {
     
     var timeIsOverHandler: (() -> Void)?
     var nextIntervalHandler: ((RequestTimer) -> Void)?
-    
-    deinit {
-        print("timer deinit")
-    }
-    
+
     init(maxTime: TimeInterval, intervals: [TimeInterval]) {
         self.maxTime = maxTime
         self.intervals = intervals
@@ -53,7 +47,7 @@ final class RequestTimer {
     
     // MARK: Helpers
     
-    private func startIntervalsTimer() {
+    func startIntervalsTimer() {
         intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
                                target: self,
                                selector: #selector(intervalTimerTriggered),
@@ -62,7 +56,7 @@ final class RequestTimer {
         RunLoop.current.add(intervalsTimer!, forMode: .defaultRunLoopMode)
     }
     
-    private func startIsOverTimer() {
+    func startIsOverTimer() {
         isOverTimer = Timer(timeInterval: maxTime,
                             target: self,
                             selector: #selector(overTimerTriggered),

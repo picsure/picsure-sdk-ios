@@ -32,7 +32,8 @@ public final class SnapsureSDK {
                         completion(result)
                     }
                 }
-            } catch {
+            }
+            catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

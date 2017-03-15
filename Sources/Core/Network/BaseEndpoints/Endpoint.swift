@@ -14,7 +14,7 @@ protocol Endpoint {
     var baseURL: String { get }
     var path: String { get }
     var headers: [RequestHeaders] { get }
-    var parameters: Parameters { get }
+    var parameters: Parameters? { get }
     var method: HTTPMethod { get }
 }
 
@@ -28,7 +28,7 @@ extension Endpoint {
         return []
     }
     
-    var parameters: Parameters {
-        return [:]
+    var parameters: Parameters? {
+        return nil
     }
 }
