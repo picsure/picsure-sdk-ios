@@ -29,6 +29,7 @@ public final class SnapsureSDK {
                         completion(.failure(error))
                     case .success(let json):
                         let id = json["id"] as! Int
+                        print(id)
                         startLookup(withID: id, completion: completion)
                     }
                 }

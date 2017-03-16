@@ -32,12 +32,12 @@ final class RequestFactory {
         let boundary = UUID().uuidString
         var postBody = Data()
  
-        postBody.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-        postBody.append("Content-Disposition: form-data; name=\"\(bodyPart.name)\"; filename=\"\(bodyPart.fileName)\"\r\n".data(using: String.Encoding.utf8)!)
-        postBody.append("Content-Type: \(bodyPart.mimeType)\r\n\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append("--\(boundary)".return.dataWithUTF8Encoding)
+        postBody.append("Content-Disposition: form-data; name=\"\(bodyPart.name)\"; filename=\"\(bodyPart.fileName)\"".return.dataWithUTF8Encoding)
+        postBody.append("Content-Type: \(bodyPart.mimeType)".return.return.dataWithUTF8Encoding)
         postBody.append(bodyPart.data)
-        postBody.append("\r\n".data(using: String.Encoding.utf8)!)
-        postBody.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append("".return.dataWithUTF8Encoding)
+        postBody.append("--\(boundary)--".return.dataWithUTF8Encoding)
         
         request.httpBody = postBody
 
@@ -64,5 +64,16 @@ fileprivate extension URLRequest {
         headers.forEach {
             addValue($0.value, forHTTPHeaderField: $0.key)
         }
+    }
+}
+
+fileprivate extension String {
+    
+    var `return`: String {
+        return self + "\r\n"
+    }
+    
+    var dataWithUTF8Encoding: Data {
+        return data(using: String.Encoding.utf8)!
     }
 }
