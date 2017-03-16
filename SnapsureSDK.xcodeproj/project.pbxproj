@@ -14,6 +14,7 @@
 		060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3231E7525DA00742F2B /* NetworkService.swift */; };
 		060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3251E7525F200742F2B /* ResponseParser.swift */; };
 		060ED3281E75262000742F2B /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3271E75262000742F2B /* RequestFactory.swift */; };
+		847324E21E7AC36C00859E5E /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847324E11E7AC36C00859E5E /* RequestEndpoint.swift */; };
 		84A0FEA61E751A71006C3353 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9C1E751A71006C3353 /* Endpoint.swift */; };
 		84A0FEA71E751A71006C3353 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9C1E751A71006C3353 /* Endpoint.swift */; };
 		84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */; };
@@ -45,6 +46,7 @@
 		060ED3251E7525F200742F2B /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		060ED3271E75262000742F2B /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		84212A131E73251400F36070 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847324E11E7AC36C00859E5E /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
 		84A0FE9C1E751A71006C3353 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
 		84A0FE9F1E751A71006C3353 /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				84A0FE9C1E751A71006C3353 /* Endpoint.swift */,
 				84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */,
+				847324E11E7AC36C00859E5E /* RequestEndpoint.swift */,
 			);
 			path = BaseEndpoints;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				84A0FEAA1E751A71006C3353 /* BodyPart.swift in Sources */,
 				84A0FEB21E751A71006C3353 /* ImageUploadEndpoint.swift in Sources */,
 				84A0FEAC1E751A71006C3353 /* HTTPMethod.swift in Sources */,
+				847324E21E7AC36C00859E5E /* RequestEndpoint.swift in Sources */,
 				060ED3181E750C0000742F2B /* RequestTimer.swift in Sources */,
 				060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */,
 				84A0FEAE1E751A71006C3353 /* RequestHeaders.swift in Sources */,

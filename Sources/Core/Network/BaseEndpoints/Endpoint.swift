@@ -6,15 +6,12 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-typealias Parameters = [String: Any]
-
 protocol Endpoint {
     
     /// The server URL with slash.
     var baseURL: String { get }
     var path: String { get }
     var headers: [RequestHeaders] { get }
-    var parameters: Parameters? { get }
     var method: HTTPMethod { get }
 }
 
@@ -26,9 +23,5 @@ extension Endpoint {
     
     var headers: [RequestHeaders] {
         return []
-    }
-    
-    var parameters: Parameters? {
-        return nil
     }
 }
