@@ -33,15 +33,4 @@ public final class SnapsureSDK {
             }
         }
     }
-    
-    public static func checkImageTest() {
-        NetworkService.shared.checkImage(for: LookupEndpoint.lookup(21)) { (result: Result<JSON>) in
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let json):
-                print(json)
-            }
-        }
-    }
 }
