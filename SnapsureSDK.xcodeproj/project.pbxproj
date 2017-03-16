@@ -28,8 +28,6 @@
 		84A0FEB31E751A71006C3353 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA41E751A71006C3353 /* ImageUploadEndpoint.swift */; };
 		84A0FEB41E751A71006C3353 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */; };
 		84A0FEB51E751A71006C3353 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */; };
-		84DB39FA1E796E8B008B2058 /* SSLocalizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84DB39F91E796E8B008B2058 /* SSLocalizations.bundle */; };
-		84DB39FB1E796E8B008B2058 /* SSLocalizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84DB39F91E796E8B008B2058 /* SSLocalizations.bundle */; };
 		84DB39FF1E796E93008B2058 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB39FD1E796E93008B2058 /* ImageService.swift */; };
 		84DB3A001E796F21008B2058 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB39FD1E796E93008B2058 /* ImageService.swift */; };
 		84DB3A011E796F7E008B2058 /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,7 +53,6 @@
 		84A7446B1E73D6A7005C4E90 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A744791E73D775005C4E90 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68AE81E72E3AC00818168 /* SnapsureSDK iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapsureSDK iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84DB39F91E796E8B008B2058 /* SSLocalizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSLocalizations.bundle; sourceTree = "<group>"; };
 		84DB39FD1E796E93008B2058 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +87,6 @@
 				060ED2FB1E750C0000742F2B /* Core */,
 				060ED30B1E750C0000742F2B /* SnapsureSDK.swift */,
 				060ED30C1E750C0000742F2B /* Supporting Files */,
-				84DB39F81E796E8B008B2058 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -197,14 +193,6 @@
 				84A744791E73D775005C4E90 /* SnapsureSDK.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		84DB39F81E796E8B008B2058 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				84DB39F91E796E8B008B2058 /* SSLocalizations.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		84DB39FC1E796E93008B2058 /* ImageService */ = {
@@ -340,7 +328,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DB39FB1E796E8B008B2058 /* SSLocalizations.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +335,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DB39FA1E796E8B008B2058 /* SSLocalizations.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

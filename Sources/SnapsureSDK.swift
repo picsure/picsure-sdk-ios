@@ -11,15 +11,8 @@ import Foundation
 public final class SnapsureSDK {
     
     public static func configure(withApiKey apiKey: String) {
-//        testLocalization()
         let networkService = NetworkService.shared
         networkService.token = apiKey
-    }
-    
-    static func testLocalization() {
-        let path = Bundle(for: SnapsureSDK.self).path(forResource: "SSLocalizations", ofType: "bundle")
-        let bundle = Bundle(path: path!)!
-        print(bundle.localizedString(forKey: "test", value: nil, table: nil))
     }
     
     public static func uploadPhoto(_ image: UIImage, completionHandler completion: @escaping Completion) {
