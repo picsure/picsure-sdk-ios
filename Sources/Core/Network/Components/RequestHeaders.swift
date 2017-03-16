@@ -15,19 +15,22 @@ import Foundation
 enum RequestHeaders {
     
     case authorization(String)
-    case multipartData
+    case multipartData(String)
+    case contentLength(Data)
     
     var key: String {
         switch self {
         case .authorization: return "Authorization"
         case .multipartData: return "Content-Type"
+        case .contentLength: return "Content-Length"
         }
     }
     
     var value: String {
         switch self {
         case .authorization(let token): return "Bearer \(token)"
-        case .multipartData: return "multipart/form-data; boundary=\(NSUUID().uuidString)"
+        case .multipartData(let boundary): return "multipart/form-data; boundary=\(boundary)"
+        case .contentLength(let body): return String(body.count)
         }
     }
 }

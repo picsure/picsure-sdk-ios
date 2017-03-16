@@ -34,63 +34,36 @@ final class NetworkService {
             return
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
-        let data = endpoint.bodyPart.data
-        
-        let task = session.uploadTask(with: request, from: data) { data, response, error in
-            if let error = error {
-                completion(.failure(SnapsureErrors.TokenErrors.missingToken))
-                return
-            }
-            
-            let id = 21
-            let timer = RequestTimer.default
 
+        let task = session.dataTask(with: request) { data, response, error in
+            //TODO: check reachable status
+            
             let httpResponse = response as! HTTPURLResponse
-            if httpResponse.statusCode == 401 {
-                completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+            //TODO: check status code
+            
+            if let error = error {
+                completion(.failure(error))
                 return
             }
             
-            guard let data = data else {
+            guard let unwrappedData = data else {
                 completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
                 return
             }
             
-            do {
-                guard let json = (try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : AnyObject]) else {
-                    completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
-                    return
-                }
-                print(json)
-            }
-            catch {
+            guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
                 completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+                return
             }
             
-            
-            
-            timer.timeIsOverHandler = {
-                // Stop request
-                // completion()
-            }
-            
-            timer.nextIntervalHandler = { _ in
-                // Do request and in completion - fire timer.
-                // timer.continue()
-            }
-            
-            // In request completion get id and fire timer.
-            // timer.start()
-            
-            
-//            checkImage(for: LookupEndpoint.lookup(id)) { result in
-//                
-//            }
+            let id = json["id"]
+            print(id ?? "no id in response")
+            completion(.success(json))
         }
         task.resume()
     }
     
-    func checkImage(for endpoint: Endpoint, completion: @escaping Completion) {
+    func checkImage(for endpoint: RequestEndpoint, completion: @escaping Completion) {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return

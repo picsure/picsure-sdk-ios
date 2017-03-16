@@ -13,21 +13,11 @@ enum ImageUploadEndpoint: UploadEndpoint {
     case upload(BodyPart)
     
     var path: String {
-        switch self {
-        case .upload: return "images"
-        }
+        return "images/"
     }
     
     var method: HTTPMethod {
-        switch self {
-        case .upload: return .post
-        }
-    }
-    
-    var headers: [RequestHeaders] {
-        switch self {
-        case .upload: return [.multipartData]
-        }
+        return .post
     }
     
     var bodyPart: BodyPart {

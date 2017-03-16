@@ -15,16 +15,54 @@ final class RequestFactory {
     ///   - token: The token string for authorization header.
     ///
     /// - Returns: Configurated request.
-    static func request(for endpoint: Endpoint, withToken token: String) -> URLRequest {
-        let url = URL(string: path)!.appendingPathComponent(endpoint.path)
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
+    static func request(for endpoint: RequestEndpoint, withToken token: String) -> URLRequest {
+        var request = URLRequest(endpoint: endpoint)
         
         var headers = endpoint.headers
         headers.append(RequestHeaders.authorization(token))
-        headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        request.addHeaders(headers)
         
         return request
+    }
+    
+    static func request(for endpoint: UploadEndpoint, withToken token: String) -> URLRequest {
+        var request = URLRequest(endpoint: endpoint)
+
+        let bodyPart = endpoint.bodyPart
+        let boundary = UUID().uuidString
+        var postBody = Data()
+ 
+        postBody.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append("Content-Disposition: form-data; name=\"\(bodyPart.name)\"; filename=\"\(bodyPart.fileName)\"\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append("Content-Type: \(bodyPart.mimeType)\r\n\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append(bodyPart.data)
+        postBody.append("\r\n".data(using: String.Encoding.utf8)!)
+        postBody.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
+        
+        request.httpBody = postBody
+
+        var headers = endpoint.headers
+        headers.append(RequestHeaders.contentLength(postBody))
+        headers.append(RequestHeaders.authorization(token))
+        headers.append(RequestHeaders.multipartData(boundary))
+        request.addHeaders(headers)
+        
+        return request
+    }
+}
+
+fileprivate extension URLRequest {
+    
+    init(endpoint: Endpoint) {
+        let url = URL(string: endpoint.baseURL)!.appendingPathComponent(endpoint.path)
+
+        self.init(url: url)
+        httpMethod = endpoint.method.rawValue
+    }
+    
+    mutating func addHeaders(_ headers: [RequestHeaders]) {
+        headers.forEach {
+            addValue($0.value, forHTTPHeaderField: $0.key)
+        }
     }
 }
