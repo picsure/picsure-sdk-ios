@@ -35,31 +35,7 @@ final class NetworkService {
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
 
-        let task = session.dataTask(with: request) { data, response, error in
-            //TODO: check reachable status
-            
-            let httpResponse = response as! HTTPURLResponse
-            //TODO: check status code
-            
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let unwrappedData = data else {
-                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
-                return
-            }
-            
-            guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
-                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
-                return
-            }
-            
-            let id = json["id"]
-            print(id ?? "no id in response")
-            completion(.success(json))
-        }
+        let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
     }
     
