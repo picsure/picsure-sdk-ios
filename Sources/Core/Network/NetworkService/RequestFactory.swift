@@ -16,8 +16,7 @@ final class RequestFactory {
     ///
     /// - Returns: Configurated request.
     static func request(for endpoint: Endpoint, withToken token: String) -> URLRequest {
-        let path = endpoint.baseURL + endpoint.path
-        let url = URL(string: path)!
+        let url = URL(string: path)!.appendingPathComponent(endpoint.path)
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue

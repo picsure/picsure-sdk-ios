@@ -21,7 +21,7 @@ protocol Endpoint {
 extension Endpoint {
     
     var baseURL: String {
-        return "https://node-2.snapsure.de/"
+        return "https://node-2.snapsure.de"
     }
     
     var headers: [RequestHeaders] {
