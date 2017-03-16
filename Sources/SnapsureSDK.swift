@@ -26,7 +26,7 @@ public final class SnapsureSDK {
         DispatchQueue.global().async {
             do {
                 let data = try ImageService.convert(image)
-                let imageBodyPart = BodyPart(data: data, name: "upload", fileName: "upload.jpg", mimeType: "image/jpg")
+                let imageBodyPart = BodyPart(data: data, name: "upload", fileName: "saw.jpg", mimeType: "image/jpeg")
                 NetworkService.shared.uploadData(for: .upload(imageBodyPart)) { result in
                     DispatchQueue.main.async {
                         completion(result)
