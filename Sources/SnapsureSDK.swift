@@ -9,6 +9,9 @@
 import Foundation
 
 public final class SnapsureSDK {
+
+    //TODO: Only for testing
+    private static var lookupService: LookupService!
     
     public static func configure(withApiKey apiKey: String) {
         let networkService = NetworkService.shared
@@ -21,8 +24,12 @@ public final class SnapsureSDK {
                 let data = try ImageService.convert(image)
                 let imageBodyPart = BodyPart(data: data, name: "upload", fileName: "saw.jpg", mimeType: "image/jpeg")
                 NetworkService.shared.uploadData(for: .upload(imageBodyPart)) { result in
-                    DispatchQueue.main.async {
-                        completion(result)
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let json):
+                        let id = json["id"] as! Int
+                        startLookup(withID: id, completion: completion)
                     }
                 }
             }
@@ -32,5 +39,11 @@ public final class SnapsureSDK {
                 }
             }
         }
+    }
+    
+    private static func startLookup(withID id: Int, completion: @escaping Completion) {
+        lookupService = LookupService(id: id)
+        lookupService.completion = completion
+        lookupService.start()
     }
 }

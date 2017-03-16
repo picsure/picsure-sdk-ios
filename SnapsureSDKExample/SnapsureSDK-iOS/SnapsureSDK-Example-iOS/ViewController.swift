@@ -13,5 +13,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SnapsureSDK.uploadPhoto(#imageLiteral(resourceName: "saw")) { result in
+            debugPrint(result)
+        }
     }
 }
