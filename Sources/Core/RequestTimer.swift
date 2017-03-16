@@ -47,22 +47,22 @@ final class RequestTimer {
     
     // MARK: Helpers
     
-    func startIntervalsTimer() {
+    private func startIntervalsTimer() {
         intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
                                target: self,
                                selector: #selector(intervalTimerTriggered),
                                userInfo: nil,
                                repeats: false)
-        RunLoop.current.add(intervalsTimer!, forMode: .defaultRunLoopMode)
+        RunLoop.main.add(intervalsTimer!, forMode: .defaultRunLoopMode)
     }
     
-    func startIsOverTimer() {
+    private func startIsOverTimer() {
         isOverTimer = Timer(timeInterval: maxTime,
                             target: self,
                             selector: #selector(overTimerTriggered),
                             userInfo: nil,
                             repeats: false)
-        RunLoop.current.add(isOverTimer!, forMode: .defaultRunLoopMode)
+        RunLoop.main.add(isOverTimer!, forMode: .defaultRunLoopMode)
     }
     
     // MARK: Selector actions

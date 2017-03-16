@@ -10,41 +10,33 @@ import Foundation
 
 public final class SnapsureSDK {
 
-    //TODO: Only for testing
-    private static var lookupService: LookupService!
-    
     public static func configure(withApiKey apiKey: String) {
         let networkService = NetworkService.shared
         networkService.token = apiKey
     }
     
     public static func uploadPhoto(_ image: UIImage, completionHandler completion: @escaping Completion) {
+        let mainCompletion = { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
         DispatchQueue.global().async {
             do {
                 let data = try ImageService.convert(image)
-                let imageBodyPart = BodyPart(data: data, name: "upload", fileName: "saw.jpg", mimeType: "image/jpeg")
+                let imageBodyPart = BodyPart(data: data, name: "upload", fileName: "upload.jpg", mimeType: "image/jpeg")
                 NetworkService.shared.uploadData(for: .upload(imageBodyPart)) { result in
                     switch result {
                     case .failure(let error):
-                        completion(.failure(error))
+                        mainCompletion(.failure(error))
                     case .success(let json):
-                        let id = json["id"] as! Int
-                        print(id)
-                        startLookup(withID: id, completion: completion)
+                        mainCompletion(.success(json))
                     }
                 }
             }
             catch {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
+                mainCompletion(.failure(error))
             }
         }
-    }
-    
-    private static func startLookup(withID id: Int, completion: @escaping Completion) {
-        lookupService = LookupService(id: id)
-        lookupService.completion = completion
-        lookupService.start()
     }
 }

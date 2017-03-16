@@ -11,11 +11,12 @@ final class LookupService {
     private let id: Int
     private let timer: RequestTimer
     
-    var completion: Completion?
-    private var task: URLSessionDataTask?
+    private var completion: Completion
+    private weak var task: URLSessionDataTask?
     
-    init(id: Int) {
+    init(id: Int, completion: @escaping Completion) {
         self.id = id
+        self.completion = completion
         timer = .default
         configureTimer()
     }
@@ -27,19 +28,28 @@ final class LookupService {
     private func configureTimer() {
         let imageID = id
         timer.nextIntervalHandler = { [unowned self] timer in
-            self.task = NetworkService.shared.checkImageTask(for: LookupEndpoint.lookup(imageID), completion: { result in
-                switch result {
-                case .failure:
-                    timer.continue()
-                case .success(let json):
-                    self.completion?(.success(json))
+            
+            self.task = NetworkService.shared.checkImageTask(for: LookupEndpoint.lookup(imageID)) { json, code, error in
+                if let error = error {
+                    if code == 404 {
+                        timer.continue()
+                    }
+                    else {
+                        //TODO: not found error
+//                        self.completion(.failuer())
+                    }
                 }
-            })
+                else if let json = json {
+                    timer.stop()
+                    self.completion(.success(json))
+                }
+            }
+            self.task?.resume()
         }
         
         timer.timeIsOverHandler = { [unowned self] in
             self.task?.cancel()
-            self.completion?(.failure(SnapsureErrors.LookupErrors.timeout))
+            self.completion(.failure(SnapsureErrors.LookupErrors.timeout))
         }
     }
 }

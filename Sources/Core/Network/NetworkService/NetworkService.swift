@@ -10,7 +10,10 @@ import Foundation
 
 public typealias JSON = [String: Any]
 public typealias Completion = (Result<JSON>) -> Void
-fileprivate typealias Test = (Data?, URLResponse?, Error?) -> Swift.Void
+
+fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
+
+typealias ParsedTaskHandler = (JSON?, Int, Error?) -> Void
 
 public enum Result<T> {
     case success(T)
@@ -18,10 +21,11 @@ public enum Result<T> {
 }
 
 final class NetworkService {
-    
+
+    private var lookupServices = [Int: LookupService]()
     private let session: URLSession
-    var token: String?
     
+    var token: String?
     static var shared = NetworkService()
     
     private init() {
@@ -35,38 +39,59 @@ final class NetworkService {
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
 
-        let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
+        let task = session.dataTask(with: request, completionHandler: taskHandler { [weak self] json, _, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            else if let json = json {
+                let id = json["id"] as! Int
+                let service = LookupService(id: id) { [weak self] result in
+                    self?.lookupServices[id] = nil
+                    completion(result)
+                }
+                service.start()
+                self?.lookupServices[id] = service
+            }
+        })
         task.resume()
     }
     
     @discardableResult
-    func checkImageTask(for endpoint: RequestEndpoint, completion: @escaping Completion) -> URLSessionDataTask? {
+    func checkImageTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
         guard let token = token else {
-            completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return nil
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
-        
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
         return task
     }
     
-    private func taskHandler(with completion: @escaping Completion) -> Test {
-        return { data, _, error -> Void in
+    private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
+        return { data, response, error in
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            
             if let error = error {
-                completion(.failure(error))
+                //TODO: Send SKD error
+                completion(nil, statusCode, error)
                 return
             }
+            
+            if statusCode > 200, statusCode != 404 {
+                //TODO: custom error
+                completion(nil, statusCode, nil)
+                return
+            }
+            
             guard let unwrappedData = data else {
-                completion(.failure(SnapsureErrors.NetworkErrors.emptyServerData))
+                completion(nil, statusCode, SnapsureErrors.NetworkErrors.emptyServerData)
                 return
             }
             guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
-                completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+                completion(nil, statusCode, SnapsureErrors.NetworkErrors.cannotParseResponse)
                 return
             }
-            completion(.success(json))
+            completion(json, statusCode, nil)
         }
     }
 }

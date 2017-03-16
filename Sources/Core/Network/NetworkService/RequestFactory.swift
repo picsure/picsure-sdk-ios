@@ -27,7 +27,7 @@ final class RequestFactory {
     
     static func request(for endpoint: UploadEndpoint, withToken token: String) -> URLRequest {
         var request = URLRequest(endpoint: endpoint)
-
+//TODO: increase timeout
         let bodyPart = endpoint.bodyPart
         let boundary = UUID().uuidString
         var postBody = Data()
