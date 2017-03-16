@@ -63,15 +63,17 @@ final class NetworkService {
         task.resume()
     }
     
-    func checkImage(for endpoint: RequestEndpoint, completion: @escaping Completion) {
+    @discardableResult
+    func checkImageTask(for endpoint: RequestEndpoint, completion: @escaping Completion) -> URLSessionDataTask? {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
-            return
+            return nil
         }
         let request = RequestFactory.request(for: endpoint, withToken: token)
         
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
+        return task
     }
     
     private func taskHandler(with completion: @escaping Completion) -> Test {

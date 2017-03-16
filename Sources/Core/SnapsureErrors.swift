@@ -21,6 +21,10 @@ public enum SnapsureErrors: Error {
         case unsupportedBitmapFormat
         case bigSize
     }
+    
+    public enum LookupErrors: Error {
+        case timeout
+    }
 }
 
 extension SnapsureErrors.TokenErrors: LocalizedError {
