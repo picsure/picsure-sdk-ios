@@ -82,5 +82,7 @@ final class RequestTimer {
 
 extension RequestTimer {
     
-    static var `default` = RequestTimer(maxTime: 60, intervals: [10, 6, 6, 6, 6, 6, 6, 6, 6, 6])
+    static var `default`: RequestTimer {
+        return RequestTimer(maxTime: 60, intervals: [10, 6, 6, 6, 6, 6, 6, 6, 6, 6])
+    }
 }

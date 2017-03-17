@@ -53,6 +53,9 @@ final class RequestFactory {
 
 fileprivate extension URLRequest {
     
+    /// Initializes the request with URL and HTTP method.
+    ///
+    /// - Parameter endpoint: The endpoint for request configuration.
     init(endpoint: Endpoint) {
         let url = URL(string: endpoint.baseURL)!.appendingPathComponent(endpoint.path)
 
@@ -60,6 +63,9 @@ fileprivate extension URLRequest {
         httpMethod = endpoint.method.rawValue
     }
     
+    /// Adds headers
+    ///
+    /// - Parameter headers: The headers for adding.
     mutating func addHeaders(_ headers: [RequestHeaders]) {
         headers.forEach {
             addValue($0.value, forHTTPHeaderField: $0.key)
@@ -69,10 +75,12 @@ fileprivate extension URLRequest {
 
 fileprivate extension String {
     
+    /// Returns string with carriage returns addings.
     var `return`: String {
         return self + "\r\n"
     }
     
+    /// Returns data with UTF8 Encoding.
     var dataWithUTF8Encoding: Data {
         return data(using: String.Encoding.utf8)!
     }

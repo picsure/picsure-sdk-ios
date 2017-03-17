@@ -72,7 +72,7 @@ final class NetworkService {
             let statusCode = (response as! HTTPURLResponse).statusCode
             
             if let error = error {
-                //TODO: Send SKD error
+                //TODO: Send SDK error
                 completion(nil, statusCode, error)
                 return
             }
