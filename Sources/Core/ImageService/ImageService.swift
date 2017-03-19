@@ -37,10 +37,10 @@ final class ImageService {
 
 fileprivate extension UIImage {
     
-    /// Returns a resized image that fits in rectSize, keeping it's aspect ratio
+    /// Returns a resized image that fits in rectSize, keeping it's aspect ratio.
     ///
-    /// - Parameter size: Resized image size will be within this size
-    /// - Returns: resized image
+    /// - Parameter size: Resized image size will be within this size.
+    /// - Returns: resized image.
     func resized(within size: CGSize) -> UIImage {
         guard self.size.width > size.width || self.size.height > size.height else {
             return self

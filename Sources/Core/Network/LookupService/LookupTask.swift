@@ -8,12 +8,21 @@
 
 final class LookupTask {
     
+    /// The id of uploaded image.
     private let id: Int
+    /// The timer for request repeating.
     private let timer: RequestTimer
     
+    /// The completion for
     private var completion: Completion
+    /// The data task
     private weak var task: URLSessionDataTask?
     
+    /// Initializes the task with the id and the completion. The tasl uses
+    ///
+    /// - Parameters:
+    ///   - id: The id of uploaded image.
+    ///   - completion: The completion for lookup request.
     init(id: Int, completion: @escaping Completion) {
         self.id = id
         self.completion = completion
@@ -49,7 +58,7 @@ final class LookupTask {
             self.task?.resume()
         }
         
-        timer.timeIsOverHandler = { [unowned self] in
+        timer.timeoutHandler = { [unowned self] in
             self.task?.cancel()
             self.completion(.failure(SnapsureErrors.LookupErrors.timeout))
         }
