@@ -7,8 +7,7 @@
 //
 
 protocol Endpoint {
-    
-    /// The server URL with slash.
+
     var baseURL: String { get }
     var path: String { get }
     var headers: [RequestHeaders] { get }

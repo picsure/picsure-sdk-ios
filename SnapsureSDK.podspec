@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-spec.name           = "SnapsureSKD"
+spec.name           = "SnapsureSDK"
 spec.version        = "1.0.0"
 spec.summary        = ""
 
@@ -9,7 +9,7 @@ spec.authors        = { "" => '' }
 spec.platform       = :ios
 spec.requires_arc   = true
 
-spec.ios.deployment_target  = '8.4'
+spec.ios.deployment_target  = '8.0'
 spec.source                 = { git: "", tag: "#{spec.version}"}
 spec.source_files           = "Sources/*.{h,swift}"
 end

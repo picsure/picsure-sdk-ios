@@ -8,7 +8,7 @@
 
 final class RequestFactory {
     
-    /// Configures request with URL, method and headers.
+    /// Configures request with URL, method and headers from the request endpoint.
     ///
     /// - Parameters:
     ///   - endpoint: The endpoint for request configiration.
@@ -19,12 +19,19 @@ final class RequestFactory {
         var request = URLRequest(endpoint: endpoint)
         
         var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token))
+        headers.append(RequestHeaders.authorization(token: token))
         request.addHeaders(headers)
         
         return request
     }
     
+    /// Configures request with URL, method, headers and bodypart from the upload endpoint.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The endpoint for request configiration.
+    ///   - token: The token string for authorization header.
+    ///
+    /// - Returns: Configurated request.
     static func request(for endpoint: UploadEndpoint, withToken token: String) -> URLRequest {
         var request = URLRequest(endpoint: endpoint)
         let bodyPart = endpoint.bodyPart
@@ -41,9 +48,9 @@ final class RequestFactory {
         request.httpBody = postBody
 
         var headers = endpoint.headers
-        headers.append(RequestHeaders.contentLength(postBody))
-        headers.append(RequestHeaders.authorization(token))
-        headers.append(RequestHeaders.multipartData(boundary))
+        headers.append(RequestHeaders.contentLength(data: postBody))
+        headers.append(RequestHeaders.authorization(token: token))
+        headers.append(RequestHeaders.multipartData(boundary: boundary))
         request.addHeaders(headers)
         
         return request
@@ -52,7 +59,7 @@ final class RequestFactory {
 
 fileprivate extension URLRequest {
     
-    /// Initializes the request with URL and HTTP method.
+    /// Initializes the request with URL and HTTP method from the endpoint.
     ///
     /// - Parameter endpoint: The endpoint for request configuration.
     init(endpoint: Endpoint) {
@@ -62,7 +69,7 @@ fileprivate extension URLRequest {
         httpMethod = endpoint.method.rawValue
     }
     
-    /// Adds headers
+    /// Adds the headers.
     ///
     /// - Parameter headers: The headers for adding.
     mutating func addHeaders(_ headers: [RequestHeaders]) {

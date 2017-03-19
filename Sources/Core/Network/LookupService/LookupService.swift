@@ -6,8 +6,6 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-import Foundation
-
 final class LookupService {
     
     private var lookupTasks = [Int: LookupTask]()
@@ -16,6 +14,11 @@ final class LookupService {
     
     private init() {}
     
+    /// Initializes a new `LookupTask` and contains it for concurrent execution.
+    ///
+    /// - Parameters:
+    ///   - json: The json which contains the successful information about the uploaded image.
+    ///   - completion: The completion which triggers after the execution of lookup task.
     func addLookupTask(for json: JSON, completion: @escaping Completion) {
         guard let id = json["id"] as? Int else {
             completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))

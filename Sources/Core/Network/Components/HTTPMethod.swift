@@ -6,9 +6,8 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-import Foundation
-
 enum HTTPMethod: String {
+    
     case get = "GET"
     case post = "POST"
     case update = "UPDATE"

@@ -8,9 +8,11 @@
 
 final class ResponseParser {
     
+    private init() {}
+    
     /// Parses JSON with standart JSONSerialization object.
     ///
-    /// - Parameter data: The data for parsing
+    /// - Parameter data: The data for parsing.
     ///
     /// - Returns: Optional dictionary from parsed JSON.
     static func parseJSON(from data: Data) -> JSON? {

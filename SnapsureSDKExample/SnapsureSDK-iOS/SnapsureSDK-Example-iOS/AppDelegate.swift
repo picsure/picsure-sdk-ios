@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //FIXME: Hide develop key.
         SnapsureSDK.configure(withApiKey: "developer-a3a2e467-999e-4d57-abc6-b0ed90f1c48f")
         return true
     }

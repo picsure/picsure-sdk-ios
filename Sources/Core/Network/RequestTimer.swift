@@ -6,37 +6,54 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-import Foundation
-
 final class RequestTimer {
     
+    /// The timer for interval handlers.
     private var intervalsTimer: Timer?
+    
+    /// The timer that triggers when time is over.
     private var timeoutTimer: Timer?
     
-    private let maxTime: TimeInterval
+    /// The timeout after which the `timeoutHandler` will be triggered.
+    private let timeout: TimeInterval
+    
+    /// The intervals after each of which the `nextIntervalHandler` will be triggered.
     private let intervals: [TimeInterval]
+    
+    /// The index of current interval.
     private var currentIndexInterval = 0
     
-    var timeIsOverHandler: (() -> Void)?
+    /// Handles timeout event.
+    var timeoutHandler: (() -> Void)?
+    
+    /// Handles interval event.
     var nextIntervalHandler: ((RequestTimer) -> Void)?
-
-    init(maxTime: TimeInterval, intervals: [TimeInterval]) {
-        self.maxTime = maxTime
+    
+    /// Initializes the timer with timeout and intervals.
+    ///
+    /// - Parameters:
+    ///   - timeout: The timeout after which the `timeoutHandler` will be triggered.
+    ///   - intervals: The intervals after each of which the `nextIntervalHandler` will be triggered.
+    init(timeout: TimeInterval, intervals: [TimeInterval]) {
+        self.timeout = timeout
         self.intervals = intervals
     }
     
     // MARK: Timer actions
     
+    /// Starts timer.
     func start() {
         startIntervalsTimer()
-        startIsOverTimer()
+        startTimeoutTimer()
     }
     
+    /// Continues timer with next interval.
     func `continue`() {
         currentIndexInterval += 1
         startIntervalsTimer()
     }
-
+    
+    /// Stops timer.
     func stop() {
         intervalsTimer?.invalidate()
         timeoutTimer?.invalidate()
@@ -46,7 +63,7 @@ final class RequestTimer {
     }
     
     // MARK: Helpers
-    
+
     private func startIntervalsTimer() {
         intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
                                target: self,
@@ -56,33 +73,34 @@ final class RequestTimer {
         RunLoop.main.add(intervalsTimer!, forMode: .defaultRunLoopMode)
     }
     
-    private func startIsOverTimer() {
-        timeoutTimer = Timer(timeInterval: maxTime,
-                            target: self,
-                            selector: #selector(overTimerTriggered),
-                            userInfo: nil,
-                            repeats: false)
+    private func startTimeoutTimer() {
+        timeoutTimer = Timer(timeInterval: timeout,
+                             target: self,
+                             selector: #selector(timeoutTimerTriggered),
+                             userInfo: nil,
+                             repeats: false)
         RunLoop.main.add(timeoutTimer!, forMode: .defaultRunLoopMode)
     }
     
     // MARK: Selector actions
-    
+
     @objc private func intervalTimerTriggered() {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
         nextIntervalHandler?(self)
     }
-    
-    @objc private func overTimerTriggered() {
+
+    @objc private func timeoutTimerTriggered() {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
-        timeIsOverHandler?()
+        timeoutHandler?()
     }
 }
 
 extension RequestTimer {
     
+    /// The time with default intervals - 10 seconds delay, 6 seconds intervals and 60 seconds timeout.
     static var `default`: RequestTimer {
-        return RequestTimer(maxTime: 60, intervals: [10, 6, 6, 6, 6, 6, 6, 6, 6, 6])
+        return RequestTimer(timeout: 60, intervals: [10, 6, 6, 6, 6, 6, 6, 6, 6, 6])
     }
 }

@@ -8,28 +8,42 @@
 
 final class LookupTask {
     
+    /// The id of uploaded image.
     private let id: Int
+    
+    /// The timer for request repeating.
     private let timer: RequestTimer
     
+    /// The completion for lookup request.
     private var completion: Completion
+    
+    /// The data task
     private weak var task: URLSessionDataTask?
     
+    /// Initializes the task with the id and the completion.
+    ///
+    /// - Parameters:
+    ///   - id: The id of uploaded image.
+    ///   - completion: The completion for lookup request.
     init(id: Int, completion: @escaping Completion) {
         self.id = id
         self.completion = completion
         timer = .default
         configureTimer()
     }
-    
+
+    /// Starts request sending with default time intervals. 
+    ///
+    /// - see: `RequestTimer.default`.
     func start() {
         timer.start()
     }
     
+    /// Configures handlers for request timer.
     private func configureTimer() {
-        let imageID = id
         timer.nextIntervalHandler = { [unowned self] timer in
             
-            self.task = NetworkService.shared.checkImageTask(for: LookupEndpoint.lookup(imageID)) { json, code, error in
+            self.task = NetworkService.shared.dataTask(for: LookupEndpoint.lookup(self.id)) { json, code, error in
                 if let error = error {
                     if code == 404 {
                         timer.continue()
@@ -47,7 +61,7 @@ final class LookupTask {
             self.task?.resume()
         }
         
-        timer.timeIsOverHandler = { [unowned self] in
+        timer.timeoutHandler = { [unowned self] in
             self.task?.cancel()
             self.completion(.failure(SnapsureErrors.cannotRecognize))
         }

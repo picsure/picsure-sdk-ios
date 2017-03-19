@@ -51,8 +51,8 @@ extension SnapsureErrors.NetworkErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
-        case .emptyServerData: return "Server have sended empty data for request."
-        case .cannotParseResponse: return "Server have sended incorrect response."
+        case .emptyServerData: return "Server has sent empty data for request."
+        case .cannotParseResponse: return "Server has sent incorrect response."
         }
     }
 }

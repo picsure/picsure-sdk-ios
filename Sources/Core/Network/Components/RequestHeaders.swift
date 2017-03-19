@@ -6,17 +6,11 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-import Foundation
-
-/// The enum for request headers.
-///
-/// - authorization: Authorization header. Adds token from parameter with "Bearer" keyword
-/// - multipartData: Header for data uploading. Adds "multipart/form-data" and random generated boundary.
 enum RequestHeaders {
     
-    case authorization(String)
-    case multipartData(String)
-    case contentLength(Data)
+    case authorization(token: String)
+    case multipartData(boundary: String)
+    case contentLength(data: Data)
     
     var key: String {
         switch self {
