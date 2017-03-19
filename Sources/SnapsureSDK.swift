@@ -18,7 +18,7 @@ public final class SnapsureSDK {
         networkService.token = apiKey
     }
     
-    /// Resizes selected photo if needed, uploads to Snapsure and waits for server response. Than checks a status of uploaded image periodically and returns a response. If server can't process the image during 60 seconds, returns timeout error.
+    /// Resizes selected photo if needed, uploads to Snapsure and waits for server response. Then checks a status of uploaded image periodically and returns a response. If server can't process the image during 60 seconds, returns timeout error.
     ///
     /// - Parameters:
     ///   - image: The image for processing

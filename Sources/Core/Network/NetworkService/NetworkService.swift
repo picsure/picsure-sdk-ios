@@ -12,7 +12,6 @@ public typealias JSON = [String: Any]
 public typealias Completion = (Result<JSON>) -> Void
 
 fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
-
 typealias ParsedTaskHandler = (JSON?, Int?, Error?) -> Void
 
 public enum Result<T> {
@@ -36,15 +35,14 @@ final class NetworkService {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
         }
+        
         let request = RequestFactory.request(for: endpoint, withToken: token)
-
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))
             }
             else if let json = json {
-                let id = json["id"] as! Int
-                LookupService.shared.addLookupTask(for: id, completion: completion)
+                LookupService.shared.addLookupTask(for: json, completion: completion)
             }
         })
         task.resume()
@@ -63,21 +61,13 @@ final class NetworkService {
     
     private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
         return { data, response, error in
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
             
             if let error = error {
-                //TODO: Send SDK error
-                completion(nil, nil, error)
+                completion(nil, statusCode, error)
                 return
             }
-            
-            let statusCode = (response as! HTTPURLResponse).statusCode
-            
-//            if statusCode > 200, statusCode != 404 {
-//                //TODO: custom error
-//                completion(nil, statusCode, nil)
-//                return
-//            }
-            
+
             guard let unwrappedData = data else {
                 completion(nil, statusCode, SnapsureErrors.NetworkErrors.emptyServerData)
                 return

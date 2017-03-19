@@ -11,7 +11,7 @@ import Foundation
 final class RequestTimer {
     
     private var intervalsTimer: Timer?
-    private var isOverTimer: Timer?
+    private var timeoutTimer: Timer?
     
     private let maxTime: TimeInterval
     private let intervals: [TimeInterval]
@@ -39,10 +39,10 @@ final class RequestTimer {
 
     func stop() {
         intervalsTimer?.invalidate()
-        isOverTimer?.invalidate()
+        timeoutTimer?.invalidate()
         
         intervalsTimer = nil
-        isOverTimer = nil
+        timeoutTimer = nil
     }
     
     // MARK: Helpers
@@ -57,12 +57,12 @@ final class RequestTimer {
     }
     
     private func startIsOverTimer() {
-        isOverTimer = Timer(timeInterval: maxTime,
+        timeoutTimer = Timer(timeInterval: maxTime,
                             target: self,
                             selector: #selector(overTimerTriggered),
                             userInfo: nil,
                             repeats: false)
-        RunLoop.main.add(isOverTimer!, forMode: .defaultRunLoopMode)
+        RunLoop.main.add(timeoutTimer!, forMode: .defaultRunLoopMode)
     }
     
     // MARK: Selector actions

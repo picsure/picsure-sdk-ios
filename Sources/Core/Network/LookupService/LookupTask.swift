@@ -30,15 +30,13 @@ final class LookupTask {
         timer.nextIntervalHandler = { [unowned self] timer in
             
             self.task = NetworkService.shared.checkImageTask(for: LookupEndpoint.lookup(imageID)) { json, code, error in
-                debugPrint(json ?? "no json")
-                debugPrint(error)
                 if let error = error {
                     if code == 404 {
                         timer.continue()
                     }
                     else {
-                        //TODO: not found error
-//                        self.completion(.failuer())
+                        timer.stop()
+                        self.completion(.failure(error))
                     }
                 }
                 else if let json = json {
@@ -51,7 +49,7 @@ final class LookupTask {
         
         timer.timeIsOverHandler = { [unowned self] in
             self.task?.cancel()
-            self.completion(.failure(SnapsureErrors.LookupErrors.timeout))
+            self.completion(.failure(SnapsureErrors.cannotRecognize))
         }
     }
 }

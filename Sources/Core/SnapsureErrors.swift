@@ -8,6 +8,8 @@
 
 public enum SnapsureErrors: Error {
     
+    case cannotRecognize
+    
     public enum TokenErrors: Error {
         case missingToken
     }
@@ -24,6 +26,15 @@ public enum SnapsureErrors: Error {
     
     public enum LookupErrors: Error {
         case timeout
+    }
+}
+
+extension SnapsureErrors: LocalizedError {
+    
+    public var errorDescription: String? {
+        switch self {
+        case .cannotRecognize: return "The image can not be recognized."
+        }
     }
 }
 

@@ -6,9 +6,7 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-#if os(iOS)
-    import UIKit
-#endif
+import UIKit
     
 final class ImageService {
     
@@ -20,9 +18,9 @@ final class ImageService {
     
     /// Returns data for resized and compressed image. Maximum side is equal to 1920px, compression quality is equal to 85%.
     ///
-    /// - Parameter image: image for converting to data.
-    /// - Returns: data for resized and compressed image.
-    /// - Throws: If image has unsupported bitmap format or size of final data is more than 600 Kb (SnapsureErrors.ImageErrors type).
+    /// - Parameter image: The image for converting to data.
+    /// - Returns: The data for resized and compressed image.
+    /// - Throws: `SnapsureErrors.ImageErrors` types, if image has unsupported bitmap format or size of final data is more than 600 Kb.
     static func convert(_ image: UIImage) throws -> Data {
         let resizedImage = image.resized(within: Constants.maxSize)
         guard let imageData = UIImageJPEGRepresentation(resizedImage, 0.85) else {
@@ -37,10 +35,10 @@ final class ImageService {
 
 fileprivate extension UIImage {
     
-    /// Returns a resized image that fits in rectSize, keeping it's aspect ratio
+    /// Returns a resized image that fits in rectSize, keeping its aspect ratio.
     ///
-    /// - Parameter size: Resized image size will be within this size
-    /// - Returns: resized image
+    /// - Parameter size: Resized image size will be within this size.
+    /// - Returns: Resized image.
     func resized(within size: CGSize) -> UIImage {
         guard self.size.width > size.width || self.size.height > size.height else {
             return self
@@ -59,10 +57,10 @@ fileprivate extension UIImage {
         return resizedImage
     }
     
-    /// Returns a image that fills in size
+    /// Returns an image that fills in size.
     ///
-    /// - Parameter size: Size for filling
-    /// - Returns: If size is not equal to original image, returns resized image. Otherwise, returns original image
+    /// - Parameter size: The size for filling.
+    /// - Returns: If size is not equal to original image, returns resized image. Otherwise, returns original image.
     private func resized(with size: CGSize) -> UIImage {
         guard self.size != size else {
             return self
@@ -80,7 +78,7 @@ fileprivate extension UIImage {
 
 fileprivate extension Data {
     
-    /// Size in kilobytes
+    /// Size in kilobytes.
     var kbSize: Int {
         return count / 1024
     }

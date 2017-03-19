@@ -16,7 +16,11 @@ final class LookupService {
     
     private init() {}
     
-    func addLookupTask(for id: Int, completion: @escaping Completion) {
+    func addLookupTask(for json: JSON, completion: @escaping Completion) {
+        guard let id = json["id"] as? Int else {
+            completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+            return
+        }
         let service = LookupTask(id: id) { [weak self] result in
             self?.lookupTasks[id] = nil
             completion(result)
