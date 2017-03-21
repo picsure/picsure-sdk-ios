@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     //MARK: - Snapsure SDK
     
     fileprivate func upload(photo: UIImage) {
-        debugPrint("Processing...")
+        print("Processing...")
         SnapsureSDK.uploadPhoto(photo) { result in
             debugPrint(result)
         }

@@ -64,7 +64,7 @@ fileprivate extension UIImage {
             return self
         }
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 1)
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         draw(in: rect)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
