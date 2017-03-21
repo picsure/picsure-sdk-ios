@@ -43,13 +43,19 @@ class ViewController: UIViewController {
     
     @objc private func takePhotoButtonAction() {
         let pickerController = UIImagePickerController()
-        pickerController.sourceType = .camera
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            pickerController.sourceType = .camera
+        }
+        else {
+            pickerController.sourceType = .photoLibrary
+        }
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
     }
 }
 
 //MARK: - UIImagePickerControllerDelegate
+
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

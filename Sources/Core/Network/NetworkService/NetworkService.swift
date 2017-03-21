@@ -6,52 +6,50 @@
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
-import Foundation
-
-public typealias JSON = [String: Any]
-public typealias Completion = (Result<JSON>) -> Void
-
 fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
-
-typealias ParsedTaskHandler = (JSON?, Int?, Error?) -> Void
-
-public enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
+typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error?) -> Void
 
 final class NetworkService {
 
-    private let session: URLSession
+    private let session = URLSession(configuration: .default)
+    
+    static let shared = NetworkService()
     
     var token: String?
-    static var shared = NetworkService()
     
-    private init() {
-        session = URLSession(configuration: .default)
-    }
+    private init() {}
     
-    func uploadData(for endpoint: ImageUploadEndpoint, completionHandler completion: @escaping Completion) {
+    /// Upload the image and returns recognition information.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The upload endpoint with image data.
+    /// - completion: The completion with recognition information or error if it occurred.
+    func uploadData(for endpoint: ImageUploadEndpoint, completion: @escaping Completion) {
         guard let token = token else {
             completion(.failure(SnapsureErrors.TokenErrors.missingToken))
             return
         }
+        
         let request = RequestFactory.request(for: endpoint, withToken: token)
-
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))
             }
             else if let json = json {
-                let id = json["id"] as! Int
-                LookupService.shared.addLookupTask(for: id, completion: completion)
+                LookupService.shared.addLookupTask(for: json, completion: completion)
             }
         })
         task.resume()
     }
     
+    /// Returns a task configured with request endpoint.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The request endpoint. 
+    ///   - completion: The completion with optional parameters: json, status code and error.
+    /// - Returns: Task configured with request endpoint.
     @discardableResult
-    func checkImageTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
+    func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
         guard let token = token else {
             return nil
         }
@@ -60,24 +58,16 @@ final class NetworkService {
         task.resume()
         return task
     }
-    
+
     private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
         return { data, response, error in
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
             
             if let error = error {
-                //TODO: Send SDK error
-                completion(nil, nil, error)
+                completion(nil, statusCode, error)
                 return
             }
-            
-            let statusCode = (response as! HTTPURLResponse).statusCode
-            
-//            if statusCode > 200, statusCode != 404 {
-//                //TODO: custom error
-//                completion(nil, statusCode, nil)
-//                return
-//            }
-            
+
             guard let unwrappedData = data else {
                 completion(nil, statusCode, SnapsureErrors.NetworkErrors.emptyServerData)
                 return

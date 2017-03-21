@@ -1,15 +1,15 @@
 Pod::Spec.new do |spec|
-spec.name           = "SnapsureSKD"
-spec.version        = "1.0.0"
-spec.summary        = ""
+    spec.name           = "Snapsure"
+    spec.version        = "1.0.0"
+    spec.summary        = "Snapsure SDK for IOS."
 
-spec.homepage       = ""
-spec.license        = { type: 'MIT', file: 'LICENSE' }
-spec.authors        = { "" => '' }
-spec.platform       = :ios
-spec.requires_arc   = true
+    spec.homepage       = "http://snapsure.de"
+    spec.license        = { type: 'MIT', file: 'LICENSE' }
+    spec.authors        = { "Snapsure GmbH" => 'mail@snapsure.de' }
+    spec.platform       = :ios
+    spec.requires_arc   = true
 
-spec.ios.deployment_target  = '8.4'
-spec.source                 = { git: "", tag: "#{spec.version}"}
-spec.source_files           = "Sources/*.{h,swift}"
+    spec.ios.deployment_target  = '8.0'
+    spec.source                 = { git: "https://github.com/snapsure-insurance-bot/snapsure-sdk-ios", tag: "#{spec.version}"}
+    spec.source_files           = "Sources/*.{h,swift}"
 end

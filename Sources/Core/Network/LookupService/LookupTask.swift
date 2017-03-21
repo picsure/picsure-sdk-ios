@@ -10,15 +10,17 @@ final class LookupTask {
     
     /// The id of uploaded image.
     private let id: Int
+    
     /// The timer for request repeating.
     private let timer: RequestTimer
     
-    /// The completion for
+    /// The completion for lookup request.
     private var completion: Completion
+    
     /// The data task
     private weak var task: URLSessionDataTask?
     
-    /// Initializes the task with the id and the completion. The tasl uses
+    /// Initializes the task with the id and the completion.
     ///
     /// - Parameters:
     ///   - id: The id of uploaded image.
@@ -29,25 +31,26 @@ final class LookupTask {
         timer = .default
         configureTimer()
     }
-    
+
+    /// Starts request sending with default time intervals. 
+    ///
+    /// - see: `RequestTimer.default`.
     func start() {
         timer.start()
     }
     
+    /// Configures handlers for request timer.
     private func configureTimer() {
-        let imageID = id
         timer.nextIntervalHandler = { [unowned self] timer in
             
-            self.task = NetworkService.shared.checkImageTask(for: LookupEndpoint.lookup(imageID)) { json, code, error in
-                debugPrint(json ?? "no json")
-                debugPrint(error)
+            self.task = NetworkService.shared.dataTask(for: LookupEndpoint.lookup(self.id)) { json, code, error in
                 if let error = error {
                     if code == 404 {
                         timer.continue()
                     }
                     else {
-                        //TODO: not found error
-//                        self.completion(.failuer())
+                        timer.stop()
+                        self.completion(.failure(error))
                     }
                 }
                 else if let json = json {
@@ -60,7 +63,7 @@ final class LookupTask {
         
         timer.timeoutHandler = { [unowned self] in
             self.task?.cancel()
-            self.completion(.failure(SnapsureErrors.LookupErrors.timeout))
+            self.completion(.failure(SnapsureErrors.cannotRecognize))
         }
     }
 }
