@@ -1,5 +1,9 @@
 <img src="assets/logo.png" alt="Snapsure">
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg) 
+![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg) 
+
 Snapsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
 
 ## Usage 🚀 ##
