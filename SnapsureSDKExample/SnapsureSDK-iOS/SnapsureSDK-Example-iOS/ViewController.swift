@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     fileprivate func upload(photo: UIImage) {
         print("Processing...")
-        SnapsureSDK.uploadPhoto(#imageLiteral(resourceName: "saw")) { result in
+        SnapsureSDK.uploadPhoto(photo) { result in
             debugPrint(result)
         }
     }
