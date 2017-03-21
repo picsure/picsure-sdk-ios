@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  SnapsureSDK-Example-iOS
+//  Snapsure-Example-iOS
 //
 //  Created by Nikita Ermolenko on 10/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.
 //
 
 import UIKit
-import SnapsureSDK
+import Snapsure
 
 class ViewController: UIViewController {
     
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     fileprivate func upload(photo: UIImage) {
         print("Processing...")
-        SnapsureSDK.uploadPhoto(photo) { result in
+        Snapsure.uploadPhoto(photo) { result in
             debugPrint(result)
         }
     }

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84B68B361E72EE6800818168"
-               BuildableName = "SnapsureSDK-Example-iOS.app"
-               BlueprintName = "SnapsureSDK-Example-iOS"
-               ReferencedContainer = "container:SnapsureSDK-Example-iOS.xcodeproj">
+               BuildableName = "Snapsure-Example-iOS.app"
+               BlueprintName = "Snapsure-Example-iOS"
+               ReferencedContainer = "container:Snapsure-Example-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B68B361E72EE6800818168"
-            BuildableName = "SnapsureSDK-Example-iOS.app"
-            BlueprintName = "SnapsureSDK-Example-iOS"
-            ReferencedContainer = "container:SnapsureSDK-Example-iOS.xcodeproj">
+            BuildableName = "Snapsure-Example-iOS.app"
+            BlueprintName = "Snapsure-Example-iOS"
+            ReferencedContainer = "container:Snapsure-Example-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B68B361E72EE6800818168"
-            BuildableName = "SnapsureSDK-Example-iOS.app"
-            BlueprintName = "SnapsureSDK-Example-iOS"
-            ReferencedContainer = "container:SnapsureSDK-Example-iOS.xcodeproj">
+            BuildableName = "Snapsure-Example-iOS.app"
+            BlueprintName = "Snapsure-Example-iOS"
+            ReferencedContainer = "container:Snapsure-Example-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84B68B361E72EE6800818168"
-            BuildableName = "SnapsureSDK-Example-iOS.app"
-            BlueprintName = "SnapsureSDK-Example-iOS"
-            ReferencedContainer = "container:SnapsureSDK-Example-iOS.xcodeproj">
+            BuildableName = "Snapsure-Example-iOS.app"
+            BlueprintName = "Snapsure-Example-iOS"
+            ReferencedContainer = "container:Snapsure-Example-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

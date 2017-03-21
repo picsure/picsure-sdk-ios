@@ -1,6 +1,6 @@
 //
 //  RequestFactory.swift
-//  SnapsureSDK
+//  Snapsure
 //
 //  Created by Artem Novichkov on 12/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.

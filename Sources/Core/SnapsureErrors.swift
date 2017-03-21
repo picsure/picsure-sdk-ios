@@ -1,6 +1,6 @@
 //
 //  SnapsureErrors.swift
-//  SnapsureSDK
+//  Snapsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.
@@ -42,7 +42,7 @@ extension SnapsureErrors.TokenErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
-        case .missingToken: return "Missing token. Please call `SnapsureSDK.configure(withApiKey:)` function with your API key."
+        case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
         }
     }
 }

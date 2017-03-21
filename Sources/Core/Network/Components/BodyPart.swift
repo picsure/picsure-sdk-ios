@@ -1,6 +1,6 @@
 //
 //  BodyPart.swift
-//  SnapsureSDK
+//  Snapsure
 //
 //  Created by Nikita Ermolenko on 10/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.

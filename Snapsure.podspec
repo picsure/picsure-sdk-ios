@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
     spec.name           = "Snapsure"
     spec.version        = "1.0.0"
-    spec.summary        = "Snapsure SDK for IOS."
+    spec.summary        = "Snapsure SDK for iOS."
 
     spec.homepage       = "http://snapsure.de"
     spec.license        = { type: 'MIT', file: 'LICENSE' }

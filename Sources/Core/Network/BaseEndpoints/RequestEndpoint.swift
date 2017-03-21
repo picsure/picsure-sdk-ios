@@ -1,6 +1,6 @@
 //
 //  RequestEndpoint.swift
-//  SnapsureSDK
+//  Snapsure
 //
 //  Created by Nikita Ermolenko on 16/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.

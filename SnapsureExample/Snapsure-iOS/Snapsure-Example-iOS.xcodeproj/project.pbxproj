@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060ED3201E751CC000742F2B /* SnapsureSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 060ED31F1E751CC000742F2B /* SnapsureSDK.framework */; };
-		060ED3211E751CC000742F2B /* SnapsureSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 060ED31F1E751CC000742F2B /* SnapsureSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		84B68B3B1E72EE6800818168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B68B3A1E72EE6800818168 /* AppDelegate.swift */; };
-		84B68B3D1E72EE6800818168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B68B3C1E72EE6800818168 /* ViewController.swift */; };
-		84B68B401E72EE6800818168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B3E1E72EE6800818168 /* Main.storyboard */; };
-		84B68B421E72EE6800818168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B411E72EE6800818168 /* Assets.xcassets */; };
-		84B68B451E72EE6800818168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B68B431E72EE6800818168 /* LaunchScreen.storyboard */; };
+		0638C3221E8177E800BCD868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638C31A1E8177E800BCD868 /* AppDelegate.swift */; };
+		0638C3231E8177E800BCD868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31B1E8177E800BCD868 /* Assets.xcassets */; };
+		0638C3241E8177E800BCD868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31C1E8177E800BCD868 /* LaunchScreen.storyboard */; };
+		0638C3251E8177E800BCD868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31E1E8177E800BCD868 /* Main.storyboard */; };
+		0638C3271E8177E800BCD868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638C3211E8177E800BCD868 /* ViewController.swift */; };
+		0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; };
+		0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		067242831E72F85600E61BAD /* Embed Frameworks */ = {
+		0638C32B1E81781900BCD868 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				060ED3211E751CC000742F2B /* SnapsureSDK.framework in Embed Frameworks */,
+				0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,15 +31,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		060ED31F1E751CC000742F2B /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B68B371E72EE6800818168 /* SnapsureSDK-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapsureSDK-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B68B3A1E72EE6800818168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84B68B3C1E72EE6800818168 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84B68B3F1E72EE6800818168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84B68B411E72EE6800818168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84B68B441E72EE6800818168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		84B68B461E72EE6800818168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84B68B4D1E72EEB800818168 /* SnapsureSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapsureSDK.framework; path = "../../build/Debug-iphoneos/SnapsureSDK.framework"; sourceTree = "<group>"; };
+		0638C31A1E8177E800BCD868 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0638C31B1E8177E800BCD868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0638C31D1E8177E800BCD868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0638C31F1E8177E800BCD868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0638C3201E8177E800BCD868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0638C3211E8177E800BCD868 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0638C3281E81781900BCD868 /* Snapsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Snapsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapsure-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +46,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060ED3201E751CC000742F2B /* SnapsureSDK.framework in Frameworks */,
+				0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0638C3191E8177E800BCD868 /* Snapsure-Example-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				0638C31A1E8177E800BCD868 /* AppDelegate.swift */,
+				0638C3211E8177E800BCD868 /* ViewController.swift */,
+				0638C31B1E8177E800BCD868 /* Assets.xcassets */,
+				0638C31C1E8177E800BCD868 /* LaunchScreen.storyboard */,
+				0638C31E1E8177E800BCD868 /* Main.storyboard */,
+				0638C3201E8177E800BCD868 /* Info.plist */,
+			);
+			path = "Snapsure-Example-iOS";
+			sourceTree = "<group>";
+		};
 		84B68B2E1E72EE6800818168 = {
 			isa = PBXGroup;
 			children = (
-				84B68B391E72EE6800818168 /* SnapsureSDK-Example-iOS */,
+				0638C3191E8177E800BCD868 /* Snapsure-Example-iOS */,
 				84B68B381E72EE6800818168 /* Products */,
 				84B68B4C1E72EEB800818168 /* Frameworks */,
 			);
@@ -66,29 +78,15 @@
 		84B68B381E72EE6800818168 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B68B371E72EE6800818168 /* SnapsureSDK-Example-iOS.app */,
+				84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		84B68B391E72EE6800818168 /* SnapsureSDK-Example-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				84B68B3A1E72EE6800818168 /* AppDelegate.swift */,
-				84B68B3C1E72EE6800818168 /* ViewController.swift */,
-				84B68B3E1E72EE6800818168 /* Main.storyboard */,
-				84B68B411E72EE6800818168 /* Assets.xcassets */,
-				84B68B431E72EE6800818168 /* LaunchScreen.storyboard */,
-				84B68B461E72EE6800818168 /* Info.plist */,
-			);
-			path = "SnapsureSDK-Example-iOS";
 			sourceTree = "<group>";
 		};
 		84B68B4C1E72EEB800818168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				060ED31F1E751CC000742F2B /* SnapsureSDK.framework */,
-				84B68B4D1E72EEB800818168 /* SnapsureSDK.framework */,
+				0638C3281E81781900BCD868 /* Snapsure.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,22 +94,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84B68B361E72EE6800818168 /* SnapsureSDK-Example-iOS */ = {
+		84B68B361E72EE6800818168 /* Snapsure-Example-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK-Example-iOS" */;
+			buildConfigurationList = 84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Snapsure-Example-iOS" */;
 			buildPhases = (
 				84B68B331E72EE6800818168 /* Sources */,
 				84B68B341E72EE6800818168 /* Frameworks */,
 				84B68B351E72EE6800818168 /* Resources */,
-				067242831E72F85600E61BAD /* Embed Frameworks */,
+				0638C32B1E81781900BCD868 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "SnapsureSDK-Example-iOS";
+			name = "Snapsure-Example-iOS";
 			productName = "SnapsureSDK-Example-iOS";
-			productReference = 84B68B371E72EE6800818168 /* SnapsureSDK-Example-iOS.app */;
+			productReference = 84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,12 +124,11 @@
 				TargetAttributes = {
 					84B68B361E72EE6800818168 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = V4K9VFZ6Y7;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = 84B68B321E72EE6800818168 /* Build configuration list for PBXProject "SnapsureSDK-Example-iOS" */;
+			buildConfigurationList = 84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Snapsure-Example-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -144,7 +141,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84B68B361E72EE6800818168 /* SnapsureSDK-Example-iOS */,
+				84B68B361E72EE6800818168 /* Snapsure-Example-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -154,9 +151,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B68B451E72EE6800818168 /* LaunchScreen.storyboard in Resources */,
-				84B68B421E72EE6800818168 /* Assets.xcassets in Resources */,
-				84B68B401E72EE6800818168 /* Main.storyboard in Resources */,
+				0638C3231E8177E800BCD868 /* Assets.xcassets in Resources */,
+				0638C3251E8177E800BCD868 /* Main.storyboard in Resources */,
+				0638C3241E8177E800BCD868 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,28 +164,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B68B3D1E72EE6800818168 /* ViewController.swift in Sources */,
-				84B68B3B1E72EE6800818168 /* AppDelegate.swift in Sources */,
+				0638C3221E8177E800BCD868 /* AppDelegate.swift in Sources */,
+				0638C3271E8177E800BCD868 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84B68B3E1E72EE6800818168 /* Main.storyboard */ = {
+		0638C31C1E8177E800BCD868 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84B68B3F1E72EE6800818168 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		84B68B431E72EE6800818168 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84B68B441E72EE6800818168 /* Base */,
+				0638C31D1E8177E800BCD868 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0638C31E1E8177E800BCD868 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0638C31F1E8177E800BCD868 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -292,10 +289,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V4K9VFZ6Y7;
-				INFOPLIST_FILE = "SnapsureSDK-Example-iOS/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Snapsure-Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.SnapsureSDK-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.Snapsure-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -306,10 +303,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = V4K9VFZ6Y7;
-				INFOPLIST_FILE = "SnapsureSDK-Example-iOS/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Snapsure-Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.SnapsureSDK-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.Snapsure-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -318,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B68B321E72EE6800818168 /* Build configuration list for PBXProject "SnapsureSDK-Example-iOS" */ = {
+		84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Snapsure-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68B471E72EE6800818168 /* Debug */,
@@ -327,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "SnapsureSDK-Example-iOS" */ = {
+		84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Snapsure-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68B4A1E72EE6800818168 /* Debug */,

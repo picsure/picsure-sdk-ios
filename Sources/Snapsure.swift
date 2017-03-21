@@ -1,6 +1,6 @@
 //
-//  SnapsureSDK.swift
-//  SnapsureSDK
+//  Snapsure.swift
+//  Snapsure
 //
 //  Created by Nikita Ermolenko on 11/03/2017.
 //  Copyright © 2017 Snapsure. All rights reserved.
@@ -14,7 +14,7 @@ public enum Result<T> {
     case failure(Error)
 }
 
-public final class SnapsureSDK {
+public final class Snapsure {
 
     /// Configures framework authorization.
     ///

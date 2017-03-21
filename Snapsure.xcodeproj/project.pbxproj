@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3081E750C0000742F2B /* SnapsureErrors.swift */; };
-		060ED31B1E750C0000742F2B /* SnapsureSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* SnapsureSDK.swift */; };
-		060ED31D1E750C0000742F2B /* SnapsureSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* SnapsureSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		060ED31B1E750C0000742F2B /* Snapsure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* Snapsure.swift */; };
 		060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3231E7525DA00742F2B /* NetworkService.swift */; };
 		060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3251E7525F200742F2B /* ResponseParser.swift */; };
 		060ED3281E75262000742F2B /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3271E75262000742F2B /* RequestFactory.swift */; };
+		0638C3181E81777B00BCD868 /* Snapsure.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* Snapsure.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		068CA1C21E7CF1C60057EBF7 /* LookupTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C11E7CF1C60057EBF7 /* LookupTask.swift */; };
 		068CA1C41E7CF2320057EBF7 /* LookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C31E7CF2320057EBF7 /* LookupService.swift */; };
 		068CA1C61E7CFCC60057EBF7 /* RequestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C51E7CFCC60057EBF7 /* RequestTimer.swift */; };
@@ -29,9 +29,9 @@
 
 /* Begin PBXFileReference section */
 		060ED3081E750C0000742F2B /* SnapsureErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureErrors.swift; sourceTree = "<group>"; };
-		060ED30B1E750C0000742F2B /* SnapsureSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsureSDK.swift; sourceTree = "<group>"; };
+		060ED30B1E750C0000742F2B /* Snapsure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapsure.swift; sourceTree = "<group>"; };
 		060ED30D1E750C0000742F2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		060ED30E1E750C0000742F2B /* SnapsureSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapsureSDK.h; sourceTree = "<group>"; };
+		060ED30E1E750C0000742F2B /* Snapsure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snapsure.h; sourceTree = "<group>"; };
 		060ED3231E7525DA00742F2B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		060ED3251E7525F200742F2B /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		060ED3271E75262000742F2B /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		84A0FEA11E751A71006C3353 /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
 		84A0FEA41E751A71006C3353 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
-		84A744791E73D775005C4E90 /* SnapsureSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapsureSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A744791E73D775005C4E90 /* Snapsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snapsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DB39FD1E796E93008B2058 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				060ED2FB1E750C0000742F2B /* Core */,
-				060ED30B1E750C0000742F2B /* SnapsureSDK.swift */,
+				060ED30B1E750C0000742F2B /* Snapsure.swift */,
 				060ED30C1E750C0000742F2B /* Supporting Files */,
 			);
 			path = Sources;
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				060ED30D1E750C0000742F2B /* Info.plist */,
-				060ED30E1E750C0000742F2B /* SnapsureSDK.h */,
+				060ED30E1E750C0000742F2B /* Snapsure.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 		84B68AD51E72DD5100818168 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84A744791E73D775005C4E90 /* SnapsureSDK.framework */,
+				84A744791E73D775005C4E90 /* Snapsure.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,16 +182,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060ED31D1E750C0000742F2B /* SnapsureSDK.h in Headers */,
+				0638C3181E81777B00BCD868 /* Snapsure.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		84A744781E73D775005C4E90 /* SnapsureSDK-iOS */ = {
+		84A744781E73D775005C4E90 /* Snapsure-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84A7447E1E73D775005C4E90 /* Build configuration list for PBXNativeTarget "SnapsureSDK-iOS" */;
+			buildConfigurationList = 84A7447E1E73D775005C4E90 /* Build configuration list for PBXNativeTarget "Snapsure-iOS" */;
 			buildPhases = (
 				84A744741E73D775005C4E90 /* Sources */,
 				84A744751E73D775005C4E90 /* Frameworks */,
@@ -203,9 +203,9 @@
 			);
 			dependencies = (
 			);
-			name = "SnapsureSDK-iOS";
+			name = "Snapsure-iOS";
 			productName = "SnapsureSDK-iOS";
-			productReference = 84A744791E73D775005C4E90 /* SnapsureSDK.framework */;
+			productReference = 84A744791E73D775005C4E90 /* Snapsure.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK" */;
+			buildConfigurationList = 84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "Snapsure" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -236,7 +236,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84A744781E73D775005C4E90 /* SnapsureSDK-iOS */,
+				84A744781E73D775005C4E90 /* Snapsure-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -275,7 +275,7 @@
 			files = (
 				068CA1C61E7CFCC60057EBF7 /* RequestTimer.swift in Sources */,
 				84DB3A001E796F21008B2058 /* ImageService.swift in Sources */,
-				060ED31B1E750C0000742F2B /* SnapsureSDK.swift in Sources */,
+				060ED31B1E750C0000742F2B /* Snapsure.swift in Sources */,
 				84A0FEB41E751A71006C3353 /* LookupEndpoint.swift in Sources */,
 				068CA1C21E7CF1C60057EBF7 /* LookupTask.swift in Sources */,
 				84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */,
@@ -309,8 +309,8 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snapsure.SnapsureSDK;
-				PRODUCT_NAME = SnapsureSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsure.Snapsure;
+				PRODUCT_NAME = Snapsure;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -329,8 +329,8 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snapsure.SnapsureSDK;
-				PRODUCT_NAME = SnapsureSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsure.Snapsure;
+				PRODUCT_NAME = Snapsure;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -440,7 +440,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84A7447E1E73D775005C4E90 /* Build configuration list for PBXNativeTarget "SnapsureSDK-iOS" */ = {
+		84A7447E1E73D775005C4E90 /* Build configuration list for PBXNativeTarget "Snapsure-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84A7447F1E73D775005C4E90 /* Debug */,
@@ -449,7 +449,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "SnapsureSDK" */ = {
+		84B68ACE1E72DD5100818168 /* Build configuration list for PBXProject "Snapsure" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68ADA1E72DD5100818168 /* Debug */,
