@@ -3,9 +3,9 @@ Pod::Spec.new do |spec|
     spec.version        = "1.0.0"
     spec.summary        = "Snapsure SDK for IOS."
 
-    spec.homepage       = "https://github.com/snapsure-insurance-bot/snapsure-sdk-ios"
+    spec.homepage       = "http://snapsure.de"
     spec.license        = { type: 'MIT', file: 'LICENSE' }
-    spec.authors        = { "Snapsure GmbH" => 'http://snapsure.de' }
+    spec.authors        = { "Snapsure GmbH" => 'mail@snapsure.de' }
     spec.platform       = :ios
     spec.requires_arc   = true
 
