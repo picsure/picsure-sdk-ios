@@ -1,29 +1,61 @@
-# README #
+<img src="assets/logo.png" alt="Snapsure">
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Snapsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
 
-### What is this repository for? ###
+## Usage 🚀 ##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Snapsure SDK as simple as possible. There are only two methods.
 
-### How do I get set up? ###
+First, you have to configure Snapsure SDK with your API key. You can check it in your account settings.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+```swift
+Snapsure.configure(withApiKey: "YOUR_API_KEY")
+```
+then just recognize the needed photo: 
 
-### Contribution guidelines ###
+```swift
+Snapsure.uploadPhoto(photo) { result in
+    // check recognition information, or error ...
+    // result - enum with two cases: success(json), failure(error).
+}
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+## Installation ⚙️ ##
 
-### Who do I talk to? ###
+#### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-* Repo owner or admin
-* Other community or team contact
+```ruby
+# Podfile
+use_frameworks!
+
+target 'YOUR_TARGET_NAME' do
+    pod 'Snapsure', '~> 1.0'
+end
+```
+
+Replace `YOUR_TARGET_NAME` and then, in the `Podfile` directory, type:
+
+```bash
+$ pod install
+```
+
+#### [Carthage](https://github.com/Carthage/Carthage)
+
+Add this to `Cartfile`
+
+```
+github "snapsure-insurance-bot/snapsure-sdk-ios" ~> 1.0
+```
+
+```bash
+$ carthage update
+```
+
+### Requirements ###
+
+* Swift 3.0
+* iOS 8.0+
+
+### License ###
+
+Snapsure SDK is available under the MIT license. See the LICENSE file for more info.
