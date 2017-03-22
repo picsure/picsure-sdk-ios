@@ -11,5 +11,5 @@ Pod::Spec.new do |spec|
 
     spec.ios.deployment_target  = '8.0'
     spec.source                 = { git: "https://github.com/snapsure-insurance-bot/snapsure-sdk-ios.git", tag: "#{spec.version}"}
-    spec.source_files           = "Sources/*.{h,swift}"
+    spec.source_files           = "Sources/**/*.{h,swift}"
 end
