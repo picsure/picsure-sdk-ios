@@ -63,6 +63,11 @@ final class NetworkService {
         return { data, response, error in
             let statusCode = (response as? HTTPURLResponse)?.statusCode
             
+            if let code = statusCode, code == 401 {
+                completion(nil, statusCode, SnapsureErrors.TokenErrors.invalidToken)
+                return
+            }
+            
             if let error = error {
                 completion(nil, statusCode, error)
                 return
