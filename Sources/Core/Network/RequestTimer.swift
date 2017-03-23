@@ -39,6 +39,11 @@ final class RequestTimer {
         self.intervals = intervals
     }
     
+    deinit {
+        intervalsTimer?.invalidate()
+        timeoutTimer?.invalidate()
+    }
+    
     // MARK: Timer actions
     
     /// Starts timer.
