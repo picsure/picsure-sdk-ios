@@ -12,6 +12,7 @@ public enum SnapsureErrors: Error {
     
     public enum TokenErrors: Error {
         case missingToken
+        case invalidToken
     }
     
     public enum NetworkErrors: Error {
@@ -43,6 +44,7 @@ extension SnapsureErrors.TokenErrors: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
+            case .invalidToken: return "The token is invalid."
         }
     }
 }
