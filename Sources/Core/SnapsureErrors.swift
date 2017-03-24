@@ -44,7 +44,7 @@ extension SnapsureErrors.TokenErrors: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
-            case .invalidToken: return "The token is invalid."
+            case .invalidToken: return "Unauthorized. Please check your API key."
         }
     }
 }
