@@ -9,7 +9,7 @@
 final class ImageService {
     
     private enum Constants {
-        static let maxKbSize = 600
+        static let maxKbSize = 1500
         static let maxSide = 1920
         static let maxSize = CGSize(width: maxSide, height: maxSide)
     }
