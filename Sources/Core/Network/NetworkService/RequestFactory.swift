@@ -20,6 +20,7 @@ final class RequestFactory {
         
         var headers = endpoint.headers
         headers.append(RequestHeaders.authorization(token: token))
+        headers.append(RequestHeaders.accept)
         request.addHeaders(headers)
         
         return request

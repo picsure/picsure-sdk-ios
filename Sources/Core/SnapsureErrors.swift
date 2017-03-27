@@ -8,6 +8,7 @@
 
 public enum SnapsureErrors: Error {
     
+    case noResult
     case cannotRecognize
     
     public enum TokenErrors: Error {
@@ -34,6 +35,7 @@ extension SnapsureErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
+        case .noResult: return "No products for this image found."
         case .cannotRecognize: return "The image can not be recognized."
         }
     }

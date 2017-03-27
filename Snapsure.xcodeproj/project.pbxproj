@@ -16,14 +16,14 @@
 		068CA1C21E7CF1C60057EBF7 /* LookupTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C11E7CF1C60057EBF7 /* LookupTask.swift */; };
 		068CA1C41E7CF2320057EBF7 /* LookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C31E7CF2320057EBF7 /* LookupService.swift */; };
 		068CA1C61E7CFCC60057EBF7 /* RequestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CA1C51E7CFCC60057EBF7 /* RequestTimer.swift */; };
+		06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */; };
+		06DA27D91E89323900C7CCC7 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */; };
 		847324E21E7AC36C00859E5E /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847324E11E7AC36C00859E5E /* RequestEndpoint.swift */; };
 		84A0FEA61E751A71006C3353 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9C1E751A71006C3353 /* Endpoint.swift */; };
 		84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */; };
 		84A0FEAA1E751A71006C3353 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FE9F1E751A71006C3353 /* BodyPart.swift */; };
 		84A0FEAC1E751A71006C3353 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA01E751A71006C3353 /* HTTPMethod.swift */; };
 		84A0FEAE1E751A71006C3353 /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA11E751A71006C3353 /* RequestHeaders.swift */; };
-		84A0FEB21E751A71006C3353 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA41E751A71006C3353 /* ImageUploadEndpoint.swift */; };
-		84A0FEB41E751A71006C3353 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */; };
 		84DB3A001E796F21008B2058 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB39FD1E796E93008B2058 /* ImageService.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,14 +38,14 @@
 		068CA1C11E7CF1C60057EBF7 /* LookupTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupTask.swift; sourceTree = "<group>"; };
 		068CA1C31E7CF2320057EBF7 /* LookupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupService.swift; sourceTree = "<group>"; };
 		068CA1C51E7CFCC60057EBF7 /* RequestTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimer.swift; sourceTree = "<group>"; };
+		06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
+		06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
 		847324E11E7AC36C00859E5E /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
 		84A0FE9C1E751A71006C3353 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		84A0FE9D1E751A71006C3353 /* UploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEndpoint.swift; sourceTree = "<group>"; };
 		84A0FE9F1E751A71006C3353 /* BodyPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		84A0FEA01E751A71006C3353 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		84A0FEA11E751A71006C3353 /* RequestHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
-		84A0FEA41E751A71006C3353 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
-		84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
 		84A744791E73D775005C4E90 /* Snapsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snapsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DB39FD1E796E93008B2058 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +89,7 @@
 				060ED3221E7525DA00742F2B /* NetworkService */,
 				84A0FE9B1E751A71006C3353 /* BaseEndpoints */,
 				84A0FE9E1E751A71006C3353 /* Components */,
-				84A0FEA31E751A71006C3353 /* SKDEndpoints */,
+				06DA27D51E89323900C7CCC7 /* SDKEndpoints */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -122,6 +122,15 @@
 			path = LookupService;
 			sourceTree = "<group>";
 		};
+		06DA27D51E89323900C7CCC7 /* SDKEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */,
+				06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */,
+			);
+			path = SDKEndpoints;
+			sourceTree = "<group>";
+		};
 		84A0FE9B1E751A71006C3353 /* BaseEndpoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,15 +149,6 @@
 				84A0FEA11E751A71006C3353 /* RequestHeaders.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		84A0FEA31E751A71006C3353 /* SKDEndpoints */ = {
-			isa = PBXGroup;
-			children = (
-				84A0FEA41E751A71006C3353 /* ImageUploadEndpoint.swift */,
-				84A0FEA51E751A71006C3353 /* LookupEndpoint.swift */,
-			);
-			path = SKDEndpoints;
 			sourceTree = "<group>";
 		};
 		84B68ACA1E72DD5100818168 = {
@@ -276,11 +276,10 @@
 				068CA1C61E7CFCC60057EBF7 /* RequestTimer.swift in Sources */,
 				84DB3A001E796F21008B2058 /* ImageService.swift in Sources */,
 				060ED31B1E750C0000742F2B /* Snapsure.swift in Sources */,
-				84A0FEB41E751A71006C3353 /* LookupEndpoint.swift in Sources */,
 				068CA1C21E7CF1C60057EBF7 /* LookupTask.swift in Sources */,
 				84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */,
+				06DA27D91E89323900C7CCC7 /* LookupEndpoint.swift in Sources */,
 				84A0FEAA1E751A71006C3353 /* BodyPart.swift in Sources */,
-				84A0FEB21E751A71006C3353 /* ImageUploadEndpoint.swift in Sources */,
 				84A0FEAC1E751A71006C3353 /* HTTPMethod.swift in Sources */,
 				847324E21E7AC36C00859E5E /* RequestEndpoint.swift in Sources */,
 				060ED3191E750C0000742F2B /* SnapsureErrors.swift in Sources */,
@@ -288,6 +287,7 @@
 				060ED3281E75262000742F2B /* RequestFactory.swift in Sources */,
 				060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */,
 				060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */,
+				06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */,
 				068CA1C41E7CF2320057EBF7 /* LookupService.swift in Sources */,
 				84A0FEA61E751A71006C3353 /* Endpoint.swift in Sources */,
 			);
