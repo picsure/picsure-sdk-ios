@@ -55,7 +55,12 @@ final class LookupTask {
                 }
                 else if let json = json {
                     timer.stop()
-                    self.completion(.success(json))
+                    if let _ = json["result"] as? NSNull {
+                        self.completion(.failure(SnapsureErrors.noResult))
+                    }
+                    else {
+                        self.completion(.success(json))
+                    }
                 }
             }
             self.task?.resume()
