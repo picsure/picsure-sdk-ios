@@ -20,7 +20,7 @@ enum LookupEndpoint: RequestEndpoint {
     
     var path: String {
         switch self {
-        case .lookup(let identifier): return "3/lookup/\(identifier)"
+        case .lookup(let identifier): return "lookup/\(identifier)"
         }
     }
 }
