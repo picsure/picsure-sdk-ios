@@ -10,12 +10,13 @@ fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
 typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error?) -> Void
 
 final class NetworkService {
-
+    
     private let session = URLSession(configuration: .default)
     
     static let shared = NetworkService()
     
     var token: String?
+    var host: String?
     
     private init() {}
     
@@ -30,7 +31,11 @@ final class NetworkService {
             return
         }
         
-        let request = RequestFactory.request(for: endpoint, withToken: token)
+        guard let host = host,
+            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
+                completion(.failure(SnapsureErrors.invalidHost))
+                return
+        }
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -45,7 +50,7 @@ final class NetworkService {
     /// Returns a task configured with request endpoint.
     ///
     /// - Parameters:
-    ///   - endpoint: The request endpoint. 
+    ///   - endpoint: The request endpoint.
     ///   - completion: The completion with optional parameters: json, status code and error.
     /// - Returns: Task configured with request endpoint.
     @discardableResult
@@ -53,12 +58,16 @@ final class NetworkService {
         guard let token = token else {
             return nil
         }
-        let request = RequestFactory.request(for: endpoint, withToken: token)
+        
+        guard let host = host,
+            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
+                return nil
+        }
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
         return task
     }
-
+    
     private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
         return { data, response, error in
             let statusCode = (response as? HTTPURLResponse)?.statusCode
@@ -72,7 +81,7 @@ final class NetworkService {
                 completion(nil, statusCode, error)
                 return
             }
-
+            
             guard let unwrappedData = data else {
                 completion(nil, statusCode, SnapsureErrors.NetworkErrors.emptyServerData)
                 return

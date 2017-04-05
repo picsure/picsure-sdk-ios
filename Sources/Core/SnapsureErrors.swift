@@ -10,6 +10,7 @@ public enum SnapsureErrors: Error {
     
     case noResult
     case cannotRecognize
+    case invalidHost
     
     public enum TokenErrors: Error {
         case missingToken
@@ -37,6 +38,7 @@ extension SnapsureErrors: LocalizedError {
         switch self {
         case .noResult: return "No products for this image found."
         case .cannotRecognize: return "The image can not be recognized."
+        case .invalidHost: return "The hostname is invalid."
         }
     }
 }
@@ -46,7 +48,7 @@ extension SnapsureErrors.TokenErrors: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
-            case .invalidToken: return "Unauthorized. Please check your API key."
+        case .invalidToken: return "Unauthorized. Please check your API key."
         }
     }
 }

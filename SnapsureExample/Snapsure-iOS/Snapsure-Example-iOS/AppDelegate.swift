@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Snapsure.configure(withApiKey: <#API key#>) //Add your API key
+        Snapsure.configure(withApiKey: <#API key#>, host: <#host#>) //Add your API key and host
         return true
     }
 }

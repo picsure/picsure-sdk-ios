@@ -20,10 +20,13 @@ public final class Snapsure {
     ///
     /// - Note: Call this function before photo uploading.
     ///
-    /// - Parameter apiKey: your API key for Snapsure service.
-    public static func configure(withApiKey apiKey: String) {
+    /// - Parameters:
+    ///   - apiKey: your API key for Snapsure service.
+    ///   - host: your host for Snapsure service.
+    public static func configure(withApiKey apiKey: String, host: String) {
         let networkService = NetworkService.shared
         networkService.token = apiKey
+        networkService.host = host
     }
 
     /// Uploads the photo and starts an image recognition process 🚀.
