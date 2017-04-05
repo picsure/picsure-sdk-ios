@@ -46,10 +46,10 @@ $ carthage update
 
 Snapsure SDK is as simple as possible. There are only two methods.
 
-First, you have to initalize Snapsure SDK with your API key.
+First, you have to initalize Snapsure SDK with your API key and host.
 
 ```swift
-Snapsure.configure(withApiKey: "YOUR_API_KEY")
+Snapsure.configure(withApiKey: "YOUR_API_KEY", host: "YOUR_HOST")
 ```
 then just recognize the needed photo:
 
