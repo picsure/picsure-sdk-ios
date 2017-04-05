@@ -24,11 +24,11 @@ final class LookupService {
             completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
             return
         }
-        let service = LookupTask(id: id) { [weak self] result in
+        let task = LookupTask(id: id) { [weak self] result in
             self?.lookupTasks[id] = nil
             completion(result)
         }
-        service.start()
-        lookupTasks[id] = service
+        task.start()
+        lookupTasks[id] = task
     }
 }

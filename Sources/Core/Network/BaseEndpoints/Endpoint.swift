@@ -8,17 +8,12 @@
 
 protocol Endpoint {
 
-    var baseURL: String { get }
     var path: String { get }
     var headers: [RequestHeaders] { get }
     var method: HTTPMethod { get }
 }
 
 extension Endpoint {
-    
-    var baseURL: String {
-        return "http://api.snapsure.de"
-    }
     
     var headers: [RequestHeaders] {
         return []
