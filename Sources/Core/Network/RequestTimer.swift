@@ -37,11 +37,22 @@ final class RequestTimer {
     init(timeout: TimeInterval, intervals: [TimeInterval]) {
         self.timeout = timeout
         self.intervals = intervals
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(appDidEnterBackground),
+                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(appDidBecomeActive),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                               object: nil)
     }
     
     deinit {
         intervalsTimer?.invalidate()
         timeoutTimer?.invalidate()
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Timer actions
@@ -99,6 +110,16 @@ final class RequestTimer {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
         timeoutHandler?()
+    }
+    
+    // MARK: - Notifications
+    
+    @objc private func appDidEnterBackground() {
+        stop()
+    }
+    
+    @objc private func appDidBecomeActive() {
+        start()
     }
 }
 
