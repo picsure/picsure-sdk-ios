@@ -20,8 +20,11 @@ final class RequestTimer {
     /// The intervals after each of which the `nextIntervalHandler` will be triggered.
     private let intervals: [TimeInterval]
     
+    /// The object for observing of notifications. Default instance is `NotificationCenter.default`.
+    private let notification: Notification
+    
     /// The index of current interval.
-    private var currentIndexInterval = 0
+    private var currentIntervalIndex = 0
     
     /// Handles timeout event.
     var timeoutHandler: (() -> Void)?
@@ -34,25 +37,27 @@ final class RequestTimer {
     /// - Parameters:
     ///   - timeout: The timeout after which the `timeoutHandler` will be triggered.
     ///   - intervals: The intervals after each of which the `nextIntervalHandler` will be triggered.
-    init(timeout: TimeInterval, intervals: [TimeInterval]) {
+    ///   - notification: The object for observing of notifications. Default instance is `NotificationCenter.default`.
+    init(timeout: TimeInterval, intervals: [TimeInterval], notification: Notification = NotificationCenter.default) {
         self.timeout = timeout
         self.intervals = intervals
+        self.notification = notification
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(appDidEnterBackground),
-                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(appDidBecomeActive),
-                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
-                                               object: nil)
+        notification.addObserver(self,
+                                 selector: #selector(appDidEnterBackground),
+                                 name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                 object: nil)
+        notification.addObserver(self,
+                                 selector: #selector(appDidBecomeActive),
+                                 name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                 object: nil)
     }
     
     deinit {
         intervalsTimer?.invalidate()
         timeoutTimer?.invalidate()
         
-        NotificationCenter.default.removeObserver(self)
+        notification.removeObserver(self)
     }
     
     // MARK: Timer actions
@@ -65,7 +70,7 @@ final class RequestTimer {
     
     /// Continues timer with next interval.
     func `continue`() {
-        currentIndexInterval += 1
+        currentIntervalIndex += 1
         startIntervalsTimer()
     }
     
@@ -76,12 +81,14 @@ final class RequestTimer {
         
         intervalsTimer = nil
         timeoutTimer = nil
+        
+        currentIntervalIndex = 0
     }
     
     // MARK: Helpers
-
+    
     private func startIntervalsTimer() {
-        intervalsTimer = Timer(timeInterval: intervals[currentIndexInterval],
+        intervalsTimer = Timer(timeInterval: intervals[currentIntervalIndex],
                                target: self,
                                selector: #selector(intervalTimerTriggered),
                                userInfo: nil,
@@ -99,13 +106,13 @@ final class RequestTimer {
     }
     
     // MARK: Selector actions
-
+    
     @objc private func intervalTimerTriggered() {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
         nextIntervalHandler?(self)
     }
-
+    
     @objc private func timeoutTimerTriggered() {
         intervalsTimer?.invalidate()
         intervalsTimer = nil
