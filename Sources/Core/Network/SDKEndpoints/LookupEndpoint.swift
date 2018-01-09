@@ -10,7 +10,7 @@ import Foundation
 
 enum LookupEndpoint: RequestEndpoint {
     
-    case lookup(Int)
+    case lookup(String)
     
     var method: HTTPMethod {
         switch self {

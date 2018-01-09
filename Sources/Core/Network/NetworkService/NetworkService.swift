@@ -42,7 +42,11 @@ final class NetworkService {
                 completion(.failure(error))
             }
             else if let json = json {
-                LookupService.shared.addLookupTask(for: json, completion: completion)
+                guard let imageID = json["image_id"] as? String else {
+                    completion(.failure(PicsureErrors.NetworkErrors.cannotParseResponse))
+                    return
+                }
+                self.lookup(imageID: imageID, completion: completion)
             }
         })
         task.resume()
@@ -55,7 +59,7 @@ final class NetworkService {
     ///   - completion: The completion with optional parameters: json, status code and error.
     /// - Returns: Task configured with request endpoint.
     @discardableResult
-    func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
+    private func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
         guard let token = token else {
             return nil
         }
@@ -92,5 +96,17 @@ final class NetworkService {
             }
             completion(json, statusCode, nil)
         }
+    }
+
+    private func lookup(imageID: String, completion: @escaping Completion) {
+        let lookupTask = dataTask(for: LookupEndpoint.lookup(imageID)) { json, _, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            else if let json = json {
+                completion(.success(json))
+            }
+        }
+        lookupTask?.resume()
     }
 }
