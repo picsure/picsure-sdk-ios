@@ -43,7 +43,7 @@ final class NetworkService {
                 completion(.failure(error))
             }
             else if let json = json {
-                guard let imageID = json["image_id"] as? String else {
+                guard let imageID = json["token"] as? String else {
                     completion(.failure(PicsureErrors.NetworkErrors.cannotParseResponse))
                     return
                 }
