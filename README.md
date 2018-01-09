@@ -1,14 +1,14 @@
 <img src="assets/logo.png" alt="Snapsure">
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
-![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+![Swift 4.0](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
 ![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg)
 
 Snapsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
 
 ### Requirements ###
 
-* Swift 3.0
+* Swift 4.0+
 * iOS 8.0+
 
 ## Installation ⚙️ ##
@@ -46,10 +46,10 @@ $ carthage update
 
 Snapsure SDK is as simple as possible. There are only two methods.
 
-First, you have to initalize Snapsure SDK with your API key and host.
+First, you have to initalize Snapsure SDK with your API key.
 
 ```swift
-Snapsure.configure(withApiKey: "YOUR_API_KEY", host: "YOUR_HOST")
+Snapsure.configure(withApiKey: "YOUR_API_KEY")
 ```
 then just recognize the needed photo:
 

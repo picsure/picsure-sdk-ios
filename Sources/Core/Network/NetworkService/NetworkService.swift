@@ -12,13 +12,16 @@ fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
 typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error?) -> Void
 
 final class NetworkService {
+
+    private enum Constants {
+        static let host = "https://api.picsure.ai"
+    }
     
     private let session = URLSession(configuration: .default)
     
     static let shared = NetworkService()
     
     var token: String?
-    var host: String?
     
     private init() {}
     
@@ -33,10 +36,9 @@ final class NetworkService {
             return
         }
         
-        guard let host = host,
-            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
-                completion(.failure(PicsureErrors.invalidHost))
-                return
+        guard let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token) else {
+            completion(.failure(PicsureErrors.invalidHost))
+            return
         }
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
@@ -61,9 +63,8 @@ final class NetworkService {
             return nil
         }
         
-        guard let host = host,
-            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
-                return nil
+        guard let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token) else {
+            return nil
         }
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()

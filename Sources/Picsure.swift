@@ -24,11 +24,8 @@ public final class Picsure {
     ///
     /// - Parameters:
     ///   - apiKey: your API key for Picsure service.
-    ///   - host: your host for Picsure service.
-    public static func configure(withApiKey apiKey: String, host: String) {
-        let networkService = NetworkService.shared
-        networkService.token = apiKey
-        networkService.host = host
+    public static func configure(withApiKey apiKey: String) {
+        NetworkService.shared.token = apiKey
     }
 
     /// Uploads the photo and starts an image recognition process 🚀.
