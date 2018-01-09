@@ -23,10 +23,10 @@ final class RequestFactory {
         var request = URLRequest(host: host, endpoint: endpoint)
         
         var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token: token))
-        headers.append(RequestHeaders.language(language))
-        headers.append(RequestHeaders.accept)
-        request.addHeaders(headers)
+        headers.append(.authorization(token: token))
+        headers.append(.language(language))
+        headers.append(.accept)
+        request.add(headers)
         
         return request
     }
@@ -55,16 +55,16 @@ final class RequestFactory {
         request.httpBody = postBody
 
         var headers = endpoint.headers
-        headers.append(RequestHeaders.contentLength(data: postBody))
-        headers.append(RequestHeaders.authorization(token: token))
-        headers.append(RequestHeaders.multipartData(boundary: boundary))
-        request.addHeaders(headers)
+        headers.append(.contentLength(data: postBody))
+        headers.append(.authorization(token: token))
+        headers.append(.multipartData(boundary: boundary))
+        request.add(headers)
         
         return request
     }
 }
 
-fileprivate extension URLRequest {
+private extension URLRequest {
     
     /// Initializes the request with URL and HTTP method from the endpoint.
     ///
@@ -77,14 +77,14 @@ fileprivate extension URLRequest {
     /// Adds the headers.
     ///
     /// - Parameter headers: The headers for adding.
-    mutating func addHeaders(_ headers: [RequestHeaders]) {
+    mutating func add(_ headers: [RequestHeaders]) {
         headers.forEach {
             addValue($0.value, forHTTPHeaderField: $0.key)
         }
     }
 }
 
-fileprivate extension String {
+private extension String {
     
     /// Returns string with carriage returns addings.
     var `return`: String {
@@ -93,6 +93,6 @@ fileprivate extension String {
     
     /// Returns data with UTF8 Encoding.
     var dataWithUTF8Encoding: Data {
-        return data(using: String.Encoding.utf8)!
+        return data(using: .utf8)!
     }
 }

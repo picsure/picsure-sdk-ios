@@ -33,7 +33,7 @@ final class ImageService {
     }
 }
 
-fileprivate extension UIImage {
+private extension UIImage {
     
     /// Returns a resized image that fits in rectSize, keeping its aspect ratio.
     ///
@@ -76,7 +76,7 @@ fileprivate extension UIImage {
     }
 }
 
-fileprivate extension Data {
+private extension Data {
     
     /// Size in kilobytes.
     var kbSize: Int {

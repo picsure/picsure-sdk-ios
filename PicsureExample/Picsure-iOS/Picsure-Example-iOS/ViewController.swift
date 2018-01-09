@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     //MARK: - Picsure SDK
     
-    fileprivate func upload(photo: UIImage) {
+    private func upload(photo: UIImage) {
         print("Processing...")
         Picsure.uploadPhoto(photo) { result in
             debugPrint(result)

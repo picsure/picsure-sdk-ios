@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
+private typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
 typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error?) -> Void
 
 final class NetworkService {
