@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        Picsure.configure(withApiKey: <#API key#>) //Add your API key
+        Picsure.configure(withApiKey: "9c36a00f436fd71f720364c8d2af602632860d7e") //Add your API key
         return true
     }
 }

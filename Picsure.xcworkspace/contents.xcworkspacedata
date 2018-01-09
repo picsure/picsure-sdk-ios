@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:PicsureExample/Picsure-iOS/Picsure-Example-iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/artemnovichkov/Documents/Projects/picsure-sdk-ios/Picsure.xcodeproj">
+   </FileRef>
+</Workspace>

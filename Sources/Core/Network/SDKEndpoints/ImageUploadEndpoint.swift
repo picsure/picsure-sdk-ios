@@ -13,7 +13,7 @@ enum ImageUploadEndpoint: UploadEndpoint {
     case upload(BodyPart)
     
     var path: String {
-        return "images/"
+        return "1/upload"
     }
     
     var method: HTTPMethod {

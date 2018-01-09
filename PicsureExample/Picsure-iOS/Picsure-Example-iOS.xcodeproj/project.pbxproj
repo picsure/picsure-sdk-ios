@@ -12,18 +12,18 @@
 		0638C3241E8177E800BCD868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31C1E8177E800BCD868 /* LaunchScreen.storyboard */; };
 		0638C3251E8177E800BCD868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31E1E8177E800BCD868 /* Main.storyboard */; };
 		0638C3271E8177E800BCD868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638C3211E8177E800BCD868 /* ViewController.swift */; };
-		0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; };
-		0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		067D3D14200501DA00B9472D /* Picsure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067D3D13200501D200B9472D /* Picsure.framework */; };
+		067D3D15200501DA00B9472D /* Picsure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 067D3D13200501D200B9472D /* Picsure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0638C32B1E81781900BCD868 /* Embed Frameworks */ = {
+		067D3D16200501DA00B9472D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */,
+				067D3D15200501DA00B9472D /* Picsure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +38,7 @@
 		0638C3201E8177E800BCD868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0638C3211E8177E800BCD868 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0638C3281E81781900BCD868 /* Snapsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Snapsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		067D3D13200501D200B9472D /* Picsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Picsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B68B371E72EE6800818168 /* Picsure-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picsure-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */,
+				067D3D14200501DA00B9472D /* Picsure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +87,7 @@
 		84B68B4C1E72EEB800818168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				067D3D13200501D200B9472D /* Picsure.framework */,
 				0638C3281E81781900BCD868 /* Snapsure.framework */,
 			);
 			name = Frameworks;
@@ -101,7 +103,7 @@
 				84B68B331E72EE6800818168 /* Sources */,
 				84B68B341E72EE6800818168 /* Frameworks */,
 				84B68B351E72EE6800818168 /* Resources */,
-				0638C32B1E81781900BCD868 /* Embed Frameworks */,
+				067D3D16200501DA00B9472D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
