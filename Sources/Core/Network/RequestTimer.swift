@@ -21,7 +21,7 @@ final class RequestTimer {
     private let intervals: [TimeInterval]
     
     /// The object for observing of notifications. Default instance is `NotificationCenter.default`.
-    private let notification: Notification
+    private let notificationCenter: NotificationCenter
     
     /// The index of current interval.
     private var currentIntervalIndex = 0
@@ -38,26 +38,26 @@ final class RequestTimer {
     ///   - timeout: The timeout after which the `timeoutHandler` will be triggered.
     ///   - intervals: The intervals after each of which the `nextIntervalHandler` will be triggered.
     ///   - notification: The object for observing of notifications. Default instance is `NotificationCenter.default`.
-    init(timeout: TimeInterval, intervals: [TimeInterval], notification: Notification = NotificationCenter.default) {
+    init(timeout: TimeInterval, intervals: [TimeInterval], notificationCenter: NotificationCenter = NotificationCenter.default) {
         self.timeout = timeout
         self.intervals = intervals
-        self.notification = notification
+        self.notificationCenter = notificationCenter
         
-        notification.addObserver(self,
-                                 selector: #selector(appDidEnterBackground),
-                                 name: NSNotification.Name.UIApplicationDidEnterBackground,
-                                 object: nil)
-        notification.addObserver(self,
-                                 selector: #selector(appDidBecomeActive),
-                                 name: NSNotification.Name.UIApplicationDidBecomeActive,
-                                 object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appDidEnterBackground),
+                                       name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appDidBecomeActive),
+                                       name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                       object: nil)
     }
     
     deinit {
         intervalsTimer?.invalidate()
         timeoutTimer?.invalidate()
         
-        notification.removeObserver(self)
+        notificationCenter.removeObserver(self)
     }
     
     // MARK: Timer actions
