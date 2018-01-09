@@ -1,10 +1,10 @@
-<img src="assets/logo.png" alt="Snapsure">
+<img src="assets/logo.png" alt="Picsure">
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 ![Swift 4.0](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
 ![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg)
 
-Snapsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
+Picsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
 
 ### Requirements ###
 
@@ -20,7 +20,7 @@ Snapsure generates insurance proposals based on image informations within second
 use_frameworks!
 
 target 'YOUR_TARGET_NAME' do
-    pod 'Snapsure', '~> 1.0'
+    pod 'Picsure', '~> 1.0'
 end
 ```
 
@@ -35,7 +35,7 @@ $ pod install
 Add this to `Cartfile`
 
 ```
-github "snapsure-insurance-bot/snapsure-sdk-ios" ~> 1.0
+github "picsure/picsure-sdk-ios" ~> 1.0
 ```
 
 ```bash
@@ -44,17 +44,17 @@ $ carthage update
 
 ## Usage 🚀 ##
 
-Snapsure SDK is as simple as possible. There are only two methods.
+Picsure SDK is as simple as possible. There are only two methods.
 
-First, you have to initalize Snapsure SDK with your API key.
+First, you have to initalize Picsure SDK with your API key.
 
 ```swift
-Snapsure.configure(withApiKey: "YOUR_API_KEY")
+Picsure.configure(withApiKey: "YOUR_API_KEY")
 ```
 then just recognize the needed photo:
 
 ```swift
-Snapsure.uploadPhoto(photo) { result in
+Picsure.uploadPhoto(photo) { result in
     // check result or error ...
     // result - enum with two cases: success(json), failure(error).
 }
@@ -63,12 +63,12 @@ Snapsure.uploadPhoto(photo) { result in
 
 
 
-## Licence ##
+## License ##
 
 ```
 MIT License
 
-Copyright (c) 2017 Snapsure
+Copyright (c) 2018 Picsure
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
