@@ -1,10 +1,12 @@
 //
-//  Snapsure.swift
-//  Snapsure
+//  Picsure.swift
+//  Picsure
 //
 //  Created by Nikita Ermolenko on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import UIKit
 
 public typealias JSON = [String: Any]
 public typealias Completion = (Result<JSON>) -> Void
@@ -14,15 +16,15 @@ public enum Result<T> {
     case failure(Error)
 }
 
-public final class Snapsure {
+public final class Picsure {
 
     /// Configures framework authorization.
     ///
     /// - Note: Call this function before photo uploading.
     ///
     /// - Parameters:
-    ///   - apiKey: your API key for Snapsure service.
-    ///   - host: your host for Snapsure service.
+    ///   - apiKey: your API key for Picsure service.
+    ///   - host: your host for Picsure service.
     public static func configure(withApiKey apiKey: String, host: String) {
         let networkService = NetworkService.shared
         networkService.token = apiKey
@@ -35,7 +37,7 @@ public final class Snapsure {
     ///
     /// - Parameters:
     ///   - image: The image for recognition.
-    ///   - completion: Returns server response or internal SDK errors. Check all error types in `SnapsureErrors`.
+    ///   - completion: Returns server response or internal SDK errors. Check all error types in `PicsureErrors`.
     public static func uploadPhoto(_ image: UIImage, completion: @escaping Completion) {
         let mainCompletion = { result in
             DispatchQueue.main.async {

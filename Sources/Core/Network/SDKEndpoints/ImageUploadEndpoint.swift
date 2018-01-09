@@ -1,9 +1,9 @@
 //
 //  ImageUploadEndpoint.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
 import Foundation

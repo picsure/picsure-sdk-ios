@@ -1,10 +1,12 @@
 //
 //  ImageService.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import UIKit
 
 final class ImageService {
     
@@ -18,14 +20,14 @@ final class ImageService {
     ///
     /// - Parameter image: The image for converting to data.
     /// - Returns: The data for resized and compressed image.
-    /// - Throws: `SnapsureErrors.ImageErrors` types, if image has unsupported bitmap format or size of final data is more than 600 Kb.
+    /// - Throws: `PicsureErrors.ImageErrors` types, if image has unsupported bitmap format or size of final data is more than 600 Kb.
     static func convert(_ image: UIImage) throws -> Data {
         let resizedImage = image.resized(within: Constants.maxSize)
         guard let imageData = UIImageJPEGRepresentation(resizedImage, 0.85) else {
-            throw SnapsureErrors.ImageErrors.unsupportedBitmapFormat
+            throw PicsureErrors.ImageErrors.unsupportedBitmapFormat
         }
         guard imageData.kbSize < Constants.maxKbSize else {
-            throw SnapsureErrors.ImageErrors.bigSize
+            throw PicsureErrors.ImageErrors.bigSize
         }
         return imageData
     }

@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A744781E73D775005C4E90"
                BuildableName = "Snapsure.framework"
-               BlueprintName = "Snapsure-iOS"
-               ReferencedContainer = "container:Snapsure.xcodeproj">
+               BlueprintName = "Picsure-iOS"
+               ReferencedContainer = "container:Picsure.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "84B68AE71E72E3AC00818168"
                BuildableName = "SnapsureSDK iOSTests.xctest"
                BlueprintName = "SnapsureSDK iOSTests"
-               ReferencedContainer = "container:Snapsure.xcodeproj">
+               ReferencedContainer = "container:Picsure.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,8 +45,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A744781E73D775005C4E90"
             BuildableName = "Snapsure.framework"
-            BlueprintName = "Snapsure-iOS"
-            ReferencedContainer = "container:Snapsure.xcodeproj">
+            BlueprintName = "Picsure-iOS"
+            ReferencedContainer = "container:Picsure.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -69,8 +69,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A744781E73D775005C4E90"
             BuildableName = "Snapsure.framework"
-            BlueprintName = "Snapsure-iOS"
-            ReferencedContainer = "container:Snapsure.xcodeproj">
+            BlueprintName = "Picsure-iOS"
+            ReferencedContainer = "container:Picsure.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -87,8 +87,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A744781E73D775005C4E90"
             BuildableName = "Snapsure.framework"
-            BlueprintName = "Snapsure-iOS"
-            ReferencedContainer = "container:Snapsure.xcodeproj">
+            BlueprintName = "Picsure-iOS"
+            ReferencedContainer = "container:Picsure.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Snapsure.xcodeproj">
+      location = "group:/Users/artemnovichkov/Documents/Projects/picsure-sdk-ios/Picsure.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SnapsureExample/Snapsure-iOS/Snapsure-Example-iOS.xcodeproj">
+      location = "group:/Users/artemnovichkov/Documents/Projects/picsure-sdk-ios/SnapsureExample/Snapsure-iOS/Picsure-Example-iOS.xcodeproj">
    </FileRef>
 </Workspace>

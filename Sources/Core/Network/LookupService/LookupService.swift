@@ -1,9 +1,9 @@
 //
 //  LookupService.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 18/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
 final class LookupService {
@@ -21,7 +21,7 @@ final class LookupService {
     ///   - completion: The completion which triggers after the execution of lookup task.
     func addLookupTask(for json: JSON, completion: @escaping Completion) {
         guard let id = json["id"] as? Int else {
-            completion(.failure(SnapsureErrors.NetworkErrors.cannotParseResponse))
+            completion(.failure(PicsureErrors.NetworkErrors.cannotParseResponse))
             return
         }
         let task = LookupTask(id: id) { [weak self] result in

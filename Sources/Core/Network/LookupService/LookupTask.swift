@@ -1,10 +1,12 @@
 //
 //  LookupTask.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 16/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import Foundation
 
 final class LookupTask {
     
@@ -56,7 +58,7 @@ final class LookupTask {
                 else if let json = json {
                     timer.stop()
                     if json["result"] as? NSNull != nil {
-                        self.completion(.failure(SnapsureErrors.noResult))
+                        self.completion(.failure(PicsureErrors.noResult))
                     }
                     else {
                         self.completion(.success(json))
@@ -68,7 +70,7 @@ final class LookupTask {
         
         timer.timeoutHandler = { [unowned self] in
             self.task?.cancel()
-            self.completion(.failure(SnapsureErrors.cannotRecognize))
+            self.completion(.failure(PicsureErrors.cannotRecognize))
         }
     }
 }

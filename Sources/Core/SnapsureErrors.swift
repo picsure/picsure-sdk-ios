@@ -1,12 +1,14 @@
 //
-//  SnapsureErrors.swift
-//  Snapsure
+//  PicsureErrors.swift
+//  Picsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
-public enum SnapsureErrors: Error {
+import Foundation
+
+public enum PicsureErrors: Error {
     
     case noResult
     case cannotRecognize
@@ -32,7 +34,7 @@ public enum SnapsureErrors: Error {
     }
 }
 
-extension SnapsureErrors: LocalizedError {
+extension PicsureErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
@@ -43,17 +45,17 @@ extension SnapsureErrors: LocalizedError {
     }
 }
 
-extension SnapsureErrors.TokenErrors: LocalizedError {
+extension PicsureErrors.TokenErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
-        case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
+        case .missingToken: return "Missing token. Please call `Picsure.configure(withApiKey:)` function with your API key."
         case .invalidToken: return "Unauthorized. Please check your API key."
         }
     }
 }
 
-extension SnapsureErrors.NetworkErrors: LocalizedError {
+extension PicsureErrors.NetworkErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
@@ -63,7 +65,7 @@ extension SnapsureErrors.NetworkErrors: LocalizedError {
     }
 }
 
-extension SnapsureErrors.ImageErrors: LocalizedError {
+extension PicsureErrors.ImageErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
