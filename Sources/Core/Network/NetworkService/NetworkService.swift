@@ -14,7 +14,7 @@ typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error
 final class NetworkService {
 
     private enum Constants {
-        static let host = "https://api.picsure.ai"
+        static let host = URL(string: "https://api.picsure.ai")!
     }
     
     private let session = URLSession(configuration: .default)
@@ -36,10 +36,7 @@ final class NetworkService {
             return
         }
         
-        guard let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token) else {
-            completion(.failure(PicsureErrors.invalidHost))
-            return
-        }
+        let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token)
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))

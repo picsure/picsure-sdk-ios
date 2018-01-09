@@ -12,7 +12,6 @@ public enum PicsureErrors: Error {
     
     case noResult
     case cannotRecognize
-    case invalidHost
     
     public enum TokenErrors: Error {
         case missingToken
@@ -40,7 +39,6 @@ extension PicsureErrors: LocalizedError {
         switch self {
         case .noResult: return "No products for this image found."
         case .cannotRecognize: return "The image can not be recognized."
-        case .invalidHost: return "The hostname is invalid."
         }
     }
 }

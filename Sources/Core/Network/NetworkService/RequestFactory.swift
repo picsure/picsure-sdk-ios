@@ -10,7 +10,7 @@ import Foundation
 
 final class RequestFactory {
     
-    /// Configures request with URL, method and headers from the request endpoint. Returns nil if host is invalid.
+    /// Configures request with URL, method and headers from the request endpoint.
     ///
     /// - Parameters:
     ///   - host: The host for request configiration.
@@ -18,10 +18,8 @@ final class RequestFactory {
     ///   - token: The token string for authorization header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: String, endpoint: RequestEndpoint, withToken token: String) -> URLRequest? {
-        guard var request = URLRequest(host: host, endpoint: endpoint) else {
-            return nil
-        }
+    static func request(forHost host: URL, endpoint: RequestEndpoint, withToken token: String) -> URLRequest? {
+        var request = URLRequest(host: host, endpoint: endpoint)
         
         var headers = endpoint.headers
         headers.append(RequestHeaders.authorization(token: token))
@@ -31,7 +29,7 @@ final class RequestFactory {
         return request
     }
     
-    /// Configures request with URL, method, headers and bodypart from the upload endpoint. Returns nil if host is invalid.
+    /// Configures request with URL, method, headers and bodypart from the upload endpoint.
     ///
     /// - Parameters:
     ///   - host: The host for request configiration.
@@ -39,10 +37,8 @@ final class RequestFactory {
     ///   - token: The token string for authorization header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: String, endpoint: UploadEndpoint, withToken token: String) -> URLRequest? {
-        guard var request = URLRequest(host: host, endpoint: endpoint) else {
-            return nil
-        }
+    static func request(forHost host: URL, endpoint: UploadEndpoint, withToken token: String) -> URLRequest {
+        var request = URLRequest(host: host, endpoint: endpoint)
         let bodyPart = endpoint.bodyPart
         let boundary = UUID().uuidString
         var postBody = Data()
@@ -68,15 +64,11 @@ final class RequestFactory {
 
 fileprivate extension URLRequest {
     
-    /// Initializes the request with URL and HTTP method from the endpoint. Returns nil if host is invalid.
+    /// Initializes the request with URL and HTTP method from the endpoint.
     ///
     /// - Parameter endpoint: The endpoint for request configuration.
-    init?(host: String, endpoint: Endpoint) {
-        guard let url = URL(string: host)?.appendingPathComponent(endpoint.path) else {
-            return nil
-        }
-
-        self.init(url: url)
+    init(host: URL, endpoint: Endpoint) {
+        self.init(url: host.appendingPathComponent(endpoint.path))
         httpMethod = endpoint.method.rawValue
     }
     
