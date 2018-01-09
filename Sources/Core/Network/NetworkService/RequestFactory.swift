@@ -16,13 +16,15 @@ final class RequestFactory {
     ///   - host: The host for request configiration.
     ///   - endpoint: The endpoint for request configiration.
     ///   - token: The token string for authorization header.
+    ///   - language: The language identifier for language header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: URL, endpoint: RequestEndpoint, withToken token: String) -> URLRequest? {
+    static func makeRequest(host: URL, endpoint: RequestEndpoint, token: String, language: String) -> URLRequest {
         var request = URLRequest(host: host, endpoint: endpoint)
         
         var headers = endpoint.headers
         headers.append(RequestHeaders.authorization(token: token))
+        headers.append(RequestHeaders.language(language))
         headers.append(RequestHeaders.accept)
         request.addHeaders(headers)
         
@@ -37,7 +39,7 @@ final class RequestFactory {
     ///   - token: The token string for authorization header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: URL, endpoint: UploadEndpoint, withToken token: String) -> URLRequest {
+    static func makeRequest(host: URL, endpoint: UploadEndpoint, token: String) -> URLRequest {
         var request = URLRequest(host: host, endpoint: endpoint)
         let bodyPart = endpoint.bodyPart
         let boundary = UUID().uuidString

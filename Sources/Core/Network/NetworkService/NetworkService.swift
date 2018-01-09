@@ -22,6 +22,7 @@ final class NetworkService {
     static let shared = NetworkService()
     
     var token: String?
+    var language: String = "en"
     
     private init() {}
     
@@ -36,7 +37,7 @@ final class NetworkService {
             return
         }
         
-        let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token)
+        let request = RequestFactory.makeRequest(host: Constants.host, endpoint: endpoint, token: token)
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -51,22 +52,14 @@ final class NetworkService {
         })
         task.resume()
     }
-    
-    /// Returns a task configured with request endpoint.
-    ///
-    /// - Parameters:
-    ///   - endpoint: The request endpoint.
-    ///   - completion: The completion with optional parameters: json, status code and error.
-    /// - Returns: Task configured with request endpoint.
+
     @discardableResult
     private func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
         guard let token = token else {
             return nil
         }
-        
-        guard let request = RequestFactory.request(forHost: Constants.host, endpoint: endpoint, withToken: token) else {
-            return nil
-        }
+
+        let request = RequestFactory.makeRequest(host: Constants.host, endpoint: endpoint, token: token, language: language)
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
         return task

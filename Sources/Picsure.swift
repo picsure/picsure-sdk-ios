@@ -28,6 +28,16 @@ public final class Picsure {
         NetworkService.shared.token = apiKey
     }
 
+    /// Configures language for response.
+    ///
+    /// - Note: Call this function before photo uploading.
+    ///
+    /// - Parameters:
+    ///   - language: language identifier.
+    public static func configure(language: String) {
+        NetworkService.shared.language = language
+    }
+
     /// Uploads the photo and starts an image recognition process 🚀.
     ///
     /// - Note: The recognition takes from several seconds up to one minute.

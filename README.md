@@ -44,7 +44,7 @@ $ carthage update
 
 ## Usage 🚀 ##
 
-Picsure SDK is as simple as possible. There are only two methods.
+Picsure SDK is as simple as possible. There are two main methods.
 
 First, you have to initalize Picsure SDK with your API key.
 
@@ -60,8 +60,34 @@ Picsure.uploadPhoto(photo) { result in
 }
 ```
 
+You can configure response language as well. Just call:
 
+```swift
+Picsure.configure(language: "en")
+```
 
+with one of available language identifiers. Here is a list of supported languages:
+
+- `at` - Austria
+- `au` - Australia
+- `ch` - Switzerland
+- `da` - Denmark
+- `de` - Germany
+- `el` - Greece
+- `en` - England
+- `es` - Spain
+- `fi` - Finland
+- `fr` - France
+- `gb` - United Kingdom
+- `it` - Italy
+- `ja` - Japan
+- `nl` - Netherlands
+- `no` - Norway
+- `ru` - Russian Federation
+- `us` - United States
+- `zh` - China
+
+Default identifier is `en`.
 
 ## License ##
 

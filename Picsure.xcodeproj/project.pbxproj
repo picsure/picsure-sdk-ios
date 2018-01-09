@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		060ED3191E750C0000742F2B /* PicsureErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3081E750C0000742F2B /* PicsureErrors.swift */; };
-		060ED31B1E750C0000742F2B /* Picsure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* Picsure.swift */; };
 		060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3231E7525DA00742F2B /* NetworkService.swift */; };
 		060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3251E7525F200742F2B /* ResponseParser.swift */; };
 		060ED3281E75262000742F2B /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3271E75262000742F2B /* RequestFactory.swift */; };
 		0638C3181E81777B00BCD868 /* Snapsure.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* Snapsure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06B47C982004F8E60070536E /* Picsure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* Picsure.swift */; };
 		06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */; };
 		06DA27D91E89323900C7CCC7 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */; };
 		847324E21E7AC36C00859E5E /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847324E11E7AC36C00859E5E /* RequestEndpoint.swift */; };
@@ -258,7 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DB3A001E796F21008B2058 /* ImageService.swift in Sources */,
-				060ED31B1E750C0000742F2B /* Picsure.swift in Sources */,
 				84A0FEA81E751A71006C3353 /* UploadEndpoint.swift in Sources */,
 				06DA27D91E89323900C7CCC7 /* LookupEndpoint.swift in Sources */,
 				84A0FEAA1E751A71006C3353 /* BodyPart.swift in Sources */,
@@ -269,6 +268,7 @@
 				060ED3281E75262000742F2B /* RequestFactory.swift in Sources */,
 				060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */,
 				060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */,
+				06B47C982004F8E60070536E /* Picsure.swift in Sources */,
 				06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */,
 				84A0FEA61E751A71006C3353 /* Endpoint.swift in Sources */,
 			);
