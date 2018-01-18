@@ -21,6 +21,7 @@ public enum PicsureErrors: Error {
     public enum NetworkErrors: Error {
         case emptyServerData
         case cannotParseResponse
+        case server
     }
     
     public enum ImageErrors: Error {
@@ -59,6 +60,7 @@ extension PicsureErrors.NetworkErrors: LocalizedError {
         switch self {
         case .emptyServerData: return "Server has sent empty data for request."
         case .cannotParseResponse: return "Server has sent incorrect response."
+        case .server: return "An Error occured - please check your API key or shout a message to support@picsure.ai"
         }
     }
 }

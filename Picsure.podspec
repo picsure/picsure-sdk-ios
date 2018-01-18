@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
 
     spec.homepage       = "https://picsure.ai"
     spec.license        = { type: 'MIT', file: 'LICENSE' }
-    spec.authors        = { "Picsure GmbH" => 'mail@picsure.ai' }
+    spec.authors        = { "Picsure GmbH" => 'support@picsure.ai' }
     spec.platform       = :ios
     spec.requires_arc   = true
 
