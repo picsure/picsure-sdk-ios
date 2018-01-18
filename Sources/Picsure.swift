@@ -53,15 +53,16 @@ public final class Picsure {
         }
         DispatchQueue.global().async {
             do {
-                let exif = ExifDataService.fetch(from: image)
                 let data = try ImageService.convert(image)
                 let imageBodyPart = BodyPart(data: data)
-                NetworkService.shared.uploadData(for: .upload(imageBodyPart, exif: exif)) { result in
-                    switch result {
-                    case .failure(let error):
-                        mainCompletion(.failure(error))
-                    case .success(let json):
-                        mainCompletion(.success(json))
+                MetadataService.metadata(from: image) { metadata in
+                    NetworkService.shared.uploadData(for: .upload(imageBodyPart, exif: metadata)) { result in
+                        switch result {
+                        case .failure(let error):
+                            mainCompletion(.failure(error))
+                        case .success(let json):
+                            mainCompletion(.success(json))
+                        }
                     }
                 }
             }

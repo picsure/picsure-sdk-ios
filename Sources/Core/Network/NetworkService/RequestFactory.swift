@@ -69,8 +69,15 @@ private extension URLRequest {
     /// Initializes the request with URL and HTTP method from the endpoint.
     ///
     /// - Parameter endpoint: The endpoint for request configuration.
-    init(host: URL, endpoint: Endpoint) {
-        self.init(url: host.appendingPathComponent(endpoint.path))
+    init(host: URL, endpoint: RequestEndpoint) {
+        var components = URLComponents(url: host, resolvingAgainstBaseURL: true)!
+        components.queryItems = endpoint.parameters?.flatMap { parameter in
+            if let value = parameter.value as? String {
+                return URLQueryItem(name: parameter.key, value: value)
+            }
+            return nil
+        }
+        self.init(url: components.url!.appendingPathComponent(endpoint.path))
         httpMethod = endpoint.method.rawValue
     }
     

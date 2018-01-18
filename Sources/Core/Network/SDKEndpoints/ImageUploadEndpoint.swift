@@ -10,7 +10,7 @@ import Foundation
 
 enum ImageUploadEndpoint: UploadEndpoint {
     
-    case upload(BodyPart, exif: Parameters)
+    case upload(BodyPart, exif: Parameters?)
     
     var path: String {
         return "1/upload"
@@ -28,7 +28,11 @@ enum ImageUploadEndpoint: UploadEndpoint {
 
     var parameters: Parameters? {
         switch self {
-        case .upload(_, let exif): return ["exif": exif]
+        case .upload(_, let exif):
+            if let exif = exif {
+                return ["exif": exif]
+            }
+            return nil
         }
     }
 }
