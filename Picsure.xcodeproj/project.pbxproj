@@ -12,6 +12,7 @@
 		060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3251E7525F200742F2B /* ResponseParser.swift */; };
 		060ED3281E75262000742F2B /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED3271E75262000742F2B /* RequestFactory.swift */; };
 		0638C3181E81777B00BCD868 /* Snapsure.h in Headers */ = {isa = PBXBuildFile; fileRef = 060ED30E1E750C0000742F2B /* Snapsure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		064A09F42010DDF900E05C9D /* ExifDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A09F32010DDF900E05C9D /* ExifDataService.swift */; };
 		06B47C982004F8E60070536E /* Picsure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060ED30B1E750C0000742F2B /* Picsure.swift */; };
 		06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */; };
 		06DA27D91E89323900C7CCC7 /* LookupEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */; };
@@ -32,6 +33,7 @@
 		060ED3231E7525DA00742F2B /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		060ED3251E7525F200742F2B /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		060ED3271E75262000742F2B /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		064A09F32010DDF900E05C9D /* ExifDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExifDataService.swift; sourceTree = "<group>"; };
 		06DA27D61E89323900C7CCC7 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		06DA27D71E89323900C7CCC7 /* LookupEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupEndpoint.swift; sourceTree = "<group>"; };
 		847324E11E7AC36C00859E5E /* RequestEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 		060ED2FB1E750C0000742F2B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				84DB39FC1E796E93008B2058 /* ImageService */,
+				84DB39FC1E796E93008B2058 /* Services */,
 				060ED2FC1E750C0000742F2B /* Network */,
 				060ED3081E750C0000742F2B /* PicsureErrors.swift */,
 			);
@@ -150,12 +152,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84DB39FC1E796E93008B2058 /* ImageService */ = {
+		84DB39FC1E796E93008B2058 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				84DB39FD1E796E93008B2058 /* ImageService.swift */,
+				064A09F32010DDF900E05C9D /* ExifDataService.swift */,
 			);
-			path = ImageService;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +270,7 @@
 				84A0FEAE1E751A71006C3353 /* RequestHeaders.swift in Sources */,
 				060ED3281E75262000742F2B /* RequestFactory.swift in Sources */,
 				060ED3261E7525F200742F2B /* ResponseParser.swift in Sources */,
+				064A09F42010DDF900E05C9D /* ExifDataService.swift in Sources */,
 				060ED3241E7525DA00742F2B /* NetworkService.swift in Sources */,
 				06B47C982004F8E60070536E /* Picsure.swift in Sources */,
 				06DA27D81E89323900C7CCC7 /* ImageUploadEndpoint.swift in Sources */,

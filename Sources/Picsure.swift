@@ -53,9 +53,9 @@ public final class Picsure {
         }
         DispatchQueue.global().async {
             do {
+                let exif = ExifDataService.fetch(from: image)
                 let data = try ImageService.convert(image)
                 let imageBodyPart = BodyPart(data: data)
-                let exif: Parameters = [:]
                 NetworkService.shared.uploadData(for: .upload(imageBodyPart, exif: exif)) { result in
                     switch result {
                     case .failure(let error):
