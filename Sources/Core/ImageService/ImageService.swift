@@ -11,8 +11,7 @@ import UIKit
 final class ImageService {
     
     private enum Constants {
-        static let maxKbSize = 1500
-        static let maxSide = 1920
+        static let maxSide = 1024
         static let maxSize = CGSize(width: maxSide, height: maxSide)
     }
     
@@ -25,9 +24,6 @@ final class ImageService {
         let resizedImage = image.resized(within: Constants.maxSize)
         guard let imageData = UIImageJPEGRepresentation(resizedImage, 0.85) else {
             throw PicsureErrors.ImageErrors.unsupportedBitmapFormat
-        }
-        guard imageData.kbSize < Constants.maxKbSize else {
-            throw PicsureErrors.ImageErrors.bigSize
         }
         return imageData
     }
@@ -73,13 +69,5 @@ private extension UIImage {
         UIGraphicsEndImageContext()
         
         return resizedImage
-    }
-}
-
-private extension Data {
-    
-    /// Size in kilobytes.
-    var kbSize: Int {
-        return count / 1024
     }
 }
