@@ -54,7 +54,7 @@ Picsure.configure(withApiKey: "YOUR_API_KEY")
 then just recognize the needed photo:
 
 ```swift
-Picsure.uploadPhoto(photo) { result in
+Picsure.upload(photo) { result in
     // check result or error ...
     // result - enum with two cases: success(json), failure(error).
 }

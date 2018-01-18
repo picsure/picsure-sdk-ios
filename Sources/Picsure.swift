@@ -45,7 +45,7 @@ public final class Picsure {
     /// - Parameters:
     ///   - image: The image for recognition.
     ///   - completion: Returns server response or internal SDK errors. Check all error types in `PicsureErrors`.
-    public static func uploadPhoto(_ data: Data, completion: @escaping Completion) {
+    public static func upload(_ image: UIImage, completion: @escaping Completion) {
         let mainCompletion = { result in
             DispatchQueue.main.async {
                 completion(result)
@@ -53,8 +53,10 @@ public final class Picsure {
         }
         DispatchQueue.global().async {
             do {
+                let data = try ImageService.convert(image)
                 let imageBodyPart = BodyPart(data: data)
-                NetworkService.shared.uploadData(for: .upload(imageBodyPart)) { result in
+                let exif: Parameters = [:]
+                NetworkService.shared.uploadData(for: .upload(imageBodyPart, exif: exif)) { result in
                     switch result {
                     case .failure(let error):
                         mainCompletion(.failure(error))

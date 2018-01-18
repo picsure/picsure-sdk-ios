@@ -6,7 +6,7 @@
 //  Copyright © 2017 Picsure. All rights reserved.
 //
 
-protocol UploadEndpoint: Endpoint {
+protocol UploadEndpoint: RequestEndpoint {
     
     var bodyPart: BodyPart { get }
 }
