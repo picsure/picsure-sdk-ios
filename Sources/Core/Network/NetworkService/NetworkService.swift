@@ -49,6 +49,10 @@ final class NetworkService {
                 }
                 self.lookup(imageID: imageID, completion: completion)
             }
+            else {
+                completion(.failure(PicsureErrors.NetworkErrors.emptyServerData))
+                return
+            }
         })
         task.resume()
     }
@@ -68,18 +72,13 @@ final class NetworkService {
     private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
         return { data, response, error in
             let statusCode = (response as? HTTPURLResponse)?.statusCode
-            
-            if let code = statusCode {
-                let error: Error?
-                switch code {
-                case 401:
-                    error = PicsureErrors.TokenErrors.invalidToken
-                case 500:
-                    error = PicsureErrors.NetworkErrors.server
-                default:
-                    error = nil
-                }
-                completion(nil, statusCode, error)
+
+            if statusCode == 401 {
+                completion(nil, statusCode, PicsureErrors.TokenErrors.invalidToken)
+                return
+            }
+            if statusCode == 500 {
+                completion(nil, statusCode, PicsureErrors.NetworkErrors.server)
                 return
             }
             
