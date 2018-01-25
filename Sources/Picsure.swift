@@ -55,7 +55,11 @@ public final class Picsure {
             do {
                 let data = try ImageService.convert(image)
                 let imageBodyPart = BodyPart(data: data)
-                MetadataService.metadata(from: image) { metadata in
+                MetadataService.metadata(from: image) { metadata, error in
+                    if let error = error {
+                        mainCompletion(.failure(error))
+                        return
+                    }
                     NetworkService.shared.uploadData(for: .upload(imageBodyPart, exif: metadata)) { result in
                         switch result {
                         case .failure(let error):

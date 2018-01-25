@@ -26,6 +26,7 @@ public enum PicsureErrors: Error {
     
     public enum ImageErrors: Error {
         case unsupportedBitmapFormat
+        case missingPhotoPermission
     }
     
     public enum LookupErrors: Error {
@@ -69,6 +70,7 @@ extension PicsureErrors.ImageErrors: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .unsupportedBitmapFormat: return "Selected image has unsupported bitmap format."
+        case .missingPhotoPermission: return "The SDK has no permission to accessing the user’s Photos library."
         }
     }
 }
