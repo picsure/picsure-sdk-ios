@@ -20,7 +20,7 @@ Picsure generates insurance proposals based on image informations within seconds
 use_frameworks!
 
 target 'YOUR_TARGET_NAME' do
-    pod 'Picsure', '~> 1.0'
+    pod 'Picsure', '~> 1.1.0'
 end
 ```
 
@@ -32,11 +32,12 @@ $ pod install
 
 #### [Carthage](https://github.com/Carthage/Carthage)
 
-Add this to `Cartfile`
+Add this to `Cartfile`:
 
 ```
-github "picsure/picsure-sdk-ios" ~> 1.0
+github "picsure/picsure-sdk-ios" ~> 1.1.0
 ```
+And then, in the `Cartfile ` directory, type:
 
 ```bash
 $ carthage update
@@ -88,6 +89,16 @@ with one of available language identifiers. Here is a list of supported language
 - `zh` - China
 
 Default identifier is `en`.
+
+**NOTE:** Picsure needs to access the user’s Photos library to read EXIF data. Don't forget to request it before using:
+
+```swift
+import Photos
+
+PHPhotoLibrary.requestAuthorization { status in
+	print(status)
+}
+```
 
 ## License ##
 

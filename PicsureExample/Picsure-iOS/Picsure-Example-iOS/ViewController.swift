@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PHPhotoLibrary.requestAuthorization { status in
+            print(status)
+        }
         view.addSubview(takePhotoButton)
     }
     
