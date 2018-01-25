@@ -68,6 +68,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             return
         }
-        self.upload(image)
+        upload(image)
     }
 }

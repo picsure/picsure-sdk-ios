@@ -29,8 +29,10 @@ enum ImageUploadEndpoint: UploadEndpoint {
     var parameters: Parameters? {
         switch self {
         case .upload(_, let exif):
-            if let exif = exif, let data = try? JSONSerialization.data(withJSONObject: exif) {
-                return ["exif": String(bytes: data, encoding: .utf8)]
+            if let exif = exif,
+                let data = try? JSONSerialization.data(withJSONObject: exif),
+                let exifString = String(bytes: data, encoding: .utf8) {
+                return ["exif": exifString]
             }
             return nil
         }
