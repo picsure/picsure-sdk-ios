@@ -100,6 +100,8 @@ PHPhotoLibrary.requestAuthorization { status in
 }
 ```
 
+And add `NSPhotoLibraryUsageDescription` to `Info.plist`.
+
 ## License ##
 
 Picsure SDK is available under the MIT license. See the LICENSE file for more info.
