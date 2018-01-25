@@ -1,14 +1,17 @@
 //
 //  RequestHeaders.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import Foundation
 
 enum RequestHeaders {
     
     case authorization(token: String)
+    case language(String)
     case accept
     case multipartData(boundary: String)
     case contentLength(data: Data)
@@ -16,6 +19,7 @@ enum RequestHeaders {
     var key: String {
         switch self {
         case .authorization: return "Authorization"
+        case .language: return "accept-language"
         case .accept: return "Accept"
         case .multipartData: return "Content-Type"
         case .contentLength: return "Content-Length"
@@ -25,6 +29,7 @@ enum RequestHeaders {
     var value: String {
         switch self {
         case .authorization(let token): return "Bearer \(token)"
+        case .language(let language): return language
         case .accept: return "application/json"
         case .multipartData(let boundary): return "multipart/form-data; boundary=\(boundary)"
         case .contentLength(let body): return String(body.count)

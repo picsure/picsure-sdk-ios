@@ -1,13 +1,14 @@
 //
 //  ViewController.swift
-//  Snapsure-Example-iOS
+//  Picsure-Example-iOS
 //
 //  Created by Nikita Ermolenko on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
 import UIKit
-import Snapsure
+import Picsure
+import Photos
 
 class ViewController: UIViewController {
     
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PHPhotoLibrary.requestAuthorization { status in
+            print(status)
+        }
         view.addSubview(takePhotoButton)
     }
     
@@ -30,11 +34,11 @@ class ViewController: UIViewController {
         takePhotoButton.center = view.center
     }
     
-    //MARK: - Snapsure SDK
+    //MARK: - Picsure SDK
     
-    fileprivate func upload(photo: UIImage) {
+    private func upload(_ photo: UIImage) {
         print("Processing...")
-        Snapsure.uploadPhoto(photo) { result in
+        Picsure.upload(photo) { result in
             debugPrint(result)
         }
     }
@@ -59,9 +63,11 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            upload(photo: image)
-        }
         picker.dismiss(animated: true, completion: nil)
+
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
+        }
+        self.upload(image)
     }
 }

@@ -1,16 +1,16 @@
 //
 //  LookupEndpoint.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
 import Foundation
 
 enum LookupEndpoint: RequestEndpoint {
     
-    case lookup(Int)
+    case lookup(String)
     
     var method: HTTPMethod {
         switch self {
@@ -20,7 +20,7 @@ enum LookupEndpoint: RequestEndpoint {
     
     var path: String {
         switch self {
-        case .lookup(let identifier): return "lookup/\(identifier)"
+        case .lookup(let imageToken): return "2/lookup/\(imageToken)"
         }
     }
 }

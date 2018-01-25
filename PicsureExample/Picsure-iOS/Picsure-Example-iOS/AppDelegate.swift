@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  Snapsure-Example-iOS
+//  Picsure-Example-iOS
 //
 //  Created by Nikita Ermolenko on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
 import UIKit
-import Snapsure
+import Picsure
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Snapsure.configure(withApiKey: <#API key#>, host: <#host#>) //Add your API key and host
+        Picsure.configure(withApiKey: "d9f99262b64445e6448aefba38cfc4e888e4ea2f") //Add your API key
         return true
     }
 }

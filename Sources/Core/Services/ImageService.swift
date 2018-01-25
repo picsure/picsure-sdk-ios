@@ -1,16 +1,17 @@
 //
 //  ImageService.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import UIKit
 
 final class ImageService {
     
     private enum Constants {
-        static let maxKbSize = 1500
-        static let maxSide = 1920
+        static let maxSide = 1024
         static let maxSize = CGSize(width: maxSide, height: maxSide)
     }
     
@@ -18,20 +19,17 @@ final class ImageService {
     ///
     /// - Parameter image: The image for converting to data.
     /// - Returns: The data for resized and compressed image.
-    /// - Throws: `SnapsureErrors.ImageErrors` types, if image has unsupported bitmap format or size of final data is more than 600 Kb.
+    /// - Throws: `PicsureErrors.ImageErrors` types, if image has unsupported bitmap format or size of final data is more than 600 Kb.
     static func convert(_ image: UIImage) throws -> Data {
         let resizedImage = image.resized(within: Constants.maxSize)
         guard let imageData = UIImageJPEGRepresentation(resizedImage, 0.85) else {
-            throw SnapsureErrors.ImageErrors.unsupportedBitmapFormat
-        }
-        guard imageData.kbSize < Constants.maxKbSize else {
-            throw SnapsureErrors.ImageErrors.bigSize
+            throw PicsureErrors.ImageErrors.unsupportedBitmapFormat
         }
         return imageData
     }
 }
 
-fileprivate extension UIImage {
+private extension UIImage {
     
     /// Returns a resized image that fits in rectSize, keeping its aspect ratio.
     ///
@@ -71,13 +69,5 @@ fileprivate extension UIImage {
         UIGraphicsEndImageContext()
         
         return resizedImage
-    }
-}
-
-fileprivate extension Data {
-    
-    /// Size in kilobytes.
-    var kbSize: Int {
-        return count / 1024
     }
 }

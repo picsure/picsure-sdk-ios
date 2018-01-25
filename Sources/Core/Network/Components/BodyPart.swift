@@ -1,10 +1,12 @@
 //
 //  BodyPart.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Nikita Ermolenko on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import Foundation
 
 struct BodyPart {
     

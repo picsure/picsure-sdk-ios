@@ -12,18 +12,18 @@
 		0638C3241E8177E800BCD868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31C1E8177E800BCD868 /* LaunchScreen.storyboard */; };
 		0638C3251E8177E800BCD868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0638C31E1E8177E800BCD868 /* Main.storyboard */; };
 		0638C3271E8177E800BCD868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638C3211E8177E800BCD868 /* ViewController.swift */; };
-		0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; };
-		0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0638C3281E81781900BCD868 /* Snapsure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		067D3D14200501DA00B9472D /* Picsure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067D3D13200501D200B9472D /* Picsure.framework */; };
+		067D3D15200501DA00B9472D /* Picsure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 067D3D13200501D200B9472D /* Picsure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0638C32B1E81781900BCD868 /* Embed Frameworks */ = {
+		067D3D16200501DA00B9472D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0638C32A1E81781900BCD868 /* Snapsure.framework in Embed Frameworks */,
+				067D3D15200501DA00B9472D /* Picsure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +38,8 @@
 		0638C3201E8177E800BCD868 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0638C3211E8177E800BCD868 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0638C3281E81781900BCD868 /* Snapsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Snapsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapsure-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		067D3D13200501D200B9472D /* Picsure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Picsure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B68B371E72EE6800818168 /* Picsure-Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picsure-Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,14 +47,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0638C3291E81781900BCD868 /* Snapsure.framework in Frameworks */,
+				067D3D14200501DA00B9472D /* Picsure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0638C3191E8177E800BCD868 /* Snapsure-Example-iOS */ = {
+		0638C3191E8177E800BCD868 /* Picsure-Example-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				0638C31A1E8177E800BCD868 /* AppDelegate.swift */,
@@ -63,13 +64,13 @@
 				0638C31E1E8177E800BCD868 /* Main.storyboard */,
 				0638C3201E8177E800BCD868 /* Info.plist */,
 			);
-			path = "Snapsure-Example-iOS";
+			path = "Picsure-Example-iOS";
 			sourceTree = "<group>";
 		};
 		84B68B2E1E72EE6800818168 = {
 			isa = PBXGroup;
 			children = (
-				0638C3191E8177E800BCD868 /* Snapsure-Example-iOS */,
+				0638C3191E8177E800BCD868 /* Picsure-Example-iOS */,
 				84B68B381E72EE6800818168 /* Products */,
 				84B68B4C1E72EEB800818168 /* Frameworks */,
 			);
@@ -78,7 +79,7 @@
 		84B68B381E72EE6800818168 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */,
+				84B68B371E72EE6800818168 /* Picsure-Example-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +87,7 @@
 		84B68B4C1E72EEB800818168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				067D3D13200501D200B9472D /* Picsure.framework */,
 				0638C3281E81781900BCD868 /* Snapsure.framework */,
 			);
 			name = Frameworks;
@@ -94,22 +96,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84B68B361E72EE6800818168 /* Snapsure-Example-iOS */ = {
+		84B68B361E72EE6800818168 /* Picsure-Example-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Snapsure-Example-iOS" */;
+			buildConfigurationList = 84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Picsure-Example-iOS" */;
 			buildPhases = (
 				84B68B331E72EE6800818168 /* Sources */,
 				84B68B341E72EE6800818168 /* Frameworks */,
 				84B68B351E72EE6800818168 /* Resources */,
-				0638C32B1E81781900BCD868 /* Embed Frameworks */,
+				067D3D16200501DA00B9472D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Snapsure-Example-iOS";
+			name = "Picsure-Example-iOS";
 			productName = "SnapsureSDK-Example-iOS";
-			productReference = 84B68B371E72EE6800818168 /* Snapsure-Example-iOS.app */;
+			productReference = 84B68B371E72EE6800818168 /* Picsure-Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,16 +121,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Snapsure;
 				TargetAttributes = {
 					84B68B361E72EE6800818168 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = 84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Snapsure-Example-iOS" */;
+			buildConfigurationList = 84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Picsure-Example-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -141,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84B68B361E72EE6800818168 /* Snapsure-Example-iOS */,
+				84B68B361E72EE6800818168 /* Picsure-Example-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -200,7 +203,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -208,7 +213,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -250,7 +259,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -258,7 +269,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -290,11 +305,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Snapsure-Example-iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Picsure-Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.Snapsure-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.picsure.Picsure-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -304,18 +320,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Snapsure-Example-iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Picsure-Example-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.snapsure.Snapsure-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.picsure.Picsure-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Snapsure-Example-iOS" */ = {
+		84B68B321E72EE6800818168 /* Build configuration list for PBXProject "Picsure-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68B471E72EE6800818168 /* Debug */,
@@ -324,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Snapsure-Example-iOS" */ = {
+		84B68B491E72EE6800818168 /* Build configuration list for PBXNativeTarget "Picsure-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B68B4A1E72EE6800818168 /* Debug */,

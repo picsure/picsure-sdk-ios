@@ -1,22 +1,28 @@
 //
 //  NetworkService.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 10/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
-fileprivate typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
+import Foundation
+
+private typealias TaskHandler = (Data?, URLResponse?, Error?) -> Void
 typealias ParsedTaskHandler = (_ json: JSON?, _ statusCode: Int?, _ error: Error?) -> Void
 
 final class NetworkService {
+
+    private enum Constants {
+        static let host = URL(string: "https://dev-api.picsure.ai")!
+    }
     
     private let session = URLSession(configuration: .default)
     
     static let shared = NetworkService()
     
     var token: String?
-    var host: String?
+    var language: String = "en"
     
     private init() {}
     
@@ -27,42 +33,37 @@ final class NetworkService {
     /// - completion: The completion with recognition information or error if it occurred.
     func uploadData(for endpoint: ImageUploadEndpoint, completion: @escaping Completion) {
         guard let token = token else {
-            completion(.failure(SnapsureErrors.TokenErrors.missingToken))
+            completion(.failure(PicsureErrors.TokenErrors.missingToken))
             return
         }
         
-        guard let host = host,
-            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
-                completion(.failure(SnapsureErrors.invalidHost))
-                return
-        }
+        let request = RequestFactory.makeRequest(host: Constants.host, endpoint: endpoint, token: token)
         let task = session.dataTask(with: request, completionHandler: taskHandler { json, _, error in
             if let error = error {
                 completion(.failure(error))
             }
             else if let json = json {
-                LookupService.shared.addLookupTask(for: json, completion: completion)
+                guard let imageID = json["token"] as? String else {
+                    completion(.failure(PicsureErrors.NetworkErrors.cannotParseResponse))
+                    return
+                }
+                self.lookup(imageID: imageID, completion: completion)
+            }
+            else {
+                completion(.failure(PicsureErrors.NetworkErrors.emptyServerData))
+                return
             }
         })
         task.resume()
     }
-    
-    /// Returns a task configured with request endpoint.
-    ///
-    /// - Parameters:
-    ///   - endpoint: The request endpoint.
-    ///   - completion: The completion with optional parameters: json, status code and error.
-    /// - Returns: Task configured with request endpoint.
+
     @discardableResult
-    func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
+    private func dataTask(for endpoint: RequestEndpoint, completion: @escaping ParsedTaskHandler) -> URLSessionDataTask? {
         guard let token = token else {
             return nil
         }
-        
-        guard let host = host,
-            let request = RequestFactory.request(forHost: host, endpoint: endpoint, withToken: token) else {
-                return nil
-        }
+
+        let request = RequestFactory.makeRequest(host: Constants.host, endpoint: endpoint, token: token, language: language)
         let task = session.dataTask(with: request, completionHandler: taskHandler(with: completion))
         task.resume()
         return task
@@ -71,9 +72,13 @@ final class NetworkService {
     private func taskHandler(with completion: @escaping ParsedTaskHandler) -> TaskHandler {
         return { data, response, error in
             let statusCode = (response as? HTTPURLResponse)?.statusCode
-            
-            if let code = statusCode, code == 401 {
-                completion(nil, statusCode, SnapsureErrors.TokenErrors.invalidToken)
+
+            if statusCode == 401 {
+                completion(nil, statusCode, PicsureErrors.TokenErrors.invalidToken)
+                return
+            }
+            if statusCode == 500 {
+                completion(nil, statusCode, PicsureErrors.NetworkErrors.server)
                 return
             }
             
@@ -83,14 +88,26 @@ final class NetworkService {
             }
             
             guard let unwrappedData = data else {
-                completion(nil, statusCode, SnapsureErrors.NetworkErrors.emptyServerData)
+                completion(nil, statusCode, PicsureErrors.NetworkErrors.emptyServerData)
                 return
             }
             guard let json = ResponseParser.parseJSON(from: unwrappedData) else {
-                completion(nil, statusCode, SnapsureErrors.NetworkErrors.cannotParseResponse)
+                completion(nil, statusCode, PicsureErrors.NetworkErrors.cannotParseResponse)
                 return
             }
             completion(json, statusCode, nil)
         }
+    }
+
+    private func lookup(imageID: String, completion: @escaping Completion) {
+        let lookupTask = dataTask(for: LookupEndpoint.lookup(imageID)) { json, _, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            else if let json = json {
+                completion(.success(json))
+            }
+        }
+        lookupTask?.resume()
     }
 }

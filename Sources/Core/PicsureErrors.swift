@@ -1,16 +1,17 @@
 //
-//  SnapsureErrors.swift
-//  Snapsure
+//  PicsureErrors.swift
+//  Picsure
 //
 //  Created by Artem Novichkov on 11/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
 
-public enum SnapsureErrors: Error {
+import Foundation
+
+public enum PicsureErrors: Error {
     
     case noResult
     case cannotRecognize
-    case invalidHost
     
     public enum TokenErrors: Error {
         case missingToken
@@ -20,11 +21,12 @@ public enum SnapsureErrors: Error {
     public enum NetworkErrors: Error {
         case emptyServerData
         case cannotParseResponse
+        case server
     }
     
     public enum ImageErrors: Error {
         case unsupportedBitmapFormat
-        case bigSize
+        case missingPhotoPermission
     }
     
     public enum LookupErrors: Error {
@@ -32,43 +34,43 @@ public enum SnapsureErrors: Error {
     }
 }
 
-extension SnapsureErrors: LocalizedError {
+extension PicsureErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
         case .noResult: return "No products for this image found."
         case .cannotRecognize: return "The image can not be recognized."
-        case .invalidHost: return "The hostname is invalid."
         }
     }
 }
 
-extension SnapsureErrors.TokenErrors: LocalizedError {
+extension PicsureErrors.TokenErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
-        case .missingToken: return "Missing token. Please call `Snapsure.configure(withApiKey:)` function with your API key."
+        case .missingToken: return "Missing token. Please call `Picsure.configure(withApiKey:)` function with your API key."
         case .invalidToken: return "Unauthorized. Please check your API key."
         }
     }
 }
 
-extension SnapsureErrors.NetworkErrors: LocalizedError {
+extension PicsureErrors.NetworkErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
         case .emptyServerData: return "Server has sent empty data for request."
         case .cannotParseResponse: return "Server has sent incorrect response."
+        case .server: return "An Error occured - please check your API key or shout a message to support@picsure.ai"
         }
     }
 }
 
-extension SnapsureErrors.ImageErrors: LocalizedError {
+extension PicsureErrors.ImageErrors: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
         case .unsupportedBitmapFormat: return "Selected image has unsupported bitmap format."
-        case .bigSize: return "Selected image has big size."
+        case .missingPhotoPermission: return "The SDK has no permission to accessing the user’s Photos library."
         }
     }
 }

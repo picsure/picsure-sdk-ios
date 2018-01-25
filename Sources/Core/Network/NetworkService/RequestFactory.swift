@@ -1,35 +1,37 @@
 //
 //  RequestFactory.swift
-//  Snapsure
+//  Picsure
 //
 //  Created by Artem Novichkov on 12/03/2017.
-//  Copyright © 2017 Snapsure. All rights reserved.
+//  Copyright © 2017 Picsure. All rights reserved.
 //
+
+import Foundation
 
 final class RequestFactory {
     
-    /// Configures request with URL, method and headers from the request endpoint. Returns nil if host is invalid.
+    /// Configures request with URL, method and headers from the request endpoint.
     ///
     /// - Parameters:
     ///   - host: The host for request configiration.
     ///   - endpoint: The endpoint for request configiration.
     ///   - token: The token string for authorization header.
+    ///   - language: The language identifier for language header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: String, endpoint: RequestEndpoint, withToken token: String) -> URLRequest? {
-        guard var request = URLRequest(host: host, endpoint: endpoint) else {
-            return nil
-        }
+    static func makeRequest(host: URL, endpoint: RequestEndpoint, token: String, language: String) -> URLRequest {
+        var request = URLRequest(host: host, endpoint: endpoint)
         
         var headers = endpoint.headers
-        headers.append(RequestHeaders.authorization(token: token))
-        headers.append(RequestHeaders.accept)
-        request.addHeaders(headers)
+        headers.append(.authorization(token: token))
+        headers.append(.language(language))
+        headers.append(.accept)
+        request.add(headers)
         
         return request
     }
     
-    /// Configures request with URL, method, headers and bodypart from the upload endpoint. Returns nil if host is invalid.
+    /// Configures request with URL, method, headers and bodypart from the upload endpoint.
     ///
     /// - Parameters:
     ///   - host: The host for request configiration.
@@ -37,10 +39,8 @@ final class RequestFactory {
     ///   - token: The token string for authorization header.
     ///
     /// - Returns: Configurated request.
-    static func request(forHost host: String, endpoint: UploadEndpoint, withToken token: String) -> URLRequest? {
-        guard var request = URLRequest(host: host, endpoint: endpoint) else {
-            return nil
-        }
+    static func makeRequest(host: URL, endpoint: UploadEndpoint, token: String) -> URLRequest {
+        var request = URLRequest(host: host, endpoint: endpoint)
         let bodyPart = endpoint.bodyPart
         let boundary = UUID().uuidString
         var postBody = Data()
@@ -55,40 +55,43 @@ final class RequestFactory {
         request.httpBody = postBody
 
         var headers = endpoint.headers
-        headers.append(RequestHeaders.contentLength(data: postBody))
-        headers.append(RequestHeaders.authorization(token: token))
-        headers.append(RequestHeaders.multipartData(boundary: boundary))
-        request.addHeaders(headers)
+        headers.append(.contentLength(data: postBody))
+        headers.append(.authorization(token: token))
+        headers.append(.multipartData(boundary: boundary))
+        request.add(headers)
         
         return request
     }
 }
 
-fileprivate extension URLRequest {
+private extension URLRequest {
     
-    /// Initializes the request with URL and HTTP method from the endpoint. Returns nil if host is invalid.
+    /// Initializes the request with URL and HTTP method from the endpoint.
     ///
     /// - Parameter endpoint: The endpoint for request configuration.
-    init?(host: String, endpoint: Endpoint) {
-        guard let url = URL(string: host)?.appendingPathComponent(endpoint.path) else {
+    init(host: URL, endpoint: RequestEndpoint) {
+        var components = URLComponents(url: host, resolvingAgainstBaseURL: true)!
+        components.queryItems = endpoint.parameters?.flatMap { parameter in
+            if let value = parameter.value as? String {
+                return URLQueryItem(name: parameter.key, value: value)
+            }
             return nil
         }
-
-        self.init(url: url)
+        self.init(url: components.url!.appendingPathComponent(endpoint.path))
         httpMethod = endpoint.method.rawValue
     }
     
     /// Adds the headers.
     ///
     /// - Parameter headers: The headers for adding.
-    mutating func addHeaders(_ headers: [RequestHeaders]) {
+    mutating func add(_ headers: [RequestHeaders]) {
         headers.forEach {
             addValue($0.value, forHTTPHeaderField: $0.key)
         }
     }
 }
 
-fileprivate extension String {
+private extension String {
     
     /// Returns string with carriage returns addings.
     var `return`: String {
@@ -97,6 +100,6 @@ fileprivate extension String {
     
     /// Returns data with UTF8 Encoding.
     var dataWithUTF8Encoding: Data {
-        return data(using: String.Encoding.utf8)!
+        return data(using: .utf8)!
     }
 }
