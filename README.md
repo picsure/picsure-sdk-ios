@@ -1,7 +1,7 @@
 <img src="assets/logo.png" alt="Picsure">
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
-![Swift 4.0](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+![Swift 4.0](https://img.shields.io/badge/Swift-4.0.x-orange.svg)
 ![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg)
 
 Picsure generates insurance proposals based on image informations within seconds. This is the worldwide first AI in the insurance business based on image recognitions. We are providing our White-Label-API for insurance companies. Which allows them to create a new and full digital sales channel for their customers.
@@ -40,7 +40,7 @@ github "picsure/picsure-sdk-ios" ~> 1.1.0
 And then, in the `Cartfile ` directory, type:
 
 ```bash
-$ carthage update
+$ carthage update --platform iOS
 ```
 
 ## Usage 🚀 ##
