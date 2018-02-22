@@ -1,4 +1,4 @@
-<img src="assets/logo.png" alt="Picsure">
+<img src="assets/picsure.png" alt="Picsure">
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 ![Swift 4.0](https://img.shields.io/badge/Swift-4.0.x-orange.svg)
@@ -61,34 +61,14 @@ Picsure.upload(photo) { result in
 }
 ```
 
-You can configure response language as well. Just call:
+You can configure the response language with a language identifier(ISO 4217):
 
 ```swift
-Picsure.configure(language: "en")
+Picsure.configure(language: "de")
 ```
 
-with one of available language identifiers. Here is a list of supported languages:
 
-- `at` - Austria
-- `au` - Australia
-- `ch` - Switzerland
-- `da` - Denmark
-- `de` - Germany
-- `el` - Greece
-- `en` - England
-- `es` - Spain
-- `fi` - Finland
-- `fr` - France
-- `gb` - United Kingdom
-- `it` - Italy
-- `ja` - Japan
-- `nl` - Netherlands
-- `no` - Norway
-- `ru` - Russian Federation
-- `us` - United States
-- `zh` - China
-
-Default identifier is `en`.
+Default identifier is 'en'.
 
 **NOTE:** Picsure needs to access the user’s Photos library to read EXIF data. Don't forget to request it before using:
 
@@ -100,6 +80,90 @@ PHPhotoLibrary.requestAuthorization { status in
 }
 ```
 
-## License ##
+This is an example result JSON:
+```json
+{
+  "object_recognition": [
+    {
+        "label": "Camera",
+        "category": "camera",
+        "subcategories": [],
+        "price_indication": {
+            "CHF": 560
+        }
+    },
+    {
+        "label": "Nikon D500",
+        "category": "camera",
+        "subcategories": [
+            "nikon-d500",
+            "nikon"
+        ],
+        "price_indication": {
+            "CHF": 2393
+        }
+    },
+    {
+        "label": "Nikon D5",
+        "category": "camera",
+        "subcategories": [
+            "nikon-d5",
+            "nikon"
+        ],
+        "price_indication": {
+            "CHF": 7639
+        }
+    },
+    {
+        "label": "DSLR Camera",
+        "category": "camera",
+        "subcategories": [
+            "dslr-camera"
+        ],
+        "price_indication": {
+            "CHF": 664
+        }
+    }
+  ],
+  "fraud_detection": {
+        "exif_data_found": true,
+        "location": {
+            "lat": 50.717777777777776,
+            "lng": 7.152222222222223
+        },
+        "create_date": "2017-11-29T10:15:25+00:00",
+        "modify_date": "2017-11-29T10:15:25+00:00",
+        "upload_date": "2018-01-19T14:29:33+00:00",
+        "found_in_web": false,
+        "days_photo_taken": 51,
+        "days_photo_updated": 51,
+        "is_modified": false
+    }
+}
+```
 
-Picsure SDK is available under the MIT license. See the LICENSE file for more info.
+## Licence
+
+```
+MIT License
+
+Copyright (c) 2018 Picsure
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
